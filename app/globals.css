@@ -1,0 +1,332 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f5f2eb;
+  --surface: #e4eef0;
+  --stage: #14123f;
+  --stage-fg: #f5f2eb;
+  --stage-muted: #b9b8d6;
+  --text: #17162e;
+  --muted: #55546e;
+  --line: rgb(23 22 46 / 0.12);
+  --accent: #2b2a8c;
+  --on-accent: #f5f2eb;
+  --aqua: #3ed2e0;
+  --coral: #ff9e7d;
+  --ring: #2b2a8c;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0e0d2b;
+  --surface: #1a1952;
+  --stage: #080720;
+  --text: #ece9e1;
+  --muted: #a9a8c6;
+  --line: rgb(236 233 225 / 0.14);
+  --accent: #8a92ff;
+  --on-accent: #0e0d2b;
+  --ring: #3ed2e0;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-stage: var(--stage);
+  --color-stage-fg: var(--stage-fg);
+  --color-stage-muted: var(--stage-muted);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-aqua: var(--aqua);
+  --color-coral: var(--coral);
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  transition: background-color 300ms, color 300ms;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  hyphens: auto;
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.stage {
+  --ring: var(--aqua);
+  background: var(--stage);
+  color: var(--stage-fg);
+}
+
+[data-theme="dark"] img {
+  filter: brightness(0.94);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Hero line drawing: one continuous stroke, then an enamel shine sweep. */
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.4s cubic-bezier(0.45, 0, 0.2, 1) 0.1s forwards;
+}
+.draw-late {
+  animation-delay: 0.9s;
+  animation-duration: 0.9s;
+}
+.shine {
+  transform: translateX(-100%);
+  transform-box: fill-box;
+  animation: shine 1.4s ease-in-out 1.6s forwards;
+}
+/* Logo: tooth traces itself, rests ~11s, erases forward and redraws. Static when still or reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  svg:not([data-still]) .logo-trace {
+    stroke-dasharray: 1 1.02;
+    animation: logo-trace 14s cubic-bezier(0.6, 0, 0.25, 1) 0.15s infinite both;
+  }
+  svg:not([data-still]) .logo-trace-h {
+    animation-delay: 1.05s;
+  }
+  svg:not([data-still]) .logo-word {
+    animation: logo-word 1s cubic-bezier(0.3, 0, 0.1, 1) 1.2s both;
+  }
+}
+@keyframes logo-trace {
+  0% { stroke-dashoffset: 1; }
+  13% { stroke-dashoffset: 0; }
+  88% { stroke-dashoffset: 0; }
+  97%, 100% { stroke-dashoffset: -1.02; }
+}
+@keyframes logo-word {
+  from { clip-path: inset(-20% 100% -30% 0); opacity: 0.2; translate: -6px 0; }
+  to { clip-path: inset(-20% -5% -30% 0); opacity: 1; translate: 0 0; }
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes shine {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scroll reveal: hidden until Reveal marks the element in view. */
+.reveal {
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+.reveal[data-in="false"] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Theme icon: sun and moon draw in/out, the whole glyph spins. Pure CSS so first paint never animates. */
+.theme-icon {
+  transition: transform 600ms cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+[data-theme="dark"] .theme-icon {
+  transform: rotate(360deg);
+}
+.theme-sun,
+.theme-moon {
+  stroke-dasharray: 1;
+  transition:
+    stroke-dashoffset 400ms ease,
+    opacity 200ms;
+}
+.theme-moon,
+[data-theme="dark"] .theme-sun {
+  stroke-dashoffset: 1;
+  opacity: 0;
+}
+[data-theme="dark"] .theme-moon {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+  .reveal[data-in="false"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Desktop-only effects are switched on by DesktopFx via html.fx (pointer:fine, wide, no reduced motion). */
+@custom-variant fx (.fx &);
+[data-shine] {
+  opacity: 0;
+  transition: opacity 400ms;
+  background: radial-gradient(
+    circle 320px at var(--mx, 70%) var(--my, 30%),
+    color-mix(in srgb, var(--aqua) 22%, transparent),
+    transparent 70%
+  );
+}
+.fx [data-shine] {
+  opacity: 1;
+}
+[data-magnetic] {
+  transition: transform 200ms ease-out;
+}
+
+/* Header nav: a filled capsule wipes across the link on hover. */
+.nav-link {
+  position: relative;
+  isolation: isolate;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: color 250ms;
+}
+.nav-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--accent);
+  clip-path: inset(0 100% 0 0 round 999px);
+  transition: clip-path 420ms cubic-bezier(0.7, 0, 0.2, 1);
+}
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link[aria-current="page"] {
+  color: var(--on-accent);
+}
+.nav-link:hover::before,
+.nav-link:focus-visible::before,
+.nav-link[aria-current="page"]::before {
+  clip-path: inset(0 0 0 0 round 999px);
+}
+
+/* Appointment CTA: gradient pill with a light sweep. */
+.cta-wow {
+  position: relative;
+  clip-path: inset(0 round 999px);
+  background: linear-gradient(110deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--aqua)));
+  color: var(--on-accent);
+  box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--accent) 70%, transparent);
+  transition:
+    transform 200ms ease-out,
+    box-shadow 300ms;
+}
+.cta-wow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.45) 50%, transparent 65%);
+  transform: translateX(-120%);
+  animation: cta-shimmer 3.2s ease-in-out infinite;
+}
+.cta-wow:hover {
+  box-shadow: 0 10px 28px -6px color-mix(in srgb, var(--accent) 85%, transparent);
+}
+@keyframes cta-shimmer {
+  0%,
+  55% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+/* Fluid wide container: grows toward the edges, max-width only on text. */
+.wrap {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 130rem;
+  padding-inline: clamp(1.25rem, 4vw, 6rem);
+}
+
+@keyframes wa-pulse {
+  from {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0.55);
+  }
+  to {
+    box-shadow: 0 0 0 18px rgb(37 211 102 / 0);
+  }
+}
+
+/* Hero: monumental tooth object; line art and photo cut-outs live only in the art column, never under text. */
+.hero-title {
+  max-width: 12ch;
+  font-size: clamp(2.1rem, 9vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.hero-word { display: inline-block; }
+.hero-tooth { clip-path: url(#hero-tooth); background: var(--surface); }
+.hero-lines path { stroke-linecap: round; stroke-width: 0.6; }
+.hero-outline { stroke: var(--aqua); }
+.hero-smile { stroke: var(--coral); }
+.hero-chip-a, .hero-chip-b { box-shadow: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.5); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-word { animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(0.15s + var(--i) * 0.07s); }
+  .hero-copy > p { animation: hero-rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both; }
+  .hero-lines path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.3s forwards; }
+  .hero-smile { animation-delay: 1s !important; }
+  .hero-tooth { animation: hero-reveal 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both; }
+  .hero-chip-a { animation: hero-pop 0.9s cubic-bezier(0.3, 1.4, 0.5, 1) 1.2s both, hero-float 7s ease-in-out 2.1s infinite; }
+  .hero-chip-b { animation: hero-pop 0.9s cubic-bezier(0.3, 1.4, 0.5, 1) 1.4s both, hero-float 8s ease-in-out 2.3s infinite reverse; }
+  @supports (animation-timeline: view()) {
+    .hero-art { animation: hero-drift linear both; animation-timeline: view(); animation-range: exit 0% exit 100%; }
+  }
+}
+@keyframes hero-rise { from { opacity: 0; transform: translateY(0.6em); } }
+@keyframes hero-reveal { from { opacity: 0; transform: scale(0.9) translateY(4%); } }
+@keyframes hero-pop { from { opacity: 0; scale: 0.6; } }
+@keyframes hero-float { 50% { translate: 0 -0.75rem; } }
+@keyframes hero-drift { to { transform: translateY(12%) rotate(-4deg); } }
