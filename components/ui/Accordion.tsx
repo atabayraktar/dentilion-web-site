@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 
-const grad = "bg-[linear-gradient(135deg,var(--aqua),var(--coral))]";
+const grad = "grad-brand";
 
 export default function Accordion({ items }: { items: { q: string; a: string }[] }) {
   const [open, setOpen] = useState<number | null>(0);
@@ -33,8 +33,8 @@ export default function Accordion({ items }: { items: { q: string; a: string }[]
                   aria-hidden
                   className={`relative grid size-11 shrink-0 place-items-center rounded-full border transition-all duration-500 motion-reduce:transition-none ${on ? `border-transparent ${grad} rotate-180` : "border-line group-hover/row:border-aqua"}`}
                 >
-                  <span className={`absolute h-0.5 w-4 rounded-full transition-colors duration-300 ${on ? "bg-[#17162e]" : "bg-text"}`} />
-                  <span className={`absolute h-4 w-0.5 rounded-full transition-all duration-500 ${on ? "scale-y-0 bg-[#17162e] opacity-0" : "bg-text"}`} />
+                  <span className={`absolute h-0.5 w-4 rounded-full transition-colors duration-300 ${on ? "bg-[var(--on-accent)]" : "bg-text"}`} />
+                  <span className={`absolute h-4 w-0.5 rounded-full transition-all duration-500 ${on ? "scale-y-0 bg-[var(--on-accent)] opacity-0" : "bg-text"}`} />
                 </span>
               </button>
             </h3>

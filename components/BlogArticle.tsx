@@ -21,10 +21,10 @@ export default function BlogArticle({ post, locale }: { post: BlogPost; locale: 
           {new Date(post.date).toLocaleDateString(form[locale].blogDateLocale, { timeZone: "UTC" })}
         </p>
         <div className="relative mx-auto mt-8 aspect-[16/9] max-w-[1400px] overflow-hidden rounded-3xl md:aspect-[21/9]">
-          <Image src={post.images[0]} alt={c.alt[0]} fill priority quality={85} sizes="(min-width:1400px) 1400px, 100vw" className="object-cover" />
+          <Image src={post.images[0]} alt={c.alt[0]} fill priority quality={85} sizes="(min-width:1400px) 1600px, 160vw" className="object-cover" />
         </div>
       </header>
-      <article className="mx-auto max-w-[60rem] px-4 py-10 text-lg md:px-6 md:py-16">
+      <article className="mx-auto max-w-[60rem] px-6 py-10 text-lg md:px-12 md:py-16">
         <p className="text-xl">{c.intro}</p>
         {c.sections.map((s, i) => (
           <section key={s.h} className="mt-10">

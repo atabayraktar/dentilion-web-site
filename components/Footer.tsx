@@ -24,7 +24,7 @@ export default function Footer({ locale }: { locale: Locale }) {
           </li>
           <li>
             <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer" aria-label={t.whatsapp} className={btn}>
-              <WhatsAppIcon width={22} height={22} />
+              <WhatsAppIcon width={22} height={22} fill="currentColor" />
             </a>
           </li>
           <li>

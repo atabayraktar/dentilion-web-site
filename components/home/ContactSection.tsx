@@ -37,7 +37,7 @@ export default function ContactSection({ locale }: { locale: Locale }) {
               <a href={`mailto:${site.email}`} className={`${row} break-all`}><span className={chip}><MailIcon /></span>{site.email}</a>
               <a href={site.instagram} {...ext} className={row}><span className={chip}><InstagramIcon width={18} height={18} /></span>@dentilioncanakkale</a>
             </div>
-            <address className="flex items-center gap-3 not-italic text-stage-muted">
+            <address className={`${row} justify-center text-center not-italic`}>
               <span className={chip}><PinIcon /></span>
               {site.address.short}
             </address>

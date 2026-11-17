@@ -4,8 +4,8 @@ import type { Localized } from "./types";
 const s = (f: string) => `/images/stock/${f}.webp`;
 
 /** two body images per service id (hero = service.image). */
-export const serviceImages: Record<string, { body: [string, string] }> = {
-  implant: { body: [s("implant-crown"), s("clinic-teal-chair")] },
+export const serviceImages: Record<string, { body: [string, string]; hero?: string }> = {
+  implant: { hero: s("implant-crown"), body: [s("implant-model"), s("clinic-teal-chair")] },
   cerrahi: { body: [s("hero-clinic"), s("treat-doc")] },
   beyazlatma: { body: [s("whitening-shade"), s("smile-teeth-close")] },
   periodontoloji: { body: [s("brush-glass"), s("hygienist")] },
@@ -83,3 +83,4 @@ export const detail: Localized<Detail> = {
     ctaText: "Lassen Sie uns nach einer Untersuchung gemeinsam die passenden Möglichkeiten besprechen.",
   },
 };
+export const faqImage = s("dentist-patient");

@@ -15,7 +15,7 @@ export default function PostCard({ post, locale }: { post: BlogPost; locale: Loc
           alt={c.alt[0]}
           fill
           quality={85}
-          sizes="(min-width: 768px) 50vw, 100vw"
+          sizes="(min-width: 768px) 80vw, 100vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>

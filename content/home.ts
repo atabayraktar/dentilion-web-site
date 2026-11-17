@@ -14,7 +14,7 @@ export const home: Localized<Home> = {
       title: "Sağlıklı Gülüşler İçin Buradayız",
       text: "Dt. Çağlar Gürbüz yönetimindeki kliniğimizde, ihtiyacınız olan tüm tedavileri, etik kurallar çerçevesinde, karşılıklı güven ilişkisi içinde, sağlığınızı önceleyerek yapmaya çalışıyoruz.",
     },
-    services: { label: "Hizmetlerimiz", title: "İhtiyacınız olan tüm tedavileri etik kurallar çerçevesinde yapmaya çalışıyoruz." },
+    services: { label: "Hizmetlerimiz", title: "Tüm tedaviler, etik ilkelerle." },
     about: {
       label: "Biz Kimiz",
       title: "Etik değerleri tecrübe ve bilgi ile harmanlıyoruz.",
@@ -28,7 +28,7 @@ export const home: Localized<Home> = {
       title: "We Are Here for Healthy Smiles",
       text: "At our clinic led by Dr. Çağlar Gürbüz, we strive to provide all the treatments you need within ethical rules, in a relationship of mutual trust, putting your health first.",
     },
-    services: { label: "Our Services", title: "We strive to provide all the treatments you need within ethical rules." },
+    services: { label: "Our Services", title: "Every treatment, done ethically." },
     about: {
       label: "Who We Are",
       title: "We blend ethical values with experience and knowledge.",
@@ -42,7 +42,7 @@ export const home: Localized<Home> = {
       title: "Wir sind für gesunde Lächeln da",
       text: "In unserer Klinik unter der Leitung von Zahnarzt Çağlar Gürbüz bemühen wir uns, alle Behandlungen, die Sie benötigen, im Rahmen ethischer Regeln, in einem Verhältnis gegenseitigen Vertrauens und mit Vorrang für Ihre Gesundheit durchzuführen.",
     },
-    services: { label: "Unsere Leistungen", title: "Wir bemühen uns, alle Behandlungen, die Sie benötigen, im Rahmen ethischer Regeln durchzuführen." },
+    services: { label: "Unsere Leistungen", title: "Jede Behandlung, ethisch korrekt." },
     about: {
       label: "Wer wir sind",
       title: "Wir verbinden ethische Werte mit Erfahrung und Wissen.",

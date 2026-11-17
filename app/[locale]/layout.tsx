@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import { Bricolage_Grotesque, Dancing_Script, Figtree } from "next/font/google";
+import { Bricolage_Grotesque, Kaushan_Script, Figtree } from "next/font/google";
 import { getDict } from "@/content/ui";
 import { site } from "@/content/site";
 import { isLocale, locales } from "@/lib/i18n";
@@ -16,7 +16,7 @@ const display = Bricolage_Grotesque({
   variable: "--font-bricolage",
   display: "swap",
 });
-const script = Dancing_Script({ subsets: ["latin", "latin-ext"], weight: "700", variable: "--font-script", display: "swap" });
+const script = Kaushan_Script({ subsets: ["latin", "latin-ext"], weight: "400", variable: "--font-script", display: "swap" });
 const text = Figtree({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "600"],
@@ -54,7 +54,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent"

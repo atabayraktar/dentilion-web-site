@@ -2,11 +2,17 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
-/** Detached floating layer; the bar inside gets a denser look once the page scrolls. */
+/** Detached floating layer. data-scrolled densifies the glass; data-stage switches it to dark frosted glass while a .stage section sits beneath. */
 export default function HeaderShell({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
-    const set = () => ref.current?.setAttribute("data-scrolled", String(scrollY > 8));
+    const set = () => {
+      const h = ref.current;
+      if (!h) return;
+      h.setAttribute("data-scrolled", String(scrollY > 8));
+      const under = document.elementsFromPoint(innerWidth / 2, h.offsetHeight / 2).find((el) => !h.contains(el));
+      h.setAttribute("data-stage", String(!!under?.closest(".stage")));
+    };
     set();
     addEventListener("scroll", set, { passive: true });
     return () => removeEventListener("scroll", set);

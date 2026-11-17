@@ -5,7 +5,7 @@ import { contact } from "@/content/contact";
 import { services } from "@/content/services";
 import { site } from "@/content/site";
 import type { Locale } from "@/lib/i18n";
-import { ArrowIcon } from "./icons";
+import { ArrowIcon, WhatsAppIcon } from "./icons";
 import Select from "./ui/Select";
 
 type Errors = Partial<Record<"name" | "phone" | "consent", string>>;
@@ -75,6 +75,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         {err("consent")}
       </div>
       <button type="submit" className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-full bg-aqua px-7 font-semibold text-stage transition hover:brightness-110">
+        <WhatsAppIcon width={22} height={22} fill="currentColor" aria-hidden />
         {t.submit}
         <ArrowIcon width={18} height={18} />
       </button>

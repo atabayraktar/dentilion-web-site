@@ -13,7 +13,7 @@ export default function BeforeAfterSlider({ before, after, alt, labels }: Props)
     setV((x) => Math.min(100, Math.max(0, x + (e.key === "ArrowRight" ? 5 : -5))));
   };
   return (
-    <div className="relative aspect-square w-full select-none overflow-hidden bg-stage has-[input:focus-visible]:outline has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-aqua">
+    <div className="relative mx-auto aspect-square w-full max-w-[420px] select-none overflow-hidden rounded-2xl bg-surface [clip-path:inset(0_round_1rem)] has-[input:focus-visible]:outline has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-aqua">
       <Image src={before} alt={`${alt} (${labels.before})`} fill sizes="(min-width:768px) 33vw, 100vw" unoptimized className="object-cover" />
       <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - v}% 0 0)` }}>
         <Image src={after} alt={`${alt} (${labels.after})`} fill sizes="(min-width:768px) 33vw, 100vw" unoptimized className="object-cover" />

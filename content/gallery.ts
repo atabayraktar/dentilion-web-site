@@ -11,7 +11,7 @@ export type Pair = { id: string; before: string; after: string; title: Localized
 
 const dir = "/images/before-after";
 export const pairs: Pair[] = [
-  { id: "braces", before: `${dir}/without_braces.webp`, after: `${dir}/with_braces.webp`, title: { tr: "Diş Teli Tedavisi", en: "Braces treatment", de: "Zahnspangenbehandlung" } },
-  { id: "implant", before: `${dir}/implant_oncesi.webp`, after: `${dir}/implant_sonrasi.webp`, title: { tr: "İmplant Tedavisi", en: "Implant treatment", de: "Implantatbehandlung" } },
-  { id: "caries", before: `${dir}/curuk_oncesi.webp`, after: `${dir}/implant_sonrasi.webp`, title: { tr: "Çürük Tedavisi", en: "Cavity treatment", de: "Kariesbehandlung" } },
+  { id: "braces", before: `${dir}/without_braces@2x.webp`, after: `${dir}/with_braces@2x.webp`, title: { tr: "Diş Teli Tedavisi", en: "Braces treatment", de: "Zahnspangenbehandlung" } },
+  { id: "implant", before: `${dir}/implant_oncesi@2x.webp`, after: `${dir}/implant_sonrasi@2x.webp`, title: { tr: "İmplant Tedavisi", en: "Implant treatment", de: "Implantatbehandlung" } },
+  { id: "caries", before: `${dir}/curuk_oncesi@2x.webp`, after: `${dir}/implant_sonrasi@2x.webp`, title: { tr: "Çürük Tedavisi", en: "Cavity treatment", de: "Kariesbehandlung" } },
 ];

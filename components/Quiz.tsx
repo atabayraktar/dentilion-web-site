@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { quiz } from "@/content/quiz";
 import { services } from "@/content/services";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -25,6 +25,16 @@ export default function Quiz({ locale }: { locale: Locale }) {
     setShown(false);
     setTimeout(() => dlg.current?.close(), 300);
   };
+  /* Navigating away must drop the modal at once: an open dialog leaves the rest of the app inert,
+     and Next can keep the previous route mounted but hidden. */
+  const leave = () => {
+    setShown(false);
+    dlg.current?.close();
+  };
+  useEffect(() => {
+    const d = dlg.current;
+    return () => d?.close();
+  }, []);
 
   let body;
   if (step >= q.questions.length) {
@@ -37,8 +47,8 @@ export default function Quiz({ locale }: { locale: Locale }) {
         <p className="label text-aqua">{q.fit}</p>
         <p className="font-display mt-3 text-3xl font-semibold md:text-4xl">{s?.title[locale]}</p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Link href={localePath(locale, "/#iletisim")} onClick={close} className={`${pill} bg-aqua text-stage`}>{q.cta}</Link>
-          <Link href={localePath(locale, `/${slug}`)} className={`${pill} border border-white/30`}>{q.open}</Link>
+          <Link href={localePath(locale, "/#iletisim")} onClick={leave} className={`${pill} bg-aqua text-stage`}>{q.cta}</Link>
+          <Link href={localePath(locale, `/${slug}`)} onClick={leave} className={`${pill} border border-white/30`}>{q.open}</Link>
           <button type="button" onClick={() => setPicks([])} className="min-h-11 px-3 text-stage-muted hover:text-stage-fg" aria-label={q.title}>↺</button>
         </div>
       </div>
@@ -70,8 +80,7 @@ export default function Quiz({ locale }: { locale: Locale }) {
     <>
       <button type="button" onClick={open} className="quiz-banner group">
         <span className="min-w-0 text-left">
-          <span className="label block text-aqua">{q.start}</span>
-          <span className="font-display mt-1 block text-lg font-semibold leading-tight md:text-xl">{q.title}</span>
+          <span className="font-display block text-lg font-semibold leading-tight md:text-xl">{q.title} <span className="text-aqua">{q.start}</span></span>
         </span>
         <span aria-hidden className="quiz-banner-go">→</span>
       </button>
