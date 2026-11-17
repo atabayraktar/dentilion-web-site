@@ -49,7 +49,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6.5rem; /* [header v0.4] clears the floating header */
 }
 
 body {
@@ -221,65 +221,61 @@ h3 {
   transition: transform 200ms ease-out;
 }
 
-/* Header nav: a filled capsule wipes across the link on hover. */
+/* [header v0.4] Nav: text fills with the indigo/aqua/coral gradient over a soft glow; no pill, no underline, no shift. */
 .nav-link {
   position: relative;
   isolation: isolate;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  transition: color 250ms;
+  padding: 0.5rem 0.9rem;
+}
+.nav-link span {
+  background: linear-gradient(90deg, var(--text) 0 50%, var(--accent) 60%, color-mix(in srgb, var(--aqua) 70%, var(--accent)) 80%, var(--coral)) 0 0 / 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: background-position 500ms cubic-bezier(0.3, 0, 0.2, 1);
 }
 .nav-link::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 20% 12%;
   z-index: -1;
-  background: var(--accent);
-  clip-path: inset(0 100% 0 0 round 999px);
-  transition: clip-path 420ms cubic-bezier(0.7, 0, 0.2, 1);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--aqua), var(--coral));
+  filter: blur(12px);
+  opacity: 0;
+  transition: opacity 400ms;
 }
-.nav-link:hover,
-.nav-link:focus-visible,
-.nav-link[aria-current="page"] {
-  color: var(--on-accent);
+.nav-link:hover span,
+.nav-link:focus-visible span,
+.nav-link[aria-current="page"] span {
+  background-position: 100% 0;
 }
 .nav-link:hover::before,
-.nav-link:focus-visible::before,
-.nav-link[aria-current="page"]::before {
-  clip-path: inset(0 0 0 0 round 999px);
+.nav-link:focus-visible::before {
+  opacity: 0.28;
 }
 
-/* Appointment CTA: gradient pill with a light sweep. */
+/* [header v0.4] Appointment CTA: gradient fill; hover crossfades to the reversed gradient with an inner glow. Nothing leaves the button box. */
 .cta-wow {
   position: relative;
-  clip-path: inset(0 round 999px);
-  background: linear-gradient(110deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--aqua)));
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(110deg, var(--accent) 20%, color-mix(in srgb, var(--accent) 55%, var(--aqua)));
   color: var(--on-accent);
-  box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--accent) 70%, transparent);
-  transition:
-    transform 200ms ease-out,
-    box-shadow 300ms;
 }
-.cta-wow::after {
+.cta-wow::before {
   content: "";
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.45) 50%, transparent 65%);
-  transform: translateX(-120%);
-  animation: cta-shimmer 3.2s ease-in-out infinite;
+  z-index: -1;
+  background: linear-gradient(110deg, color-mix(in srgb, var(--accent) 50%, var(--aqua)), var(--accent) 60%, color-mix(in srgb, var(--accent) 70%, var(--coral)));
+  box-shadow: inset 0 0 14px rgb(255 255 255 / 0.35);
+  opacity: 0;
+  transition: opacity 400ms;
 }
-.cta-wow:hover {
-  box-shadow: 0 10px 28px -6px color-mix(in srgb, var(--accent) 85%, transparent);
-}
-@keyframes cta-shimmer {
-  0%,
-  55% {
-    transform: translateX(-120%);
-  }
-  100% {
-    transform: translateX(120%);
-  }
+.cta-wow:hover::before,
+.cta-wow:focus-visible::before {
+  opacity: 1;
 }
 
 /* Fluid wide container: grows toward the edges, max-width only on text. */
@@ -301,32 +297,45 @@ h3 {
 
 /* Hero: monumental tooth object; line art and photo cut-outs live only in the art column, never under text. */
 .hero-title {
-  max-width: 12ch;
-  font-size: clamp(2.1rem, 9vw, 7.5rem);
-  line-height: 0.95;
+  max-width: 15ch;
+  font-size: clamp(2.1rem, 6.2vw, 5.75rem);
+  line-height: 1;
   letter-spacing: -0.03em;
   text-wrap: balance;
 }
 .hero-word { display: inline-block; }
 .hero-tooth { clip-path: url(#hero-tooth); background: var(--surface); }
-.hero-lines path { stroke-linecap: round; stroke-width: 0.6; }
-.hero-outline { stroke: var(--aqua); }
-.hero-smile { stroke: var(--coral); }
-.hero-chip-a, .hero-chip-b { box-shadow: 0 1.5rem 3rem -1rem rgb(0 0 0 / 0.5); }
+.hero-outline { stroke: var(--aqua); stroke-width: 4.6; stroke-linecap: round; }
+.hero-quiz { position: relative; z-index: 1; margin-top: 1.5rem; }
+@media (min-width: 640px) {
+  .hero-quiz { position: absolute; right: -6%; bottom: -5%; margin: 0; width: min(22rem, 70%); }
+}
+.quiz-banner {
+  display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem 1rem 1rem 1.25rem; border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--stage) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--aqua) 35%, transparent);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1.5rem 3rem -1.25rem rgb(0 0 0 / 0.55);
+  transition: border-color 0.3s, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.quiz-banner-go {
+  display: grid; flex: none; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 999px;
+  background: var(--aqua); color: var(--stage); font-weight: 700;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.quiz-banner:hover, .quiz-banner:focus-visible { border-color: var(--aqua); transform: translateY(-3px); }
+.quiz-banner:hover .quiz-banner-go, .quiz-banner:focus-visible .quiz-banner-go { transform: translateX(3px) rotate(-8deg); }
 @media (prefers-reduced-motion: no-preference) {
   .hero-word { animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(0.15s + var(--i) * 0.07s); }
   .hero-copy > p { animation: hero-rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both; }
-  .hero-lines path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.3s forwards; }
-  .hero-smile { animation-delay: 1s !important; }
-  .hero-tooth { animation: hero-reveal 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s both; }
-  .hero-chip-a { animation: hero-pop 0.9s cubic-bezier(0.3, 1.4, 0.5, 1) 1.2s both, hero-float 7s ease-in-out 2.1s infinite; }
-  .hero-chip-b { animation: hero-pop 0.9s cubic-bezier(0.3, 1.4, 0.5, 1) 1.4s both, hero-float 8s ease-in-out 2.3s infinite reverse; }
+  .hero-outline { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.6s forwards; }
+  .hero-tooth { animation: hero-reveal 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both; }
+  .hero-quiz { animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 1.4s both; }
   @supports (animation-timeline: view()) {
     .hero-art { animation: hero-drift linear both; animation-timeline: view(); animation-range: exit 0% exit 100%; }
   }
 }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(0.6em); } }
 @keyframes hero-reveal { from { opacity: 0; transform: scale(0.9) translateY(4%); } }
-@keyframes hero-pop { from { opacity: 0; scale: 0.6; } }
-@keyframes hero-float { 50% { translate: 0 -0.75rem; } }
 @keyframes hero-drift { to { transform: translateY(12%) rotate(-4deg); } }

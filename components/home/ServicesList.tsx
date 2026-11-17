@@ -8,7 +8,7 @@ import { services } from "@/content/services";
 import { getDict } from "@/content/ui";
 import { localePath, type Locale } from "@/lib/i18n";
 import Reveal from "@/components/ui/Reveal";
-import { Section, SectionLabel } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { ArrowIcon } from "@/components/icons";
 
 export default function ServicesList({ locale }: { locale: Locale }) {
@@ -16,7 +16,7 @@ export default function ServicesList({ locale }: { locale: Locale }) {
   const c = home[locale].services;
   const [active, setActive] = useState(0);
   return (
-    <Section id="hizmetler">
+    <Section id="hizmetlerimiz">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-[clamp(2rem,4vw,6rem)]">
         <div className="hidden lg:col-span-5 lg:block">
           <div className="sticky top-28 h-[min(80vh,56rem)] overflow-hidden rounded-[2.5rem] bg-stage">
@@ -26,7 +26,8 @@ export default function ServicesList({ locale }: { locale: Locale }) {
                 src={s.image}
                 alt={s.imageAlt[locale]}
                 fill
-                sizes="40vw"
+                sizes="(min-width:1024px) 40vw"
+                quality={85}
                 className={`object-cover transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
                   i === active ? "scale-100 opacity-100" : "scale-110 opacity-0"
                 }`}
@@ -39,7 +40,6 @@ export default function ServicesList({ locale }: { locale: Locale }) {
           </div>
         </div>
         <div className="lg:col-span-7">
-          <SectionLabel>{c.label}</SectionLabel>
           <Reveal>
             <h2 className="max-w-[22ch] text-[clamp(1.75rem,3.4vw,3rem)]">{c.title}</h2>
           </Reveal>
@@ -54,7 +54,7 @@ export default function ServicesList({ locale }: { locale: Locale }) {
                   className="group flex items-center gap-4 rounded-3xl p-2 transition-colors duration-300 hover:bg-accent/10 focus-visible:bg-accent/10 lg:gap-6 lg:px-6 lg:py-4 lg:data-[active=true]:bg-accent/10"
                 >
                   <span className="relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-2xl sm:w-32 lg:hidden">
-                    <Image src={s.image} alt={s.imageAlt[locale]} fill sizes="128px" className="object-cover" />
+                    <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:640px) 256px, 192px" className="object-cover" />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="font-display block text-lg font-semibold leading-tight transition-transform duration-500 sm:text-xl lg:text-[clamp(1.5rem,2.2vw,2.4rem)] lg:group-hover:translate-x-2 lg:group-data-[active=true]:translate-x-2">

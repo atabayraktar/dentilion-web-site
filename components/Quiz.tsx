@@ -8,7 +8,7 @@ import { localePath, type Locale } from "@/lib/i18n";
 
 const pill = "inline-flex min-h-11 items-center rounded-full px-6 font-semibold";
 
-/** Banner with a ready image slot (`image`) + modal built on native <dialog> (focus trap, Esc) with animated open/close. */
+/** Compact hero banner + modal built on native <dialog> (focus trap, Esc) with animated open/close. */
 export default function Quiz({ locale }: { locale: Locale }) {
   const q = quiz[locale];
   const dlg = useRef<HTMLDialogElement>(null);
@@ -37,7 +37,7 @@ export default function Quiz({ locale }: { locale: Locale }) {
         <p className="label text-aqua">{q.fit}</p>
         <p className="font-display mt-3 text-3xl font-semibold md:text-4xl">{s?.title[locale]}</p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Link href={localePath(locale, "/#randevu")} onClick={close} className={`${pill} bg-aqua text-stage`}>{q.cta}</Link>
+          <Link href={localePath(locale, "/#iletisim")} onClick={close} className={`${pill} bg-aqua text-stage`}>{q.cta}</Link>
           <Link href={localePath(locale, `/${slug}`)} className={`${pill} border border-white/30`}>{q.open}</Link>
           <button type="button" onClick={() => setPicks([])} className="min-h-11 px-3 text-stage-muted hover:text-stage-fg" aria-label={q.title}>↺</button>
         </div>
@@ -68,17 +68,13 @@ export default function Quiz({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <div className="stage relative overflow-hidden rounded-3xl">
-        {/* image slot: drop a 16:9 smile photo here as an absolutely positioned next/image */}
-        <div aria-hidden className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,color-mix(in_srgb,var(--aqua)_30%,transparent),transparent_55%)]" />
-        <div className="relative flex flex-col items-start justify-between gap-8 p-8 md:flex-row md:items-center md:p-14">
-          <div>
-            <p className="label text-aqua">{q.start}</p>
-            <h2 className="mt-3 max-w-2xl text-[clamp(2rem,4.5vw,3.5rem)]">{q.title}</h2>
-          </div>
-          <button type="button" onClick={open} className={`${pill} min-h-12 shrink-0 bg-aqua px-8 text-stage transition hover:scale-105`}>{q.begin}</button>
-        </div>
-      </div>
+      <button type="button" onClick={open} className="quiz-banner group">
+        <span className="min-w-0 text-left">
+          <span className="label block text-aqua">{q.start}</span>
+          <span className="font-display mt-1 block text-lg font-semibold leading-tight md:text-xl">{q.title}</span>
+        </span>
+        <span aria-hidden className="quiz-banner-go">→</span>
+      </button>
       <dialog
         ref={dlg}
         aria-label={q.title}

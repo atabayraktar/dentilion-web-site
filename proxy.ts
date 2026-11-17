@@ -4,10 +4,8 @@ import { detailServices } from "@/content/services";
 
 const known = new Set([
   "/",
-  "/hakkimizda",
   "/hizmetler",
   "/blog",
-  "/iletisim",
   ...detailServices.map((s) => `/${s.slug}`),
   ...posts.map((p) => `/${p.slug}`),
 ]);

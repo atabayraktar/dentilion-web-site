@@ -10,17 +10,21 @@ export default function BlogArticle({ post, locale }: { post: BlogPost; locale: 
   const more = posts.filter((p) => p !== post);
   const fig = (i: 1 | 2) => (
     <figure className="relative my-10 aspect-[3/2] overflow-hidden rounded-2xl">
-      <Image src={post.images[i]} alt={c.alt[i]} fill sizes="(min-width: 768px) 42rem, 100vw" className="object-cover" />
+      <Image src={post.images[i]} alt={c.alt[i]} fill quality={85} sizes="(min-width: 1024px) 60rem, 100vw" className="object-cover" />
     </figure>
   );
   return (
     <>
-      <div className="wrap mt-8 md:mt-12">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-3xl md:aspect-[21/9]">
-          <Image src={post.images[0]} alt={c.alt[0]} fill priority sizes="100vw" className="object-cover" />
+      <header className="wrap pt-28 md:pt-36">
+        <h1 className="max-w-5xl text-[clamp(2rem,5vw,4rem)]">{c.title}</h1>
+        <p className="mt-4 text-sm text-muted">
+          {new Date(post.date).toLocaleDateString(form[locale].blogDateLocale, { timeZone: "UTC" })}
+        </p>
+        <div className="relative mx-auto mt-8 aspect-[16/9] max-w-[1400px] overflow-hidden rounded-3xl md:aspect-[21/9]">
+          <Image src={post.images[0]} alt={c.alt[0]} fill priority quality={85} sizes="(min-width:1400px) 1400px, 100vw" className="object-cover" />
         </div>
-      </div>
-      <article className="mx-auto max-w-2xl px-5 py-12 text-lg md:py-20">
+      </header>
+      <article className="mx-auto max-w-[60rem] px-4 py-10 text-lg md:px-6 md:py-16">
         <p className="text-xl">{c.intro}</p>
         {c.sections.map((s, i) => (
           <section key={s.h} className="mt-10">

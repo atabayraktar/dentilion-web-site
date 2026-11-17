@@ -51,3 +51,11 @@ Network downloads from Unsplash/Pexels were denied by the permission classifier 
 | stock/brush-glass.webp | 1800x1200 | Toothbrushes in a glass | https://images.pexels.com/photos/13466251/pexels-photo-13466251.jpeg (Pexels licence) |
 | stock/tooth-pain.webp | 1800x2700 | Woman with tooth sensitivity | https://images.pexels.com/photos/6193195/pexels-photo-6193195.jpeg (Pexels licence) |
 | stock/hero-clinic-wide.webp | 3600x2430 | Landscape crop of hero-clinic for large screens | https://images.pexels.com/photos/7800666/pexels-photo-7800666.jpeg (Pexels licence) |
+
+## STOCK 2 (HD, round v0.4)
+| stock/healthy-food.webp | 2400x3600 | Basket of fresh vegetables and fruit | https://images.pexels.com/photos/7879960/pexels-photo-7879960.jpeg |
+| stock/smile-strawberry.webp | 2400x1600 | Smile with fresh strawberry | https://images.pexels.com/photos/7866503/pexels-photo-7866503.jpeg |
+| stock/smile-teeth-close.webp | 2400x1601 | Close-up of white teeth smile | https://images.pexels.com/photos/12474261/pexels-photo-12474261.jpeg |
+| stock/magnifier-blue.webp | 2400x1600 | Magnifying glass on blue background | https://images.pexels.com/photos/4144768/pexels-photo-4144768.jpeg |
+| stock/clinic-teal-chair.webp | 2400x3490 | Bright dental treatment room with teal chair | https://images.pexels.com/photos/7422520/pexels-photo-7422520.jpeg |
+| stock/hygienist.webp | 2400x1600 | Dental hygienist cleaning a patient's teeth | https://images.pexels.com/photos/5622010/pexels-photo-5622010.jpeg |

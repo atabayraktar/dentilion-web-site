@@ -142,10 +142,10 @@ export const posts = [
   {
     slug: "dis-agrisi-ne-zaman-doktora-gidilmeli",
     date: "2025-09-15",
-    images: ["/images/stock/tooth-pain.webp", "/images/stock/treat-doc.webp", "/images/stock/dentist-patient.webp"],
+    images: ["/images/stock/tooth-model.webp", "/images/stock/magnifier-blue.webp", "/images/stock/smile-teeth-close.webp"],
     content: {
       tr: {
-        alt: ["Diş ağrısı çeken hasta", "Diş hekimi muayene sırasında", "Hasta ve diş hekimi görüşmesi"],
+        alt: ["Diş anatomisi modeli", "Mavi zeminde büyüteç", "Sağlıklı beyaz dişler"],
         title: "Diş Ağrısı: Ne Zaman Diş Hekimine Gitmeli?",
         excerpt: "Her diş ağrısı aynı değildir. Hangi belirtilerin beklemeye gelmediğini anlatıyoruz...",
         intro: "Diş ağrısı çoğu zaman bir şeylerin ters gittiğini gösteren ilk işarettir. Bazı ağrılar kendiliğinden geçer, bazıları ise tedavi edilmezse büyür. Bu yazıda hangi durumlarda beklememeniz gerektiğini özetliyoruz.",
@@ -166,7 +166,7 @@ export const posts = [
         ],
       },
       en: {
-        alt: ["Patient with tooth pain", "Dentist during an examination", "Patient talking with the dentist"],
+        alt: ["Tooth anatomy model", "Magnifying glass on a blue background", "Healthy white teeth"],
         title: "Toothache: When Should You See a Dentist?",
         excerpt: "Not every toothache is the same. We explain which symptoms should not be left waiting...",
         intro: "A toothache is often the first sign that something is wrong. Some pain passes on its own, while other pain grows if left untreated. This article summarises when you should not wait.",
@@ -187,7 +187,7 @@ export const posts = [
         ],
       },
       de: {
-        alt: ["Patient mit Zahnschmerzen", "Zahnarzt bei der Untersuchung", "Patient im Gespräch mit dem Zahnarzt"],
+        alt: ["Zahnmodell", "Lupe auf blauem Hintergrund", "Gesunde weiße Zähne"],
         title: "Zahnschmerzen: Wann sollten Sie zum Zahnarzt?",
         excerpt: "Nicht jeder Zahnschmerz ist gleich. Wir erklären, bei welchen Anzeichen Sie nicht warten sollten...",
         intro: "Zahnschmerzen sind oft das erste Zeichen, dass etwas nicht stimmt. Manche Schmerzen vergehen von selbst, andere werden ohne Behandlung schlimmer. Dieser Beitrag fasst zusammen, wann Sie nicht warten sollten.",
@@ -212,10 +212,10 @@ export const posts = [
   {
     slug: "cocuklarda-dis-sagligi-icin-5-ipucu",
     date: "2025-10-06",
-    images: ["/images/stock/kids-dentist.webp", "/images/stock/smile-joy.webp", "/images/stock/tooth-model.webp"],
+    images: ["/images/stock/kids-dentist.webp", "/images/stock/smile-teeth-close.webp", "/images/stock/brush-glass.webp"],
     content: {
       tr: {
-        alt: ["Diş hekimi muayenesinde çocuk", "Gülen mutlu bir çocuk", "Diş modeli üzerinde fırçalama gösterimi"],
+        alt: ["Diş hekimi muayenesinde çocuk", "Sağlıklı beyaz dişlerle gülümseme", "Bardakta diş fırçaları"],
         title: "Çocuklarda Diş Sağlığı İçin 5 İpucu",
         excerpt: "Sağlıklı bir gülümseme için alışkanlıklar küçük yaşta başlar...",
         intro: "Çocukluk döneminde kazanılan ağız bakımı alışkanlıkları ömür boyu sürer. Süt dişleri de kalıcı dişler kadar önemlidir. İşte ailelerin uygulayabileceği pratik ipuçları.",
@@ -236,7 +236,7 @@ export const posts = [
         ],
       },
       en: {
-        alt: ["Child at a dental check-up", "A happy smiling child", "Brushing demonstration on a tooth model"],
+        alt: ["Child at a dental check-up", "A smile with healthy white teeth", "Toothbrushes in a glass"],
         title: "5 Tips for Children's Dental Health",
         excerpt: "Healthy smiles start with habits formed at a young age...",
         intro: "Oral care habits learned in childhood last a lifetime. Baby teeth matter just as much as permanent ones. Here are practical tips families can apply.",
@@ -257,7 +257,7 @@ export const posts = [
         ],
       },
       de: {
-        alt: ["Kind bei der Zahnkontrolle", "Ein glückliches lachendes Kind", "Zähneputzen am Zahnmodell gezeigt"],
+        alt: ["Kind bei der Zahnkontrolle", "Lächeln mit gesunden weißen Zähnen", "Zahnbürsten im Glas"],
         title: "5 Tipps für gesunde Kinderzähne",
         excerpt: "Ein gesundes Lächeln beginnt mit Gewohnheiten im frühen Alter...",
         intro: "Mundpflege-Gewohnheiten aus der Kindheit begleiten ein Leben lang. Milchzähne sind genauso wichtig wie bleibende Zähne. Hier sind praktische Tipps für Familien.",

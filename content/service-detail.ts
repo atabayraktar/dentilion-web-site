@@ -3,19 +3,19 @@ import type { Localized } from "./types";
 
 const s = (f: string) => `/images/stock/${f}.webp`;
 
-/** hero banner + two body images per service id. */
-export const serviceImages: Record<string, { hero: string; body: [string, string] }> = {
-  implant: { hero: s("implant-model"), body: [s("tooth-model"), s("hero-chair")] },
-  cerrahi: { hero: s("surgery"), body: [s("clinic-team"), s("treat-doc")] },
-  beyazlatma: { hero: s("whitening-shade"), body: [s("smile-joy"), s("smile-close")] },
-  periodontoloji: { hero: s("toothbrushes"), body: [s("brush-glass"), s("tooth-pain")] },
-  pedodonti: { hero: s("kids-dentist"), body: [s("smile-joy"), s("brush-glass")] },
-  protez: { hero: s("implant-crown"), body: [s("tooth-model"), s("smile-close")] },
-  endodonti: { hero: s("treat-doc"), body: [s("tooth-pain"), s("clinic-team")] },
-  restoratif: { hero: s("tooth-model"), body: [s("smile-close"), s("hero-chair")] },
-  ortodonti: { hero: s("braces-model"), body: [s("smile-joy"), s("hero-clinic")] },
-  "seffaf-plak": { hero: s("whitening-tray"), body: [s("braces-model"), s("smile-joy")] },
-  botoks: { hero: s("smile-close"), body: [s("smile-joy"), s("clinic-team")] },
+/** two body images per service id (hero = service.image). */
+export const serviceImages: Record<string, { body: [string, string] }> = {
+  implant: { body: [s("implant-crown"), s("clinic-teal-chair")] },
+  cerrahi: { body: [s("hero-clinic"), s("treat-doc")] },
+  beyazlatma: { body: [s("whitening-shade"), s("smile-teeth-close")] },
+  periodontoloji: { body: [s("brush-glass"), s("hygienist")] },
+  pedodonti: { body: [s("smile-strawberry"), s("brush-glass")] },
+  protez: { body: [s("tooth-model"), s("implant-model")] },
+  endodonti: { body: [s("tooth-pain"), s("tooth-model")] },
+  restoratif: { body: [s("hygienist"), s("hero-chair")] },
+  ortodonti: { body: [s("smile-teeth-close"), s("clinic-teal-chair")] },
+  "seffaf-plak": { body: [s("braces-model"), s("smile-strawberry")] },
+  botoks: { body: [s("smile-close"), s("clinic-teal-chair")] },
 };
 
 type Detail = {

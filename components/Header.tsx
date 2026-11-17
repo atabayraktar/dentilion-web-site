@@ -15,16 +15,16 @@ export default function Header({ locale }: { locale: Locale }) {
 
   return (
     <HeaderShell>
-      <div className="pointer-events-auto relative flex h-16 items-center justify-between gap-2 rounded-full border border-line bg-bg/60 pl-5 pr-2 shadow-sm backdrop-blur-xl transition-[background-color,box-shadow] duration-300 group-data-[scrolled=true]/h:bg-bg/90 group-data-[scrolled=true]/h:shadow-lg md:pl-7">
-        <Link href={localePath(locale)} aria-label={t.logoLabel} className="shrink-0">
-          <Logo className="h-11 w-auto md:h-14" />
+      <div className="pointer-events-auto relative flex h-[4.25rem] items-center justify-between gap-2 rounded-full border border-line bg-bg/60 pl-4 pr-2 shadow-sm backdrop-blur-xl transition-[background-color,box-shadow] duration-300 group-data-[scrolled=true]/h:bg-bg/90 group-data-[scrolled=true]/h:shadow-lg md:pl-6">
+        <Link href={localePath(locale)} aria-label={t.logoLabel} className="shrink-0 py-2">
+          <Logo className="h-11 w-auto md:h-12" />
         </Link>
         <nav aria-label={t.mainNav} className="hidden md:block">
-          <ul className="flex gap-1 text-[0.95rem] font-medium">
+          <ul className="flex text-[1.05rem] font-medium lg:gap-1">
             {items.map((i) => (
               <li key={i.href}>
                 <Link href={localePath(locale, i.href)} className="nav-link block">
-                  {i.label}
+                  <span>{i.label}</span>
                 </Link>
               </li>
             ))}
@@ -36,8 +36,7 @@ export default function Header({ locale }: { locale: Locale }) {
             <ThemeToggle label={t.themeSwitch} />
           </div>
           <Link
-            href={localePath(locale, "/#randevu")}
-            data-magnetic
+            href={localePath(locale, "/#iletisim")}
             className="cta-wow group inline-flex h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-4 text-sm font-semibold md:px-6 md:text-[0.95rem]"
           >
             {t.book}

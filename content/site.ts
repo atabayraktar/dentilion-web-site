@@ -9,7 +9,8 @@ export const site = {
   } satisfies Localized<string>,
   doctor: "Dt. Çağlar Gürbüz",
   phone: { display: "0286 512 17 17", tel: "+902865121717" },
-  whatsapp: "902865121717",
+  whatsapp: "905330520017",
+  whatsappDisplay: "0 533 052 00 17",
   email: "dentilion.klinik@gmail.com",
   instagram: "https://www.instagram.com/dentilioncanakkale/",
   address: {
@@ -35,10 +36,10 @@ export const site = {
     },
   ],
   nav: [
-    { href: "/hakkimizda", label: { tr: "Hakkımızda", en: "About", de: "Über uns" } },
     { href: "/hizmetler", label: { tr: "Hizmetlerimiz", en: "Services", de: "Leistungen" } },
     { href: "/blog", label: { tr: "Blog", en: "Blog", de: "Blog" } },
+    { href: "/#hakkimizda", label: { tr: "Hakkımızda", en: "About", de: "Über uns" } },
     { href: "/#sss", label: { tr: "SSS", en: "FAQ", de: "FAQ" } },
-    { href: "/iletisim", label: { tr: "İletişim", en: "Contact", de: "Kontakt" } },
+    { href: "/#iletisim", label: { tr: "İletişim", en: "Contact", de: "Kontakt" } },
   ] satisfies { href: string; label: Localized<string> }[],
 } as const;

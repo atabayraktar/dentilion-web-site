@@ -16,10 +16,9 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/blog">):
 export default async function Page({ params }: PageProps<"/[locale]/blog">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const lead = posts[0];
   return (
     <>
-      <PageHead label="Blog" title={form[locale].blogTitle} image={{ src: lead.images[2], alt: lead.content[locale].alt[2] }} />
+      <PageHead title={form[locale].blogTitle} />
       <div className="wrap py-12 md:py-20">
         <ul className="grid gap-6 md:grid-cols-3">
           {posts.map((p) => (

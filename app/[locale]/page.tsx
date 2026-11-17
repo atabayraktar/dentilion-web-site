@@ -7,8 +7,8 @@ import { baseUrl, pageMeta } from "@/lib/seo";
 import { isLocale } from "@/lib/i18n";
 import Hero from "@/components/home/Hero";
 import ServicesList from "@/components/home/ServicesList";
-import { AboutSection, TeamPreview } from "@/components/home/AboutTeam";
-import { BlogPreview, ContactSection, FaqSection, Gallery, QuizSection } from "@/components/home/Sections";
+import { AboutTeam } from "@/components/home/AboutTeam";
+import { BlogPreview, ContactSection, FaqSection, Gallery } from "@/components/home/Sections";
 import JsonLd from "@/components/JsonLd";
 import DesktopFx from "@/components/DesktopFx";
 
@@ -50,12 +50,10 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <DesktopFx />
       <Hero locale={locale} />
       <ServicesList locale={locale} />
-      <AboutSection locale={locale} />
-      <TeamPreview locale={locale} />
       <Gallery locale={locale} />
-      <QuizSection locale={locale} />
-      <FaqSection locale={locale} />
       <BlogPreview locale={locale} />
+      <AboutTeam locale={locale} />
+      <FaqSection locale={locale} />
       <ContactSection locale={locale} />
     </>
   );

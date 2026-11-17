@@ -11,10 +11,10 @@ export default function Footer({ locale }: { locale: Locale }) {
   const t = getDict(locale);
   return (
     <footer id="footer" className="stage">
-      <div className="flex flex-col px-[clamp(1.25rem,2vw,3rem)] items-center gap-6 py-8 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-8">
+      <div className="flex flex-col px-[clamp(1.25rem,2vw,3rem)] items-center gap-6 pb-24 pt-8 md:grid md:py-8 md:grid-cols-[1fr_auto_1fr] md:gap-8">
         <Logo still onStage className="h-12 w-auto md:justify-self-start" />
         <p className="text-center text-sm text-stage-muted">
-          © {site.name}. {t.rights}
+          © 2026 {site.name}. {t.rights}
         </p>
         <ul className="flex items-center gap-3 md:justify-self-end">
           <li>

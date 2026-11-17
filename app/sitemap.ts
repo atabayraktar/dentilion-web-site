@@ -6,10 +6,8 @@ import { baseUrl } from "@/lib/seo";
 
 const paths = [
   "/",
-  "/hakkimizda",
   "/hizmetler",
   "/blog",
-  "/iletisim",
   ...detailServices.map((s) => `/${s.slug}`),
   ...posts.map((p) => `/${p.slug}`),
 ];

@@ -7,7 +7,6 @@ import { site } from "@/content/site";
 import { isLocale, localePath, locales, type Locale } from "@/lib/i18n";
 import { baseUrl, pageMeta } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
-import PageHead from "@/components/PageHead";
 import BlogArticle from "@/components/BlogArticle";
 import ServiceDetail from "@/components/ServiceDetail";
 
@@ -71,9 +70,6 @@ export default async function Page({ params }: PageProps<"/[locale]/[slug]">) {
           crumbs(c.title, t.blogLabel, "/blog"),
         ]}
       />
-      <PageHead label={t.blogLabel} title={c.title}>
-        {new Date(post!.date).toLocaleDateString(t.blogDateLocale, { timeZone: "UTC" })}
-      </PageHead>
       <BlogArticle post={post!} locale={locale} />
     </>
   );
