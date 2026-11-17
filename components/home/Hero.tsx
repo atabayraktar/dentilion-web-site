@@ -10,21 +10,21 @@ const TILES = [
     src: "/images/stock/implant-model.webp",
     label: { tr: "Hizmetlerimiz", en: "Our services", de: "Leistungen" },
     alt: { tr: "Diş implantı modeli yakın çekim", en: "Close-up of a dental implant model", de: "Nahaufnahme eines Zahnimplantat-Modells" },
-    sizes: "(min-width: 1024px) 40vw, 90vw",
+    sizes: "(min-width: 1024px) 40vw, 150vw",
   },
   {
     href: "/#blog",
     src: "/images/stock/toothbrushes.webp",
     label: { tr: "Blog", en: "Blog", de: "Blog" },
     alt: { tr: "Bardakta duran diş fırçaları", en: "Toothbrushes standing in a cup", de: "Zahnbürsten in einem Becher" },
-    sizes: "(min-width: 1024px) 40vw, 90vw",
+    sizes: "(min-width: 1024px) 40vw, 150vw",
   },
   {
     href: "/#iletisim",
     src: "/images/stock/clinic-teal-chair.webp",
     label: { tr: "İletişim", en: "Contact", de: "Kontakt" },
     alt: { tr: "Modern diş kliniği tedavi odası", en: "Modern dental clinic treatment room", de: "Moderner Behandlungsraum einer Zahnklinik" },
-    sizes: "(min-width: 1024px) 60vw, 100vw",
+    sizes: "(min-width: 1024px) 60vw, 150vw",
   },
 ] as const;
 

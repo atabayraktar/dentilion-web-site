@@ -29,7 +29,7 @@ export default async function Page({ params }: PageProps<"/[locale]/hizmetler">)
               <Reveal delay={(i % 3) * 60}>
                 <Link href={localePath(locale, `/${s.slug}`)} className="group block">
                   <span className="relative block aspect-[4/3] overflow-hidden rounded-3xl bg-stage">
-                    <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:1536px) 40vw, (min-width:1024px) 50vw, (min-width:640px) 80vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none" />
+                    <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:1536px) 40vw, (min-width:1024px) 50vw, (min-width:640px) 80vw, 150vw" className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none" />
                   </span>
                   <span className="mt-4 flex items-start justify-between gap-4">
                     <span>

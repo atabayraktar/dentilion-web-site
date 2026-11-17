@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { faq } from "@/content/faq";
 import { home } from "@/content/home";
-import { site } from "@/content/site";
-import { baseUrl, pageMeta } from "@/lib/seo";
+import { businessLd, pageMeta, websiteLd } from "@/lib/seo";
 import { isLocale } from "@/lib/i18n";
 import Hero from "@/components/home/Hero";
 import ServicesList from "@/components/home/ServicesList";
@@ -25,21 +24,8 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     <>
       <JsonLd
         data={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Dentist",
-            name: site.fullName[locale],
-            telephone: site.phone.tel,
-            email: site.email,
-            url: baseUrl,
-            address: { "@type": "PostalAddress", streetAddress: site.address.full, addressCountry: "TR" },
-            openingHoursSpecification: site.hours.map((h) => ({
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: h.days.map((d) => ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][d]),
-              opens: h.open,
-              closes: h.close,
-            })),
-          },
+          businessLd(locale),
+          websiteLd(locale),
           {
             "@context": "https://schema.org",
             "@type": "FAQPage",

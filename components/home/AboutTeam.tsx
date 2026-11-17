@@ -40,7 +40,7 @@ export function AboutTeam({ locale }: { locale: Locale }) {
             <Reveal delay={i * 60} className="h-full">
               <article className="h-full rounded-3xl border border-line bg-bg p-3">
                 {m.photo ? (
-                  <Image src={m.photo} alt={m.name} width={800} height={1000} sizes="(min-width:1024px) 30vw, (min-width:640px) 46vw, 92vw" className="aspect-[4/5] w-full rounded-2xl object-cover object-top" />
+                  <Image src={m.photo} alt={m.name} width={800} height={1000} sizes="(min-width:1024px) 30vw, (min-width:640px) 46vw, 140vw" className="aspect-[4/5] w-full rounded-2xl object-cover object-top" />
                 ) : (
                   <Placeholder />
                 )}

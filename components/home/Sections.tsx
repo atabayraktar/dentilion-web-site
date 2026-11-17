@@ -37,7 +37,7 @@ export function Gallery({ locale }: { locale: Locale }) {
 export function FaqSection({ locale }: { locale: Locale }) {
   const intro = faqIntro[locale];
   return (
-    <Section id="sss" className="bg-surface">
+    <Section id="sss">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">

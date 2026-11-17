@@ -23,9 +23,8 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
   return (
     <>
       <header className="wrap pt-[calc(6.5rem+2.5rem)] md:pt-[calc(6.5rem+4rem)]">
-        <nav aria-label="breadcrumb" className="flex flex-wrap gap-2 text-sm text-muted">
-          <Link href={localePath(locale, "/")} className="hover:text-accent">Dentilion</Link>/
-          <Link href={localePath(locale, "/hizmetler")} className="hover:text-accent">{t.servicesTitle}</Link>/
+        <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-x-2 text-sm text-muted">
+          <Link href={localePath(locale, "/")} className="inline-flex min-h-11 items-center hover:text-accent">Dentilion</Link>/
           <span aria-current="page" className="text-text">{title}</span>
         </nav>
         <h1 className="mt-5 text-[clamp(2.25rem,5vw,4rem)]">{title}</h1>
@@ -36,9 +35,9 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
         <Reveal className="space-y-5 text-lg lg:col-span-7 lg:self-center">
           {service.body![locale].filter((p) => p !== service.summary[locale]).map((p) => <p key={p} className="max-w-prose">{p}</p>)}
         </Reveal>
-        <Reveal className={`${frame} aspect-[16/10] lg:col-span-5 lg:aspect-[4/3]`}>
-          <Image src={img.body[0]} alt={title} fill quality={85} sizes="(min-width:1024px) 900px, 100vw" className="object-cover" />
-        </Reveal>
+        <div className={`${frame} aspect-[16/10] lg:col-span-5 lg:aspect-[4/3]`}>
+          <Image src={img.body[0]} alt={title} fill priority fetchPriority="high" quality={75} sizes="(min-width:1024px) 900px, 100vw" className="object-cover" />
+        </div>
       </section>
 
       <section className="wrap grid gap-8 pb-12 md:pb-20 lg:grid-cols-12 lg:items-stretch lg:gap-[clamp(2rem,5vw,6rem)]">
@@ -92,7 +91,7 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
           {others.slice(0, 5).map((s) => (
             <li key={s.id}>
               <Link href={localePath(locale, `/${s.slug}`)} className="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-stage">
-                <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:1024px) 40vw, (min-width:640px) 95vw, 190vw" className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none" />
+                <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:1024px) 480px, (min-width:640px) 95vw, 150vw" className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none" />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stage/90 to-transparent p-4 pt-12 font-display font-semibold text-stage-fg">{s.title[locale]}</span>
               </Link>
             </li>

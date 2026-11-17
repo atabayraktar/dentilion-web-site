@@ -47,7 +47,22 @@ export default async function Page({ params }: PageProps<"/[locale]/[slug]">) {
   if (service) {
     return (
       <>
-        <JsonLd data={crumbs(service.title[locale], t.servicesTitle, "/hizmetler")} />
+        <JsonLd
+          data={[
+            {
+              "@context": "https://schema.org",
+              "@type": ["MedicalProcedure", "Service"],
+              name: service.title[locale],
+              description: service.body![locale][0],
+              url: baseUrl + localePath(locale, `/${slug}`),
+              image: baseUrl + service.image,
+              inLanguage: locale,
+              provider: { "@id": `${baseUrl}/#clinic` },
+              areaServed: "Çanakkale",
+            },
+            crumbs(service.title[locale], t.servicesTitle, "/hizmetler"),
+          ]}
+        />
         <ServiceDetail service={service} locale={locale} />
       </>
     );
@@ -60,12 +75,15 @@ export default async function Page({ params }: PageProps<"/[locale]/[slug]">) {
         data={[
           {
             "@context": "https://schema.org",
-            "@type": "Article",
+            "@type": "BlogPosting",
+            description: c.intro,
+            image: baseUrl + post!.images[0],
+            mainEntityOfPage: baseUrl + localePath(locale, `/${slug}`),
             headline: c.title,
             datePublished: post!.date,
             inLanguage: locale,
             author: { "@type": "Person", name: site.doctor },
-            publisher: { "@type": "Organization", name: site.name },
+            publisher: { "@id": `${baseUrl}/#clinic` },
           },
           crumbs(c.title, t.blogLabel, "/blog"),
         ]}

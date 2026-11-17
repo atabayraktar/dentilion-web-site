@@ -16,7 +16,7 @@ const display = Bricolage_Grotesque({
   variable: "--font-bricolage",
   display: "swap",
 });
-const script = Kaushan_Script({ subsets: ["latin", "latin-ext"], weight: "400", variable: "--font-script", display: "swap" });
+const script = Kaushan_Script({ subsets: ["latin"], weight: "400", variable: "--font-script", display: "swap" });
 const text = Figtree({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "600"],

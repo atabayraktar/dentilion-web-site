@@ -10,7 +10,11 @@ export const homeTitle: Record<Locale, string> = {
   de: `${site.name} Zahnklinik`,
 };
 
-export function pageMeta(locale: Locale, path: string, title: string, description: string): Metadata {
+const clamp = (s: string, n = 160) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, "") + "…");
+
+export function pageMeta(locale: Locale, path: string, title: string, rawDescription: string): Metadata {
+  const description = clamp(rawDescription);
+  const images = [localePath(locale, "/opengraph-image")];
   const url = (l: Locale) => localePath(l, path);
   return {
     title: path === "/" ? { absolute: homeTitle[locale] } : title,
@@ -19,6 +23,40 @@ export function pageMeta(locale: Locale, path: string, title: string, descriptio
       canonical: url(locale),
       languages: { ...Object.fromEntries(locales.map((l) => [l, url(l)])), "x-default": url("tr") },
     },
-    openGraph: { title, description, url: url(locale), siteName: site.name, locale, type: "website" },
+    openGraph: { title, description, url: url(locale), siteName: site.name, locale, type: "website", images },
+    twitter: { card: "summary_large_image", title, description, images },
   };
 }
+
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+export const businessLd = (locale: Locale) => ({
+  "@context": "https://schema.org",
+  "@type": ["Dentist", "LocalBusiness"],
+  "@id": `${baseUrl}/#clinic`,
+  name: site.fullName[locale],
+  alternateName: site.name,
+  url: baseUrl + localePath(locale),
+  telephone: [site.phone.tel, `+${site.whatsapp}`],
+  email: site.email,
+  image: `${baseUrl}/opengraph-image`,
+  address: { "@type": "PostalAddress", streetAddress: site.address.full, addressLocality: "Çanakkale", addressCountry: "TR" },
+  geo: { "@type": "GeoCoordinates", latitude: 40.1641367, longitude: 26.4265705 },
+  hasMap: site.mapUrl,
+  sameAs: [site.instagram],
+  openingHoursSpecification: site.hours.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: h.days.map((d) => days[d]),
+    opens: h.open,
+    closes: h.close,
+  })),
+});
+
+export const websiteLd = (locale: Locale) => ({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  url: baseUrl + localePath(locale),
+  inLanguage: locale,
+  publisher: { "@id": `${baseUrl}/#clinic` },
+});

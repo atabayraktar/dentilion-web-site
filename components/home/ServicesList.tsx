@@ -26,7 +26,7 @@ export default function ServicesList({ locale }: { locale: Locale }) {
                 src={s.image}
                 alt={s.imageAlt[locale]}
                 fill
-                sizes="(min-width:1024px) 1600px, 100vw"
+                sizes="(min-width:1024px) 90vw, 100vw"
                 quality={85}
                 className={`object-cover transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none ${
                   i === active ? "scale-100 opacity-100" : "scale-110 opacity-0"
