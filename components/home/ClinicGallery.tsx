@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { clinicGalleryUi, clinicPhotos } from "@/content/clinic-gallery";
 import type { Locale } from "@/lib/i18n";
 import { ArrowIcon } from "@/components/icons";
@@ -18,9 +18,16 @@ export default function ClinicGallery({ locale }: { locale: Locale }) {
 
   const scroll = (dir: 1 | -1) => track.current?.scrollBy({ left: dir * track.current.clientWidth * 0.8, behavior: "smooth" });
   const open = (i: number) => { setCur(i); dlg.current?.showModal(); requestAnimationFrame(() => setShown(true)); };
-  const close = () => { setShown(false); setTimeout(() => dlg.current?.close(), 300); };
+  const close = () => { setShown(false); setTimeout(() => { dlg.current?.close(); }, 300); };
   const step = (d: number) => setCur((c) => (c + d + n) % n);
   const photo = clinicPhotos[cur];
+  useEffect(() => {
+    if (!shown) return;
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
+    return () => { root.style.overflow = prev; };
+  }, [shown]);
 
   return (
     <div className="mt-16 md:mt-24">
@@ -46,20 +53,15 @@ export default function ClinicGallery({ locale }: { locale: Locale }) {
         onCancel={(e) => { e.preventDefault(); close(); }}
         onClick={(e) => e.target === dlg.current && close()}
         onKeyDown={(e) => { if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); }}
-        className={`stage m-auto w-[min(94vw,72rem)] rounded-ui p-0 backdrop:bg-black/70 backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
+        className={`fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-hidden border-0 bg-transparent p-0 text-white backdrop:bg-black/80 backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-opacity duration-300 motion-reduce:transition-none ${shown ? "opacity-100" : "opacity-0"}`}
       >
-        <div className="p-4 md:p-6">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-ui md:aspect-[16/10]">
-            <Image src={photo.src} alt={photo.alt[locale]} fill quality={85} sizes="(min-width:1024px) 70rem, 94vw" className="object-contain" />
+        <div className="relative h-full w-full px-4 py-16 md:px-28" onClick={(e) => e.target === e.currentTarget && close()}>
+          <div className="relative h-full w-full" onClick={(e) => e.target === e.currentTarget && close()}>
+            <Image src={photo.src} alt={photo.alt[locale]} fill quality={85} sizes="100vw" className="rounded-ui object-contain" />
           </div>
-          <div className="mt-4 flex items-center justify-between gap-4">
-            <p className="text-stage-muted">{photo.alt[locale]}</p>
-            <div className="flex gap-2">
-              <button type="button" onClick={() => step(-1)} aria-label={u.prev} className="icon-btn icon-hover"><ArrowIcon className="rotate-180" /></button>
-              <button type="button" onClick={() => step(1)} aria-label={u.next} className="icon-btn icon-hover"><ArrowIcon /></button>
-              <button type="button" onClick={close} aria-label={u.close} className="icon-btn icon-hover"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden><path d="M6 6l12 12M18 6L6 18" /></svg></button>
-            </div>
-          </div>
+          <button type="button" onClick={close} aria-label={u.close} className="icon-btn icon-hover absolute right-4 top-4 bg-black/40 text-white md:right-6 md:top-6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" aria-hidden><path d="M6 6l12 12M18 6L6 18" /></svg></button>
+          <button type="button" onClick={() => step(-1)} aria-label={u.prev} className="icon-btn icon-hover absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 text-white md:left-6"><ArrowIcon className="rotate-180" /></button>
+          <button type="button" onClick={() => step(1)} aria-label={u.next} className="icon-btn icon-hover absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 text-white md:right-6"><ArrowIcon /></button>
         </div>
       </dialog>
     </div>
