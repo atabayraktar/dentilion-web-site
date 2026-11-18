@@ -9,7 +9,7 @@ export default function BlogArticle({ post, locale }: { post: BlogPost; locale: 
   const c = post.content[locale];
   const more = posts.filter((p) => p !== post);
   const fig = (i: 1 | 2) => (
-    <figure className="relative my-10 aspect-[3/2] overflow-hidden rounded-2xl">
+    <figure className="relative my-10 aspect-[3/2] overflow-hidden rounded-ui">
       <Image src={post.images[i]} alt={c.alt[i]} fill quality={85} sizes="(min-width: 1024px) 60rem, 150vw" className="object-cover" />
     </figure>
   );
@@ -20,7 +20,7 @@ export default function BlogArticle({ post, locale }: { post: BlogPost; locale: 
         <p className="mt-4 text-sm text-muted">
           {new Date(post.date).toLocaleDateString(form[locale].blogDateLocale, { timeZone: "UTC" })}
         </p>
-        <div className="relative mx-auto mt-8 aspect-[16/9] max-w-[1400px] overflow-hidden rounded-3xl md:aspect-[21/9]">
+        <div className="relative mx-auto mt-8 aspect-[16/9] max-w-[1400px] overflow-hidden rounded-ui md:aspect-[21/9]">
           <Image src={post.images[0]} alt={c.alt[0]} fill priority fetchPriority="high" quality={75} sizes="(min-width:1400px) 1600px, 100vw" className="object-cover" />
         </div>
       </header>

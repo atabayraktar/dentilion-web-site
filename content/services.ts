@@ -120,7 +120,7 @@ export const services: Service[] = [
       ],
     },
     image: "/images/stock/whitening-tray.webp",
-    imageAlt: { tr: "Diş rengi seçimi yapılan hasta", en: "Patient choosing a tooth shade", de: "Patient bei der Zahnfarbbestimmung" },
+    imageAlt: { tr: "Şeffaf diş beyazlatma kaşığı", en: "Clear tooth whitening tray", de: "Transparente Bleaching-Schiene" },
   },
   {
     id: "periodontoloji",
@@ -193,8 +193,8 @@ export const services: Service[] = [
         "Wenn Kinder den Zahnarzt früh kennenlernen, und zwar zu einem Zeitpunkt, an dem kein ernsthafter Eingriff nötig ist, trägt das wesentlich dazu bei, Angst vor dem Zahnarzt zu vermeiden.",
       ],
     },
-    image: "/images/stock/kids-dentist.webp",
-    imageAlt: { tr: "Muayenede gülümseyen çocuk hasta", en: "Smiling child at a dental check-up", de: "Lächelndes Kind bei der Untersuchung" },
+    image: "/images/stock/brush-glass.webp",
+    imageAlt: { tr: "Bardakta renkli diş fırçaları", en: "Colourful toothbrushes in a glass", de: "Bunte Zahnbürsten im Glas" },
   },
   {
     id: "protez",
@@ -267,8 +267,8 @@ export const services: Service[] = [
         "Sind die Voraussetzungen günstig, ist sie eine Behandlung, die vor einer Zahnentfernung durchgeführt werden sollte.",
       ],
     },
-    image: "/images/stock/magnifier-blue.webp",
-    imageAlt: { tr: "Mikroskop altında kanal tedavisi", en: "Root canal treatment under a microscope", de: "Wurzelbehandlung unter dem Mikroskop" },
+    image: "/images/stock/tooth-model.webp",
+    imageAlt: { tr: "Diş kök anatomisi modeli", en: "Tooth root anatomy model", de: "Zahnwurzel-Anatomiemodell" },
   },
   {
     id: "restoratif",
@@ -299,8 +299,8 @@ export const services: Service[] = [
         "Dank moderner Materialien können Zahnfüllungen heute in der natürlichen Zahnfarbe gefertigt werden und sind manchmal von einem echten Zahn nicht zu unterscheiden.",
       ],
     },
-    image: "/images/stock/tooth-model.webp",
-    imageAlt: { tr: "Dolgu yapan eldivenli eller", en: "Gloved hands placing a filling", de: "Behandschuhte Hände beim Füllen" },
+    image: "/images/stock/hero-chair.webp",
+    imageAlt: { tr: "Modern diş tedavi koltuğu", en: "Modern dental treatment chair", de: "Moderner Zahnbehandlungsstuhl" },
   },
   {
     id: "ortodonti",
@@ -339,7 +339,7 @@ export const services: Service[] = [
       ],
     },
     image: "/images/stock/braces-model.webp",
-    imageAlt: { tr: "Tel tedavisi gören gülümseyen genç", en: "Smiling teenager with braces", de: "Lächelnder Jugendlicher mit Zahnspange" },
+    imageAlt: { tr: "Ortodontik tel modeli", en: "Orthodontic braces on a jaw model", de: "Zahnspange am Kiefermodell" },
   },
   {
     id: "seffaf-plak",
@@ -403,8 +403,8 @@ export const services: Service[] = [
         "Die Wirkung ist nicht dauerhaft; bei Bedarf wird die Behandlung in den vom Zahnarzt empfohlenen Abständen wiederholt.",
       ],
     },
-    image: "/images/stock/smile-strawberry.webp",
-    imageAlt: { tr: "Yüz estetiği uygulaması", en: "Facial aesthetic treatment", de: "Ästhetische Gesichtsbehandlung" },
+    image: "/images/stock/smile-close.webp",
+    imageAlt: { tr: "Gülümseme, dudak yakın çekim", en: "Close-up of a smile", de: "Lächeln in Nahaufnahme" },
   },
 ];
 

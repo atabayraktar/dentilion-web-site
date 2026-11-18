@@ -11,7 +11,7 @@ import Select from "./ui/Select";
 type Errors = Partial<Record<"name" | "phone" | "consent", string>>;
 
 const field =
-  "mt-2 block w-full rounded-lg border border-white/25 bg-transparent px-4 py-3 text-stage-fg transition-colors duration-200 hover:border-aqua/70 focus:border-aqua";
+  "mt-2 block w-full rounded-ui border border-text/30 bg-transparent px-4 py-3 text-text transition-colors duration-200 hover:border-accent/70 focus:border-accent";
 
 export default function ContactForm({ locale }: { locale: Locale }) {
   const t = contact[locale];
@@ -45,7 +45,7 @@ export default function ContactForm({ locale }: { locale: Locale }) {
   const aria = (k: keyof Errors) => ({ "aria-invalid": !!errors[k], "aria-describedby": errors[k] ? `e-${k}` : undefined });
 
   return (
-    <form onSubmit={submit} noValidate className="flex h-full flex-col gap-5 rounded-3xl border border-white/15 bg-white/[0.03] p-[clamp(1.25rem,3vw,2.5rem)]">
+    <form onSubmit={submit} noValidate className="flex h-full flex-col gap-5 rounded-ui border border-line bg-bg p-[clamp(1.25rem,3vw,2.5rem)]">
       <h3 className="text-3xl">{t.formTitle}</h3>
       <label className="block">
         {t.name} *
@@ -59,13 +59,13 @@ export default function ContactForm({ locale }: { locale: Locale }) {
       </label>
       <Select label={t.service} placeholder={t.anyService} options={services.map((s) => s.title[locale])} value={v.service} onChange={(s) => setV((x) => ({ ...x, service: s }))} />
       <label className="block">
-        {t.message} <span className="text-sm text-stage-muted">({t.optional})</span>
+        {t.message} <span className="text-sm text-muted">({t.optional})</span>
         <textarea value={v.message} onChange={set("message")} rows={3} maxLength={300} className={`${field} resize-none`} />
       </label>
       <div>
-        <label className="group flex min-h-11 cursor-pointer items-start gap-3 text-sm text-stage-muted">
+        <label className="group flex min-h-11 cursor-pointer items-start gap-3 text-sm text-muted">
           <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="peer sr-only appearance-none" {...aria("consent")} />
-          <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border border-white/40 text-stage transition-colors duration-200 group-hover:border-aqua peer-checked:border-aqua peer-checked:bg-aqua peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-aqua [&>svg]:scale-0 peer-checked:[&>svg]:scale-100">
+          <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md border border-text/40 text-on-accent transition-colors duration-200 group-hover:border-accent peer-checked:border-accent peer-checked:bg-accent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent [&>svg]:scale-0 peer-checked:[&>svg]:scale-100">
             <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 motion-reduce:transition-none">
               <path d="M3 8.5l3.2 3L13 4.5" />
             </svg>
@@ -74,12 +74,12 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         </label>
         {err("consent")}
       </div>
-      <button type="submit" className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-full bg-aqua px-7 font-semibold text-stage transition hover:brightness-110">
+      <button type="submit" className="btn btn-primary mt-auto self-start">
         <WhatsAppIcon width={22} height={22} fill="currentColor" aria-hidden />
         {t.submit}
         <ArrowIcon width={18} height={18} />
       </button>
-      <p role="status" className="min-h-6 text-aqua">
+      <p role="status" className="min-h-6 text-accent">
         {sent && (
           <>
             {t.done} <a href={`tel:${site.phone.tel}`} className="font-semibold">{site.phone.display}</a>

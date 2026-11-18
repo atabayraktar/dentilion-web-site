@@ -8,7 +8,7 @@ import { Section } from "@/components/ui/Section";
 
 function Placeholder() {
   return (
-    <div className="relative grid aspect-[4/5] w-full place-items-center overflow-hidden rounded-2xl bg-gradient-to-br from-accent/15 via-aqua/10 to-accent/5">
+    <div className="relative grid aspect-[4/5] w-full place-items-center overflow-hidden rounded-ui bg-gradient-to-br from-accent/15 via-aqua/10 to-accent/5">
       <svg viewBox="0 0 48 56" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" className="h-1/3 text-accent/50" aria-hidden>
         <path d="M24 9c-4-4-14-4-16 6-1 8 4 12 5 20 .7 6 2 14 5 14 3 0 3-10 6-10s3 10 6 10c3 0 4.3-8 5-14 1-8 6-12 5-20-2-10-12-10-16-6Z" />
       </svg>
@@ -26,7 +26,7 @@ export function AboutTeam({ locale }: { locale: Locale }) {
           <p className="mt-8 max-w-2xl text-lg">{c.about.text}</p>
         </Reveal>
         <Reveal className="md:col-span-5" delay={80}>
-          <div className="stage grid aspect-[16/9] place-items-center rounded-3xl p-[10%] md:aspect-[4/3]">
+          <div className="stage grid aspect-[16/9] place-items-center rounded-ui p-[10%] md:aspect-[4/3]">
             <Logo onStage className="h-full w-auto max-w-full" />
           </div>
         </Reveal>
@@ -38,9 +38,9 @@ export function AboutTeam({ locale }: { locale: Locale }) {
         {team.map((m, i) => (
           <li key={m.id}>
             <Reveal delay={i * 60} className="h-full">
-              <article className="h-full rounded-3xl border border-line bg-bg p-3">
+              <article className="h-full rounded-ui border border-line bg-bg p-3">
                 {m.photo ? (
-                  <Image src={m.photo} alt={m.name} width={800} height={1000} sizes="(min-width:1024px) 30vw, (min-width:640px) 46vw, 140vw" className="aspect-[4/5] w-full rounded-2xl object-cover object-top" />
+                  <Image src={m.photo} alt={m.name} width={800} height={1000} sizes="(min-width:1024px) 30vw, (min-width:640px) 46vw, 140vw" className="aspect-[4/5] w-full rounded-ui object-cover object-top" />
                 ) : (
                   <Placeholder />
                 )}

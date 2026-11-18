@@ -21,17 +21,26 @@ export default function Logo({ className = "", still = false, onStage = false }:
     </mask>
   );
   return (
-    <svg viewBox="0 0 440 200" className={`${onStage ? "text-stage-fg" : "text-accent"} ${className}`} role="img" aria-label={site.name} data-still={still || undefined}>
+    <svg viewBox="0 0 360 200" className={`${onStage ? "text-stage-fg" : "text-accent"} ${className}`} role="img" aria-label={site.name} data-still={still || undefined}>
       <defs>
         {trace(TOOTH_LINE, "t")}
         {trace(HOOK_LINE, "h")}
+        <linearGradient id={id + "g"} gradientUnits="userSpaceOnUse" x1="318" x2="352" y1="0" y2="0">
+          <stop offset="0" stopColor="#fff" />
+          <stop offset="1" stopColor="#000" />
+        </linearGradient>
+        <mask id={id + "f"} maskUnits="userSpaceOnUse" x="0" y="0" width="440" height="200">
+          <rect width="440" height="200" fill={`url(#${id}g)`} />
+        </mask>
         <mask id={id + "k"} maskUnits="userSpaceOnUse" x="0" y="0" width="440" height="200">
           <rect width="440" height="200" fill="#fff" />
           {word({ className: "logo-word", fill: "#000", stroke: "#000", strokeWidth: 6, strokeLinejoin: "round" })}
         </mask>
       </defs>
       <g mask={`url(#${id}k)`}>
-        <path d={TOOTH} fillRule="evenodd" mask={`url(#${id}t)`} className="fill-aqua" />
+        <g mask={`url(#${id}f)`}>
+          <path d={TOOTH} fillRule="evenodd" mask={`url(#${id}t)`} className="fill-aqua" />
+        </g>
         <path d={HOOK} fillRule="evenodd" mask={`url(#${id}h)`} className="fill-current" />
       </g>
       {word({ className: "logo-word fill-current" })}

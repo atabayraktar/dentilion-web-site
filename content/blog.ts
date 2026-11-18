@@ -212,10 +212,10 @@ export const posts = [
   {
     slug: "cocuklarda-dis-sagligi-icin-5-ipucu",
     date: "2025-10-06",
-    images: ["/images/stock/kids-dentist.webp", "/images/stock/smile-teeth-close.webp", "/images/stock/brush-glass.webp"],
+    images: ["/images/stock/brush-glass.webp", "/images/stock/smile-teeth-close.webp", "/images/stock/healthy-food.webp"],
     content: {
       tr: {
-        alt: ["Diş hekimi muayenesinde çocuk", "Sağlıklı beyaz dişlerle gülümseme", "Bardakta diş fırçaları"],
+        alt: ["Bardakta diş fırçaları", "Sağlıklı beyaz dişlerle gülümseme", "Sağlıklı sebze ve meyve sepeti"],
         title: "Çocuklarda Diş Sağlığı İçin 5 İpucu",
         excerpt: "Sağlıklı bir gülümseme için alışkanlıklar küçük yaşta başlar...",
         intro: "Çocukluk döneminde kazanılan ağız bakımı alışkanlıkları ömür boyu sürer. Süt dişleri de kalıcı dişler kadar önemlidir. İşte ailelerin uygulayabileceği pratik ipuçları.",
@@ -236,7 +236,7 @@ export const posts = [
         ],
       },
       en: {
-        alt: ["Child at a dental check-up", "A smile with healthy white teeth", "Toothbrushes in a glass"],
+        alt: ["Toothbrushes in a glass", "A smile with healthy white teeth", "Basket of healthy vegetables and fruit"],
         title: "5 Tips for Children's Dental Health",
         excerpt: "Healthy smiles start with habits formed at a young age...",
         intro: "Oral care habits learned in childhood last a lifetime. Baby teeth matter just as much as permanent ones. Here are practical tips families can apply.",
@@ -257,7 +257,7 @@ export const posts = [
         ],
       },
       de: {
-        alt: ["Kind bei der Zahnkontrolle", "Lächeln mit gesunden weißen Zähnen", "Zahnbürsten im Glas"],
+        alt: ["Zahnbürsten im Glas", "Lächeln mit gesunden weißen Zähnen", "Korb mit gesundem Gemüse und Obst"],
         title: "5 Tipps für gesunde Kinderzähne",
         excerpt: "Ein gesundes Lächeln beginnt mit Gewohnheiten im frühen Alter...",
         intro: "Mundpflege-Gewohnheiten aus der Kindheit begleiten ein Leben lang. Milchzähne sind genauso wichtig wie bleibende Zähne. Hier sind praktische Tipps für Familien.",

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Quiz from "@/components/Quiz";
+import ArrowCircle from "@/components/ui/ArrowCircle";
 import { home } from "@/content/home";
 import { localePath, type Locale } from "@/lib/i18n";
 
@@ -31,11 +32,11 @@ const TILES = [
 export default function Hero({ locale }: { locale: Locale }) {
   const c = home[locale].hero;
   return (
-    <section data-hero className="stage hero relative isolate overflow-hidden">
-      <div className="wrap grid min-h-[100svh] items-center gap-10 pb-28 pt-28 lg:grid-cols-12 lg:gap-12 lg:pt-32">
+    <section data-hero className="hero relative isolate overflow-hidden">
+      <div className="wrap grid min-h-[88svh] items-center gap-10 pb-16 pt-28 lg:grid-cols-12 lg:gap-12 lg:pt-32">
         <div className="hero-copy lg:col-span-6">
           <h1 className="hero-title"><span className="hero-title-grad">{c.title}</span></h1>
-          <p className="mt-6 max-w-[44ch] text-stage-fg/85 md:text-lg">{c.text}</p>
+          <p className="mt-6 max-w-[44ch] text-muted md:text-lg">{c.text}</p>
           <div className="hero-quiz mt-8 max-w-xl">
             <Quiz locale={locale} />
           </div>
@@ -47,7 +48,7 @@ export default function Hero({ locale }: { locale: Locale }) {
                 <Image src={t.src} alt={t.alt[locale]} fill quality={85} priority={i === 0} sizes={t.sizes} className="object-cover" />
                 <span className="hero-tile-cap">
                   {t.label[locale]}
-                  <span aria-hidden className="hero-tile-go">→</span>
+                  <ArrowCircle />
                 </span>
               </Link>
             </li>

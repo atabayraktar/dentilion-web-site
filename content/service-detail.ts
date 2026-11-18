@@ -6,16 +6,16 @@ const s = (f: string) => `/images/stock/${f}.webp`;
 /** two body images per service id (hero = service.image). */
 export const serviceImages: Record<string, { body: [string, string]; hero?: string }> = {
   implant: { hero: s("implant-crown"), body: [s("implant-model"), s("clinic-teal-chair")] },
-  cerrahi: { body: [s("hero-clinic"), s("treat-doc")] },
-  beyazlatma: { body: [s("whitening-shade"), s("smile-teeth-close")] },
-  periodontoloji: { body: [s("brush-glass"), s("hygienist")] },
-  pedodonti: { body: [s("smile-strawberry"), s("brush-glass")] },
+  cerrahi: { body: [s("surgery"), s("clinic-teal-chair")] },
+  beyazlatma: { body: [s("whitening-tray"), s("smile-teeth-close")] },
+  periodontoloji: { body: [s("brush-glass"), s("toothbrushes")] },
+  pedodonti: { body: [s("healthy-food"), s("brush-glass")] },
   protez: { body: [s("tooth-model"), s("implant-model")] },
-  endodonti: { body: [s("tooth-pain"), s("tooth-model")] },
-  restoratif: { body: [s("hygienist"), s("hero-chair")] },
+  endodonti: { body: [s("magnifier-blue"), s("tooth-model")] },
+  restoratif: { body: [s("tooth-model"), s("hero-chair")] },
   ortodonti: { body: [s("smile-teeth-close"), s("clinic-teal-chair")] },
   "seffaf-plak": { body: [s("braces-model"), s("smile-strawberry")] },
-  botoks: { body: [s("smile-close"), s("clinic-teal-chair")] },
+  botoks: { body: [s("smile-teeth-close"), s("clinic-teal-chair")] },
 };
 
 type Detail = {
@@ -83,4 +83,4 @@ export const detail: Localized<Detail> = {
     ctaText: "Lassen Sie uns nach einer Untersuchung gemeinsam die passenden Möglichkeiten besprechen.",
   },
 };
-export const faqImage = s("dentist-patient");
+export const faqImage = s("hero-chair");

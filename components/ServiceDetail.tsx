@@ -18,7 +18,7 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
   const img = serviceImages[service.id];
   const title = service.title[locale];
   const others = detailServices.filter((s) => s !== service);
-  const frame = "relative overflow-hidden rounded-[2rem] bg-surface";
+  const frame = "relative overflow-hidden rounded-ui bg-surface";
 
   return (
     <>
@@ -36,19 +36,19 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
           {service.body![locale].filter((p) => p !== service.summary[locale]).map((p) => <p key={p} className="max-w-prose">{p}</p>)}
         </Reveal>
         <div className={`${frame} aspect-[16/10] lg:col-span-5 lg:aspect-[4/3]`}>
-          <Image src={img.body[0]} alt={title} fill priority fetchPriority="high" quality={75} sizes="(min-width:1024px) 900px, 100vw" className="object-cover" />
+          <Image src={img.body[0]} alt={title} fill priority fetchPriority="high" quality={75} sizes="(min-width:1024px) 900px, 150vw" className="object-cover" />
         </div>
       </section>
 
       <section className="wrap grid gap-8 pb-12 md:pb-20 lg:grid-cols-12 lg:items-stretch lg:gap-[clamp(2rem,5vw,6rem)]">
         <Reveal className={`${frame} aspect-[16/10] lg:col-span-5 lg:aspect-auto lg:min-h-[22rem]`}>
-          <Image src={img.body[1]} alt={title} fill quality={85} sizes="(min-width:1024px) 1200px, 100vw" className="object-cover" />
+          <Image src={img.body[1]} alt={title} fill quality={85} sizes="(min-width:1024px) 1200px, 150vw" className="object-cover" />
         </Reveal>
         <div className="lg:col-span-7">
           <Reveal><h2 className="text-[clamp(1.75rem,3.4vw,3rem)]">{d.benefitsTitle}</h2></Reveal>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {d.benefits.map((b) => (
-              <li key={b.t} className="rounded-3xl border border-line bg-surface p-6">
+              <li key={b.t} className="rounded-ui border border-line bg-surface p-6">
                 <p className="font-display text-xl font-semibold">{b.t}</p>
                 <p className="mt-2 text-muted">{b.d}</p>
               </li>
@@ -60,7 +60,7 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
       <section className="wrap grid gap-8 pb-12 md:pb-20 lg:grid-cols-12 lg:gap-[clamp(2rem,5vw,6rem)]">
         <div className="lg:col-span-5">
           <h2 className="text-[clamp(1.75rem,3.4vw,3rem)]">{d.faqTitle}</h2>
-          <Reveal className="relative mt-8 hidden aspect-[4/3] max-w-md overflow-hidden rounded-[2rem_2rem_2rem_0.75rem] lg:block">
+          <Reveal className="relative mt-8 hidden aspect-[4/3] max-w-md overflow-hidden rounded-ui lg:block">
             <Image src={faqImage} alt="" fill quality={85} sizes="(min-width:1024px) 900px, 1px" className="object-cover" />
           </Reveal>
         </div>
@@ -90,8 +90,8 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {others.slice(0, 5).map((s) => (
             <li key={s.id}>
-              <Link href={localePath(locale, `/${s.slug}`)} className="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-stage">
-                <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:1024px) 480px, (min-width:640px) 95vw, 150vw" className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none" />
+              <Link href={localePath(locale, `/${s.slug}`)} className="group relative block aspect-[4/5] overflow-hidden rounded-ui bg-stage">
+                <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:1024px) 800px, (min-width:640px) 150vw, 220vw" className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none" />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stage/90 to-transparent p-4 pt-12 font-display font-semibold text-stage-fg">{s.title[locale]}</span>
               </Link>
             </li>

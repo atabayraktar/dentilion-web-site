@@ -27,7 +27,7 @@ export default function ThemeToggle({ label }: { label: string }) {
       aria-pressed={dark}
       aria-label={label}
       onClick={toggle}
-      className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full border border-line transition-colors duration-300 hover:bg-accent hover:text-on-accent"
+      className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-ui border border-line transition-colors duration-300 hover:bg-accent hover:text-on-accent"
     >
       <SunMoonIcon width={20} height={20} className="theme-icon" />
     </button>

@@ -51,17 +51,17 @@ export default function Select({ label, placeholder, options, value, onChange }:
         id={`${id}-b`}
         onClick={() => (open ? setOpen(false) : show())}
         onKeyDown={onKey}
-        className={`mt-2 flex min-h-12 w-full items-center justify-between gap-3 rounded-lg border px-4 py-3 text-left transition-colors duration-200 hover:border-aqua/70 ${open ? "border-aqua" : "border-white/25"} ${value ? "text-stage-fg" : "text-stage-muted"}`}
+        className={`mt-2 flex min-h-12 w-full items-center justify-between gap-3 rounded-ui border px-4 py-3 text-left transition-colors duration-200 hover:border-accent/70 ${open ? "border-accent" : "border-text/30"} ${value ? "text-text" : "text-muted"}`}
       >
         <span className="truncate">{value || placeholder}</span>
-        <ChevronIcon className={`text-aqua transition-transform duration-300 motion-reduce:transition-none ${open ? "rotate-180" : ""}`} />
+        <ChevronIcon className={`text-accent transition-transform duration-300 motion-reduce:transition-none ${open ? "rotate-180" : ""}`} />
       </button>
       <div
         id={`${id}-p`}
         inert={!open}
         className={`absolute inset-x-0 top-full z-20 grid pt-2 transition-[grid-template-rows,opacity,transform] duration-300 ease-out motion-reduce:transition-none ${open ? "translate-y-0 grid-rows-[1fr] opacity-100" : "pointer-events-none -translate-y-1 grid-rows-[0fr] opacity-0"}`}
       >
-        <div className="min-h-0 overflow-hidden rounded-xl border border-white/20 bg-stage shadow-[0_18px_40px_-12px_rgb(0_0_0/0.6)]">
+        <div className="min-h-0 overflow-hidden rounded-ui border border-line bg-bg shadow-[0_18px_40px_-12px_rgb(0_0_0/0.6)]">
           <ul role="listbox" aria-labelledby={`${id}-l`} className="max-h-64 overflow-y-auto p-1.5">
             {all.map((o, i) => (
               <li
@@ -71,7 +71,7 @@ export default function Select({ label, placeholder, options, value, onChange }:
                 aria-selected={o === value}
                 onPointerEnter={() => setActive(i)}
                 onClick={() => pick(i)}
-                className={`flex min-h-11 cursor-pointer items-center rounded-lg px-3 transition-colors ${i === active ? "bg-aqua/15" : ""} ${o === value ? "text-aqua" : i === 0 ? "text-stage-muted" : ""}`}
+                className={`flex min-h-11 cursor-pointer items-center rounded-ui px-3 transition-colors ${i === active ? "bg-accent/15" : ""} ${o === value ? "text-accent" : i === 0 ? "text-muted" : ""}`}
               >
                 {o || placeholder}
               </li>

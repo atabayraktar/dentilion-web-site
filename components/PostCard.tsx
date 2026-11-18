@@ -3,13 +3,13 @@ import Link from "next/link";
 import type { BlogPost } from "@/content/blog";
 import { form } from "@/content/form";
 import { localePath, type Locale } from "@/lib/i18n";
-import { ArrowIcon } from "@/components/icons";
+import ArrowCircle from "@/components/ui/ArrowCircle";
 
 export default function PostCard({ post, locale, h = "h3", priority }: { post: BlogPost; locale: Locale; h?: "h2" | "h3"; priority?: boolean }) {
   const H = h;
   const c = post.content[locale];
   return (
-    <Link href={localePath(locale, `/${post.slug}`)} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface transition-shadow hover:shadow-xl">
+    <Link href={localePath(locale, `/${post.slug}`)} className="group flex h-full flex-col overflow-hidden rounded-ui border border-line bg-surface transition-shadow hover:shadow-xl">
       <div className="relative aspect-[3/2] overflow-hidden">
         <Image
           src={post.images[0]}
@@ -26,7 +26,7 @@ export default function PostCard({ post, locale, h = "h3", priority }: { post: B
         <span className="label text-muted">{new Date(post.date).toLocaleDateString(form[locale].blogDateLocale, { timeZone: "UTC" })}</span>
         <H className="mt-3 text-xl md:text-2xl">{c.title}</H>
         <p className="mt-3 flex-1 text-muted">{c.excerpt}</p>
-        <ArrowIcon className="mt-5 transition-transform group-hover:translate-x-1.5" />
+        <ArrowCircle className="mt-5" />
       </div>
     </Link>
   );

@@ -14,6 +14,7 @@
   --aqua: #3ed2e0;
   --coral: #ff9e7d;
   --ring: #2b2a8c;
+  --r: 0.75rem; /* the one radius: buttons, header, cards, images */
   color-scheme: light;
 }
 
@@ -30,7 +31,9 @@
   color-scheme: dark;
 }
 
+@custom-variant dark ([data-theme="dark"] &);
 @theme inline {
+  --radius-ui: var(--r);
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-stage: var(--stage);
@@ -49,7 +52,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6.5rem; /* [header v0.4] clears the floating header */
+  scroll-padding-top: 6rem; /* native fallback; HashScroll measures the real header */
 }
 
 body {
@@ -288,29 +291,72 @@ h3 {
   .nav-link, .nav-link::after { transition-duration: 1ms; }
 }
 
-/* [header v0.4] Appointment CTA: gradient fill; hover crossfades to the reversed gradient with an inner glow. Nothing leaves the button box. */
-.cta-wow {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: linear-gradient(110deg, var(--accent) 20%, color-mix(in srgb, var(--accent) 55%, var(--aqua)));
-  color: var(--on-accent);
-}
-.cta-wow::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(110deg, color-mix(in srgb, var(--accent) 50%, var(--aqua)), var(--accent) 60%, color-mix(in srgb, var(--accent) 70%, var(--coral)));
-  box-shadow: inset 0 0 14px rgb(255 255 255 / 0.35);
-  opacity: 0;
-  transition: opacity 400ms;
-}
-.cta-wow:hover::before,
-.cta-wow:focus-visible::before {
-  opacity: 1;
+/* One button system: same radius + same hover (lift + gradient crossfade) for every text button. */
+@layer components {
+  .btn {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-inline: 1.5rem;
+    border-radius: var(--r);
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 300ms, color 300ms;
+  }
+  .btn-primary {
+    overflow: hidden;
+    background: linear-gradient(110deg, var(--accent) 20%, color-mix(in srgb, var(--accent) 55%, var(--aqua)));
+    color: var(--on-accent);
+  }
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(110deg, color-mix(in srgb, var(--accent) 50%, var(--aqua)), var(--accent) 60%, color-mix(in srgb, var(--accent) 70%, var(--coral)));
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+  .btn-primary:hover::before,
+  .btn-primary:focus-visible::before { opacity: 1; }
+  .btn-ghost { border: 1px solid currentColor; }
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible { background: color-mix(in srgb, currentColor 8%, transparent); }
 }
 
+/* Round icon buttons (sticky, social): one size, one hover, equal glyph size. Circle by design. */
+@layer components {
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 300ms, background-color 300ms, border-color 300ms, color 300ms;
+}
+.icon-btn svg { width: 1.5rem; height: 1.5rem; }
+}
+
+/* Round arrow button: the only round arrow in the site. The button stays put; only the inner arrow turns. */
+.arrow-btn {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--grad-brand);
+  color: var(--on-accent);
+}
+.arrow-btn svg { width: 1.25rem; height: 1.25rem; transition: transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+:is(a, button):is(:hover, :focus-visible) .arrow-btn svg { transform: rotate(45deg); }
+@media (prefers-reduced-motion: reduce) { .arrow-btn svg, .btn, .icon-btn { transition: none; } }
 
 /* Fluid wide container: grows toward the edges, max-width only on text. */
 .wrap {
@@ -330,12 +376,18 @@ h3 {
 }
 
 
-/* Hero: smooth deep-blue stage, gradient headline, quiz banner, 3-tile photo grid. */
+/* Hero: light = soft lavender-mint diagonal; dark = indigo night with aurora glows (a different composition, same palette). */
 .hero {
+  color: var(--text);
+  /* exactly the team-photo placeholder gradient (bg-gradient-to-br from-accent/15 via-aqua/10 to-accent/5) over the page bg */
+  background-color: var(--bg);
+  background-image: linear-gradient(to bottom right in oklab, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--aqua) 10%, transparent), color-mix(in srgb, var(--accent) 5%, transparent));
+}
+[data-theme="dark"] .hero {
   background:
-    radial-gradient(70% 60% at 78% 40%, color-mix(in srgb, #5b8cff 38%, transparent) 0%, transparent 70%),
-    radial-gradient(60% 50% at 10% 90%, color-mix(in srgb, #2a3fb8 45%, transparent) 0%, transparent 70%),
-    linear-gradient(160deg, #1b1f6b 0%, #142a8a 50%, #0b1a4f 100%);
+    radial-gradient(48% 42% at 88% 10%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 70%),
+    radial-gradient(46% 46% at 6% 96%, color-mix(in srgb, var(--aqua) 22%, transparent), transparent 70%),
+    linear-gradient(180deg, #0e0d2b 0%, #14123f 62%, #0a0924 100%);
 }
 .hero-title {
   max-width: 16ch;
@@ -346,55 +398,55 @@ h3 {
   padding-bottom: 0.08em;
 }
 .hero-title-grad {
-  background: linear-gradient(100deg, #fff 0%, #a5eaff 40%, #6fb0ff 100%);
+  background: linear-gradient(100deg, #2b2a8c 0%, #0e8aa3 35%, #4a56e0 70%, #2b2a8c 100%) 0 0 / 200% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent;
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
+[data-theme="dark"] .hero-title-grad {
+  background-image: linear-gradient(100deg, #fff 0%, #a5eaff 35%, #8a92ff 70%, #fff 100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-title-grad { animation: hero-grad 14s ease-in-out infinite alternate; }
+}
+@keyframes hero-grad { to { background-position: 100% 0; } }
 .quiz-banner {
   display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 1rem;
-  padding: 0.875rem 0.875rem 0.875rem 1.25rem; border-radius: 1.25rem;
-  background: rgb(255 255 255 / 0.08);
-  border: 1px solid rgb(255 255 255 / 0.18);
+  padding: 0.875rem 0.875rem 0.875rem 1.25rem; border-radius: var(--r);
+  background: color-mix(in srgb, var(--bg) 62%, transparent);
+  border: 1px solid var(--line);
   backdrop-filter: blur(14px);
   transition: border-color 0.3s, background-color 0.3s;
 }
-.quiz-banner-go {
-  display: grid; flex: none; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 999px;
-  background: linear-gradient(135deg, #bff3ff, #6f9dff);
-  color: #0b1a4f; font-weight: 700;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.quiz-banner:hover, .quiz-banner:focus-visible { border-color: rgb(191 243 255 / 0.6); background: rgb(255 255 255 / 0.12); }
-.quiz-banner:hover .quiz-banner-go, .quiz-banner:focus-visible .quiz-banner-go { transform: translateX(3px); }
+.quiz-banner:hover, .quiz-banner:focus-visible { border-color: var(--accent); background: color-mix(in srgb, var(--bg) 80%, transparent); }
 .hero-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.625rem, 1.2vw, 1rem); }
 .hero-tile {
-  position: relative; display: block; overflow: hidden; border-radius: 1.25rem;
+  position: relative; display: block; overflow: hidden; border-radius: var(--r);
   aspect-ratio: 4 / 3; outline-offset: 3px;
-  box-shadow: 0 1.25rem 2.5rem -1.5rem rgb(0 0 0 / 0.6);
+  box-shadow: 0 1.25rem 2.5rem -1.5rem rgb(0 0 0 / 0.5);
 }
 .col-span-2 > .hero-tile { aspect-ratio: 2.1 / 1; }
 .hero-tile img { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.hero-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(8 16 60 / 0.75), transparent 55%); }
+.hero-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(8 16 60 / 0.88), rgb(8 16 60 / 0.5) 38%, transparent 70%); }
 .hero-tile-cap {
-  position: absolute; z-index: 1; left: 1rem; bottom: 0.875rem; right: 1rem;
-  display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: #fff;
-}
-.hero-tile-go {
-  display: grid; place-items: center; width: 1.75rem; height: 1.75rem; border-radius: 999px; font-size: 0.875rem;
-  background: linear-gradient(135deg, #bff3ff, #6f9dff); color: #0b1a4f;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: absolute; z-index: 1; left: 1rem; bottom: 0.875rem; right: 0.875rem;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; font-weight: 600; color: #fff;
 }
 .hero-tile:hover img, .hero-tile:focus-visible img { transform: scale(1.04); }
-.hero-tile:hover .hero-tile-go, .hero-tile:focus-visible .hero-tile-go { transform: translateX(4px); }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-title { animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both; }
   .hero-copy > p { animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both; }
   .hero-quiz { animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s both; }
   .hero-tiles > li { animation: hero-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(0.45s + var(--i) * 0.1s); }
 }
-@media (prefers-reduced-motion: reduce) { .hero-tile img, .hero-tile-go { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-tile img { transition: none; } }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(1rem); } }
+
+/* Contact: light = pastel aqua-lilac with cream cards; dark = deep night with an accent glow. */
+.contact { background: linear-gradient(160deg, #d3ebf0 0%, #e3e6f6 100%); color: var(--text); }
+[data-theme="dark"] .contact {
+  background: radial-gradient(60% 50% at 100% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%), #080720;
+}
 /* [gradient v0.6] Brand gradient (aqua -> accent), liked in the FAQ accordion; reuse site-wide (arrows, icons, accents). */
 :root { --grad-brand: linear-gradient(135deg, var(--aqua), var(--accent)); }
 .grad-brand { background-image: var(--grad-brand); }
 .grad-brand-text { background-image: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@media (min-width: 640px) { .hero-tile-cap { flex-direction: row; align-items: center; justify-content: space-between; } }

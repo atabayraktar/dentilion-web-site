@@ -4,8 +4,7 @@ import type { Locale } from "@/lib/i18n";
 import { InstagramIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 import Logo from "./Logo";
 
-const btn =
-  "grid h-11 w-11 place-items-center rounded-full border border-white/20 transition hover:-translate-y-0.5 hover:border-aqua hover:text-aqua";
+const btn = "icon-btn border-white/20 hover:border-aqua hover:bg-aqua hover:text-stage";
 
 export default function Footer({ locale }: { locale: Locale }) {
   const t = getDict(locale);
@@ -24,7 +23,7 @@ export default function Footer({ locale }: { locale: Locale }) {
           </li>
           <li>
             <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer" aria-label={t.whatsapp} className={btn}>
-              <WhatsAppIcon width={22} height={22} fill="currentColor" />
+              <WhatsAppIcon fill="currentColor" />
             </a>
           </li>
           <li>

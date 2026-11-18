@@ -5,8 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { quiz } from "@/content/quiz";
 import { services } from "@/content/services";
 import { localePath, type Locale } from "@/lib/i18n";
-
-const pill = "inline-flex min-h-11 items-center rounded-full px-6 font-semibold";
+import ArrowCircle from "@/components/ui/ArrowCircle";
 
 /** Compact hero banner + modal built on native <dialog> (focus trap, Esc) with animated open/close. */
 export default function Quiz({ locale }: { locale: Locale }) {
@@ -47,8 +46,8 @@ export default function Quiz({ locale }: { locale: Locale }) {
         <p className="label text-aqua">{q.fit}</p>
         <p className="font-display mt-3 text-3xl font-semibold md:text-4xl">{s?.title[locale]}</p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Link href={localePath(locale, "/#iletisim")} onClick={leave} className={`${pill} bg-aqua text-stage`}>{q.cta}</Link>
-          <Link href={localePath(locale, `/${slug}`)} onClick={leave} className={`${pill} border border-white/30`}>{q.open}</Link>
+          <Link href={localePath(locale, "/#iletisim")} onClick={leave} className="btn bg-aqua text-stage">{q.cta}</Link>
+          <Link href={localePath(locale, `/${slug}`)} onClick={leave} className="btn btn-ghost">{q.open}</Link>
           <button type="button" onClick={() => setPicks([])} className="min-h-11 px-3 text-stage-muted hover:text-stage-fg" aria-label={q.title}>↺</button>
         </div>
       </div>
@@ -66,7 +65,7 @@ export default function Quiz({ locale }: { locale: Locale }) {
         <ul className="mt-6 grid gap-3">
           {cur.options.map((o) => (
             <li key={o.label}>
-              <button type="button" onClick={() => setPicks([...picks, o.service])} className="flex min-h-14 w-full items-center rounded-2xl border border-white/20 px-5 py-3 text-left transition hover:border-aqua hover:bg-white/5">
+              <button type="button" onClick={() => setPicks([...picks, o.service])} className="flex min-h-14 w-full items-center rounded-ui border border-white/20 px-5 py-3 text-left transition hover:border-aqua hover:bg-white/5">
                 {o.label}
               </button>
             </li>
@@ -80,19 +79,19 @@ export default function Quiz({ locale }: { locale: Locale }) {
     <>
       <button type="button" onClick={open} className="quiz-banner group">
         <span className="min-w-0 text-left">
-          <span className="font-display block text-lg font-semibold leading-tight md:text-xl">{q.title} <span className="text-aqua">{q.start}</span></span>
+          <span className="font-display block text-lg font-semibold leading-tight md:text-xl">{q.title} <span className="text-accent">{q.start}</span></span>
         </span>
-        <span aria-hidden className="quiz-banner-go">→</span>
+        <ArrowCircle />
       </button>
       <dialog
         ref={dlg}
         aria-label={q.title}
         onCancel={(e) => { e.preventDefault(); close(); }}
         onClick={(e) => e.target === dlg.current && close()}
-        className={`stage m-auto w-[min(92vw,40rem)] rounded-3xl p-0 backdrop:bg-black/60 backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
+        className={`stage m-auto w-[min(92vw,40rem)] rounded-ui p-0 backdrop:bg-black/60 backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
       >
         <div className="p-6 md:p-10">
-          <button type="button" onClick={close} aria-label={q.close} className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full border border-white/20 text-xl leading-none transition hover:border-aqua">×</button>
+          <button type="button" onClick={close} aria-label={q.close} className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-ui border border-white/20 text-xl leading-none transition hover:border-aqua">×</button>
           {body}
         </div>
       </dialog>

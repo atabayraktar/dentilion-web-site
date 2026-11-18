@@ -22,7 +22,7 @@ export default function MobileMenu({ locale, items, t }: Props) {
         aria-controls="mobile-menu"
         aria-label={open ? t.closeMenu : t.menu}
         onClick={() => setOpen((o) => !o)}
-        className="grid h-11 w-11 place-items-center rounded-full border border-line"
+        className="grid h-11 w-11 place-items-center rounded-ui border border-line"
       >
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" aria-hidden>
           <path d="M4 8h16" style={{ transformOrigin: "12px 12px", transform: open ? "translateY(4px) rotate(45deg)" : "none", transition: "transform 300ms" }} />
@@ -37,7 +37,7 @@ export default function MobileMenu({ locale, items, t }: Props) {
         <nav
           id="mobile-menu"
           aria-label={t.mainNav}
-          className="overflow-hidden rounded-3xl border border-line bg-bg text-text shadow-xl"
+          className="overflow-hidden rounded-ui border border-line bg-bg text-text shadow-xl"
         >
           <div className="px-5 pb-6 pt-3">
             <ul>

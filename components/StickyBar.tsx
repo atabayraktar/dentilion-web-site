@@ -6,8 +6,7 @@ import { getDict } from "@/content/ui";
 import { type Locale } from "@/lib/i18n";
 import { WhatsAppIcon } from "./icons";
 
-const btn =
-  "pointer-events-auto grid h-12 w-12 place-items-center rounded-full shadow-[0_6px_18px_rgb(0_0_0/0.25)] transition-[transform,opacity,filter,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:scale-[1.06] hover:brightness-110 hover:shadow-[0_10px_26px_rgb(0_0_0/0.3)] active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100";
+const btn = "icon-btn pointer-events-auto shadow-[0_6px_18px_rgb(0_0_0/0.2)]";
 
 /** Fixed WhatsApp (right) and back-to-top (left) buttons; both lift to rest above the footer. */
 export default function StickyBar({ locale }: { locale: Locale }) {
@@ -43,9 +42,9 @@ export default function StickyBar({ locale }: { locale: Locale }) {
         aria-label={t.toTop}
         tabIndex={shown ? 0 : -1}
         onClick={() => scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })}
-        className={`${btn} border border-line bg-surface text-fg group ${shown ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
+        className={`${btn} bg-bg text-text hover:border-accent hover:bg-accent hover:text-on-accent group ${shown ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
       >
-        <svg className="transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 motion-reduce:transition-none" viewBox="0 0 24 24" width={20} height={20} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M12 19V5M5 12l7-7 7 7" />
         </svg>
       </button>
@@ -54,10 +53,10 @@ export default function StickyBar({ locale }: { locale: Locale }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.whatsapp}
-        tabIndex={shown ? 0 : -1} className={`${btn} group relative bg-[#25D366] ${shown ? "opacity-100" : "pointer-events-none invisible translate-y-3 opacity-0"}`}
+        tabIndex={shown ? 0 : -1} className={`${btn} group relative border-transparent bg-[#25D366] hover:bg-[#1fb957] ${shown ? "opacity-100" : "pointer-events-none invisible translate-y-3 opacity-0"}`}
       >
         <span aria-hidden className="absolute inset-0 rounded-full motion-safe:animate-[wa-pulse_2.2s_ease-out_infinite]" />
-        <WhatsAppIcon width={26} height={26} fill="#fff" className="relative" />
+        <WhatsAppIcon fill="#fff" className="relative" />
       </a>
     </div>
   );

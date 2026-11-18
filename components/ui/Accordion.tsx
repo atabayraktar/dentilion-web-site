@@ -24,7 +24,7 @@ export default function Accordion({ items }: { items: { q: string; a: string }[]
                 aria-controls={`${uid}-${i}`}
                 id={`${uid}-h-${i}`}
                 onClick={() => setOpen(on ? null : i)}
-                className="relative flex min-h-16 w-full items-center justify-between gap-5 rounded-xl py-6 pl-4 pr-1 text-left outline-none transition-[padding] duration-300 focus-visible:ring-2 focus-visible:ring-[var(--ring)] sm:pl-6 sm:pr-3"
+                className="relative flex min-h-16 w-full items-center justify-between gap-5 rounded-ui py-6 pl-4 pr-1 text-left outline-none transition-[padding] duration-300 focus-visible:ring-2 focus-visible:ring-[var(--ring)] sm:pl-6 sm:pr-3"
               >
                 <span className={`font-display text-[clamp(1.125rem,1.6vw,1.5rem)] font-semibold leading-snug transition-colors duration-300 ${on ? "text-accent" : "text-text group-hover/row:text-accent"}`}>
                   {f.q}

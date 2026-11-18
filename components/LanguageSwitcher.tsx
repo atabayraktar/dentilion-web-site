@@ -29,7 +29,7 @@ export default function LanguageSwitcher({ locale, label, variant = "popover", o
             lang={l}
             hrefLang={l}
             aria-current={l === locale ? "true" : undefined}
-            className={`label flex h-11 flex-1 items-center justify-center rounded-full border ${
+            className={`label flex h-11 flex-1 items-center justify-center rounded-ui border ${
               l === locale
                 ? onStage ? "border-aqua bg-aqua text-stage" : "border-accent bg-accent text-on-accent"
                 : onStage ? "border-white/40 text-stage-fg" : "border-line text-muted"
@@ -69,7 +69,7 @@ export default function LanguageSwitcher({ locale, label, variant = "popover", o
         aria-expanded={open}
         aria-label={`${label}: ${languageNames[locale]}`}
         onClick={() => setOpen((o) => !o)}
-        className="flex h-10 items-center gap-1.5 rounded-full border border-line pl-2.5 pr-2 transition-colors duration-300 hover:bg-surface"
+        className="flex h-11 items-center gap-1.5 rounded-ui border border-line pl-2.5 pr-2 transition-colors duration-300 hover:bg-surface"
       >
         <FlagIcon l={locale} />
         <ChevronIcon width={12} height={12} className={`shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
@@ -78,7 +78,7 @@ export default function LanguageSwitcher({ locale, label, variant = "popover", o
         role="listbox"
         aria-label={label}
         data-open={open}
-        className="invisible absolute left-1/2 top-full z-50 mt-3 -translate-x-1/2 -translate-y-2 scale-95 rounded-full border border-line bg-bg p-1 text-text opacity-0 shadow-lg transition-[opacity,translate,scale,visibility] duration-200 data-[open=true]:visible data-[open=true]:translate-y-0 data-[open=true]:scale-100 data-[open=true]:opacity-100"
+        className="invisible absolute left-1/2 top-full z-50 mt-3 -translate-x-1/2 -translate-y-2 scale-95 rounded-ui border border-line bg-bg p-1 text-text opacity-0 shadow-lg transition-[opacity,translate,scale,visibility] duration-200 data-[open=true]:visible data-[open=true]:translate-y-0 data-[open=true]:scale-100 data-[open=true]:opacity-100"
       >
         {locales.map((l, i) => (
           <li key={l} role="presentation">
@@ -94,7 +94,7 @@ export default function LanguageSwitcher({ locale, label, variant = "popover", o
               aria-label={languageNames[l]}
               title={languageNames[l]}
               onClick={() => setOpen(false)}
-              className={`grid h-10 w-10 place-items-center rounded-full transition-colors hover:bg-surface ${l === locale ? "bg-surface" : ""}`}
+              className={`grid h-10 w-10 place-items-center rounded-ui transition-colors hover:bg-surface ${l === locale ? "bg-surface" : ""}`}
             >
               <FlagIcon l={l} width={24} height={24} />
             </Link>

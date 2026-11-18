@@ -15,7 +15,7 @@ export default function Header({ locale }: { locale: Locale }) {
 
   return (
     <HeaderShell>
-      <div className="hdr-bar pointer-events-auto relative flex h-[4.25rem] items-center justify-between gap-2 rounded-full pl-3 pr-1.5 min-[360px]:pl-4 min-[360px]:pr-2 md:pl-6">
+      <div className="hdr-bar pointer-events-auto relative flex h-[4.25rem] items-center justify-between gap-2 rounded-ui pl-3 pr-1.5 min-[360px]:pl-4 min-[360px]:pr-2 md:pl-6 md:pr-3">
         <Link href={localePath(locale)} aria-label={t.logoLabel} className="shrink-0 py-2">
           <Logo className="hdr-logo h-9 w-auto min-[360px]:h-11 md:h-12" />
         </Link>
@@ -37,10 +37,10 @@ export default function Header({ locale }: { locale: Locale }) {
           </div>
           <Link
             href={localePath(locale, "/#iletisim")}
-            className="cta-wow group inline-flex h-11 shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-3 text-[0.8rem] min-[360px]:px-4 min-[360px]:text-sm font-semibold md:px-6 md:text-[0.95rem]"
+            className="btn btn-primary h-11 shrink-0 px-3 text-[0.8rem] min-[360px]:px-4 min-[360px]:text-sm md:px-6 md:text-[0.95rem]"
           >
             {t.book}
-            <ArrowIcon width={16} height={16} className="hidden transition-transform duration-300 group-hover:translate-x-1 min-[360px]:block" />
+            <ArrowIcon width={16} height={16} className="hidden min-[360px]:block" />
           </Link>
           <MobileMenu locale={locale} items={items} t={t} />
         </div>
