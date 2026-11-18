@@ -43,7 +43,7 @@ export const services: Service[] = [
       ],
     },
     image: "/images/stock/implant-model.webp",
-    imageAlt: { tr: "Beyaz dişlerle geniş gülüş", en: "Wide smile with white teeth", de: "Strahlendes Lächeln mit weißen Zähnen" },
+    imageAlt: { tr: "Diş implantı ve köprü modeli", en: "Dental implant and bridge model", de: "Zahnimplantat- und Brückenmodell" },
   },
   {
     id: "cerrahi",
@@ -78,8 +78,8 @@ export const services: Service[] = [
         "Die Notwendigkeit eines Eingriffs wird durch Untersuchung und Bildgebung beurteilt; die geeignete Methode legt der Zahnarzt für jeden Patienten fest.",
       ],
     },
-    image: "/images/stock/surgery.webp",
-    imageAlt: { tr: "Ağız içi cerrahi işlem", en: "Oral surgery procedure close-up", de: "Oralchirurgischer Eingriff in Nahaufnahme" },
+    image: "/images/stock/surgery-tools.webp",
+    imageAlt: { tr: "Cerrahi diş çekim aletleri ve eldivenli el", en: "Gloved hand with oral surgery instruments", de: "Behandschuhte Hand mit oralchirurgischen Instrumenten" },
   },
   {
     id: "beyazlatma",
@@ -193,8 +193,8 @@ export const services: Service[] = [
         "Wenn Kinder den Zahnarzt früh kennenlernen, und zwar zu einem Zeitpunkt, an dem kein ernsthafter Eingriff nötig ist, trägt das wesentlich dazu bei, Angst vor dem Zahnarzt zu vermeiden.",
       ],
     },
-    image: "/images/stock/brush-glass.webp",
-    imageAlt: { tr: "Bardakta renkli diş fırçaları", en: "Colourful toothbrushes in a glass", de: "Bunte Zahnbürsten im Glas" },
+    image: "/images/stock/kids-brush.webp",
+    imageAlt: { tr: "Çocuklar için silikon diş fırçaları", en: "Silicone toothbrushes for children", de: "Silikon-Zahnbürsten für Kinder" },
   },
   {
     id: "protez",
@@ -231,8 +231,8 @@ export const services: Service[] = [
         "Wenn möglich, sollten festsitzende Prothesen bevorzugt werden; wo dies nicht möglich ist, werden herausnehmbare Prothesen verwendet.",
       ],
     },
-    image: "/images/stock/implant-crown.webp",
-    imageAlt: { tr: "Diş protezi modeli", en: "Dental prosthesis model", de: "Zahnprothesenmodell" },
+    image: "/images/stock/dentures-cast.webp",
+    imageAlt: { tr: "Diş protezi modeli", en: "Dental prosthesis cast model", de: "Zahnprothesen-Modell" },
   },
   {
     id: "endodonti",
@@ -268,7 +268,7 @@ export const services: Service[] = [
       ],
     },
     image: "/images/stock/tooth-model.webp",
-    imageAlt: { tr: "Diş kök anatomisi modeli", en: "Tooth root anatomy model", de: "Zahnwurzel-Anatomiemodell" },
+    imageAlt: { tr: "Diş modeli ve kök kanal kesiti", en: "Tooth model with cross-section of the root", de: "Zahnmodell mit Wurzelquerschnitt" },
   },
   {
     id: "restoratif",
@@ -299,8 +299,8 @@ export const services: Service[] = [
         "Dank moderner Materialien können Zahnfüllungen heute in der natürlichen Zahnfarbe gefertigt werden und sind manchmal von einem echten Zahn nicht zu unterscheiden.",
       ],
     },
-    image: "/images/stock/hero-chair.webp",
-    imageAlt: { tr: "Modern diş tedavi koltuğu", en: "Modern dental treatment chair", de: "Moderner Zahnbehandlungsstuhl" },
+    image: "/images/stock/endo-tools.webp",
+    imageAlt: { tr: "Dolgu ve cila aletleri seti", en: "Filling and polishing instrument kit", de: "Set für Füllungen und Politur" },
   },
   {
     id: "ortodonti",
@@ -338,8 +338,8 @@ export const services: Service[] = [
         "Wird die kieferorthopädische Behandlung im passenden Alter begonnen, kann sie schneller, einfacher und kostengünstiger abgeschlossen werden.",
       ],
     },
-    image: "/images/stock/braces-model.webp",
-    imageAlt: { tr: "Ortodontik tel modeli", en: "Orthodontic braces on a jaw model", de: "Zahnspange am Kiefermodell" },
+    image: "/images/stock/ortho-pliers.webp",
+    imageAlt: { tr: "Ortodontik tel pensleri", en: "Orthodontic wire pliers", de: "Kieferorthopädische Drahtzangen" },
   },
   {
     id: "seffaf-plak",
@@ -371,8 +371,8 @@ export const services: Service[] = [
         "Gewinnen Sie mit Dentilion ein ästhetisches, angenehmes und wirkungsvolles Lächeln.",
       ],
     },
-    image: "/images/stock/smile-teeth-close.webp",
-    imageAlt: { tr: "Şeffaf plak", en: "Clear aligner", de: "Transparente Schiene" },
+    image: "/images/stock/aligners-hands.webp",
+    imageAlt: { tr: "Elde tutulan şeffaf plaklar", en: "Clear aligners held in hands", de: "Transparente Schienen in den Händen" },
   },
   {
     id: "botoks",
@@ -403,8 +403,8 @@ export const services: Service[] = [
         "Die Wirkung ist nicht dauerhaft; bei Bedarf wird die Behandlung in den vom Zahnarzt empfohlenen Abständen wiederholt.",
       ],
     },
-    image: "/images/stock/smile-close.webp",
-    imageAlt: { tr: "Gülümseme, dudak yakın çekim", en: "Close-up of a smile", de: "Lächeln in Nahaufnahme" },
+    image: "/images/stock/botox-syringe.webp",
+    imageAlt: { tr: "Botoks şişesi ve ince iğneli enjektör", en: "Botox vial and fine syringe", de: "Botox-Fläschchen und feine Spritze" },
   },
 ];
 

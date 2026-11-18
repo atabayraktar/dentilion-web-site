@@ -9,10 +9,10 @@ export const posts = [
   {
     slug: "dis-curuklerini-onlemenin-7-etkili-yolu",
     date: "2025-08-11",
-    images: ["/images/stock/toothbrushes.webp", "/images/stock/brush-glass.webp", "/images/stock/smile-close.webp"],
+    images: ["/images/stock/bamboo-brushes.webp", "/images/stock/brush-glass.webp", "/images/stock/smile-close.webp"],
     content: {
       tr: {
-        alt: ["Renkli diş fırçaları", "Bardakta duran diş fırçası", "Sağlıklı dişlerle gülümseme"],
+        alt: ["Bambu diş fırçaları ve aksesuarlar", "Bardakta duran diş fırçası", "Sağlıklı dişlerle gülümseme"],
         title: "Diş Çürüklerini Önlemenin 7 Etkili Yolu",
         excerpt: "Diş çürükleri, hem estetik hem de sağlık açısından ciddi...",
         intro:
@@ -54,7 +54,7 @@ export const posts = [
         ],
       },
       en: {
-        alt: ["Colourful toothbrushes", "Toothbrush standing in a glass", "A smile with healthy teeth"],
+        alt: ["Bamboo toothbrushes and accessories", "Toothbrush standing in a glass", "A smile with healthy teeth"],
         title: "7 Effective Ways to Prevent Tooth Decay",
         excerpt: "Tooth decay is a common problem that can cause serious issues, both aesthetic and for your health...",
         intro:
@@ -96,7 +96,7 @@ export const posts = [
         ],
       },
       de: {
-        alt: ["Bunte Zahnbürsten", "Zahnbürste im Glas", "Lächeln mit gesunden Zähnen"],
+        alt: ["Bambus-Zahnbürsten und Zubehör", "Zahnbürste im Glas", "Lächeln mit gesunden Zähnen"],
         title: "7 wirksame Wege, Karies vorzubeugen",
         excerpt: "Karies ist ein weit verbreitetes Problem, das sowohl ästhetisch als auch gesundheitlich ernste Folgen haben kann...",
         intro:
@@ -142,10 +142,10 @@ export const posts = [
   {
     slug: "dis-agrisi-ne-zaman-doktora-gidilmeli",
     date: "2025-09-15",
-    images: ["/images/stock/tooth-model.webp", "/images/stock/magnifier-blue.webp", "/images/stock/smile-teeth-close.webp"],
+    images: ["/images/stock/xray-tablet.webp", "/images/stock/dental-chair.webp", "/images/stock/clinic-room-blue.webp"],
     content: {
       tr: {
-        alt: ["Diş anatomisi modeli", "Mavi zeminde büyüteç", "Sağlıklı beyaz dişler"],
+        alt: ["Tabletteki panoramik diş röntgeni", "Diş hekimi muayene koltuğu", "Aydınlık diş kliniği muayene odası"],
         title: "Diş Ağrısı: Ne Zaman Diş Hekimine Gitmeli?",
         excerpt: "Her diş ağrısı aynı değildir. Hangi belirtilerin beklemeye gelmediğini anlatıyoruz...",
         intro: "Diş ağrısı çoğu zaman bir şeylerin ters gittiğini gösteren ilk işarettir. Bazı ağrılar kendiliğinden geçer, bazıları ise tedavi edilmezse büyür. Bu yazıda hangi durumlarda beklememeniz gerektiğini özetliyoruz.",
@@ -166,7 +166,7 @@ export const posts = [
         ],
       },
       en: {
-        alt: ["Tooth anatomy model", "Magnifying glass on a blue background", "Healthy white teeth"],
+        alt: ["Panoramic dental X-ray on a tablet", "Dentist examination chair", "Bright dental clinic examination room"],
         title: "Toothache: When Should You See a Dentist?",
         excerpt: "Not every toothache is the same. We explain which symptoms should not be left waiting...",
         intro: "A toothache is often the first sign that something is wrong. Some pain passes on its own, while other pain grows if left untreated. This article summarises when you should not wait.",
@@ -187,7 +187,7 @@ export const posts = [
         ],
       },
       de: {
-        alt: ["Zahnmodell", "Lupe auf blauem Hintergrund", "Gesunde weiße Zähne"],
+        alt: ["Zahnärztliches Panoramaröntgenbild auf einem Tablet", "Zahnärztlicher Behandlungsstuhl", "Heller Untersuchungsraum einer Zahnklinik"],
         title: "Zahnschmerzen: Wann sollten Sie zum Zahnarzt?",
         excerpt: "Nicht jeder Zahnschmerz ist gleich. Wir erklären, bei welchen Anzeichen Sie nicht warten sollten...",
         intro: "Zahnschmerzen sind oft das erste Zeichen, dass etwas nicht stimmt. Manche Schmerzen vergehen von selbst, andere werden ohne Behandlung schlimmer. Dieser Beitrag fasst zusammen, wann Sie nicht warten sollten.",
@@ -212,10 +212,10 @@ export const posts = [
   {
     slug: "cocuklarda-dis-sagligi-icin-5-ipucu",
     date: "2025-10-06",
-    images: ["/images/stock/brush-glass.webp", "/images/stock/smile-teeth-close.webp", "/images/stock/healthy-food.webp"],
+    images: ["/images/stock/smile-toothpaste.webp", "/images/stock/kids-brush.webp", "/images/stock/bamboo-brush-counter.webp"],
     content: {
       tr: {
-        alt: ["Bardakta diş fırçaları", "Sağlıklı beyaz dişlerle gülümseme", "Sağlıklı sebze ve meyve sepeti"],
+        alt: ["Diş macunuyla yapılmış gülümseme", "Çocuklar için silikon diş fırçaları", "Bambu diş fırçası ve diş macunu"],
         title: "Çocuklarda Diş Sağlığı İçin 5 İpucu",
         excerpt: "Sağlıklı bir gülümseme için alışkanlıklar küçük yaşta başlar...",
         intro: "Çocukluk döneminde kazanılan ağız bakımı alışkanlıkları ömür boyu sürer. Süt dişleri de kalıcı dişler kadar önemlidir. İşte ailelerin uygulayabileceği pratik ipuçları.",
@@ -236,7 +236,7 @@ export const posts = [
         ],
       },
       en: {
-        alt: ["Toothbrushes in a glass", "A smile with healthy white teeth", "Basket of healthy vegetables and fruit"],
+        alt: ["A smile made of toothpaste", "Silicone toothbrushes for children", "Bamboo toothbrush and toothpaste"],
         title: "5 Tips for Children's Dental Health",
         excerpt: "Healthy smiles start with habits formed at a young age...",
         intro: "Oral care habits learned in childhood last a lifetime. Baby teeth matter just as much as permanent ones. Here are practical tips families can apply.",
@@ -257,7 +257,7 @@ export const posts = [
         ],
       },
       de: {
-        alt: ["Zahnbürsten im Glas", "Lächeln mit gesunden weißen Zähnen", "Korb mit gesundem Gemüse und Obst"],
+        alt: ["Lächeln aus Zahnpasta", "Silikon-Zahnbürsten für Kinder", "Bambus-Zahnbürste und Zahnpasta"],
         title: "5 Tipps für gesunde Kinderzähne",
         excerpt: "Ein gesundes Lächeln beginnt mit Gewohnheiten im frühen Alter...",
         intro: "Mundpflege-Gewohnheiten aus der Kindheit begleiten ein Leben lang. Milchzähne sind genauso wichtig wie bleibende Zähne. Hier sind praktische Tipps für Familien.",

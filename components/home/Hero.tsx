@@ -8,21 +8,21 @@ import { localePath, type Locale } from "@/lib/i18n";
 const TILES = [
   {
     href: "/#hizmetlerimiz",
-    src: "/images/stock/implant-model.webp",
+    src: "/images/stock/implant-crown.webp",
     label: { tr: "Hizmetlerimiz", en: "Our services", de: "Leistungen" },
-    alt: { tr: "Diş implantı modeli yakın çekim", en: "Close-up of a dental implant model", de: "Nahaufnahme eines Zahnimplantat-Modells" },
+    alt: { tr: "Seramik diş kronu ve implant modeli", en: "Ceramic crown and implant model", de: "Keramikkrone und Implantatmodell" },
     sizes: "(min-width: 1024px) 40vw, 150vw",
   },
   {
     href: "/#blog",
-    src: "/images/stock/toothbrushes.webp",
+    src: "/images/stock/bamboo-brush-counter.webp",
     label: { tr: "Blog", en: "Blog", de: "Blog" },
-    alt: { tr: "Bardakta duran diş fırçaları", en: "Toothbrushes standing in a cup", de: "Zahnbürsten in einem Becher" },
+    alt: { tr: "Bambu diş fırçası ve diş macunu", en: "Bamboo toothbrush and toothpaste", de: "Bambus-Zahnbürste und Zahnpasta" },
     sizes: "(min-width: 1024px) 40vw, 150vw",
   },
   {
     href: "/#iletisim",
-    src: "/images/stock/clinic-teal-chair.webp",
+    src: "/images/stock/clinic-room.webp",
     label: { tr: "İletişim", en: "Contact", de: "Kontakt" },
     alt: { tr: "Modern diş kliniği tedavi odası", en: "Modern dental clinic treatment room", de: "Moderner Behandlungsraum einer Zahnklinik" },
     sizes: "(min-width: 1024px) 60vw, 150vw",

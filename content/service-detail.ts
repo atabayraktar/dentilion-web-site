@@ -5,17 +5,17 @@ const s = (f: string) => `/images/stock/${f}.webp`;
 
 /** two body images per service id (hero = service.image). */
 export const serviceImages: Record<string, { body: [string, string]; hero?: string }> = {
-  implant: { hero: s("implant-crown"), body: [s("implant-model"), s("clinic-teal-chair")] },
-  cerrahi: { body: [s("surgery"), s("clinic-teal-chair")] },
-  beyazlatma: { body: [s("whitening-tray"), s("smile-teeth-close")] },
-  periodontoloji: { body: [s("brush-glass"), s("toothbrushes")] },
-  pedodonti: { body: [s("healthy-food"), s("brush-glass")] },
-  protez: { body: [s("tooth-model"), s("implant-model")] },
-  endodonti: { body: [s("magnifier-blue"), s("tooth-model")] },
-  restoratif: { body: [s("tooth-model"), s("hero-chair")] },
-  ortodonti: { body: [s("smile-teeth-close"), s("clinic-teal-chair")] },
-  "seffaf-plak": { body: [s("braces-model"), s("smile-strawberry")] },
-  botoks: { body: [s("smile-teeth-close"), s("clinic-teal-chair")] },
+  implant: { body: [s("implant-model"), s("implant-closeup")] },
+  cerrahi: { body: [s("surgery-tools"), s("syringe-tools")] },
+  beyazlatma: { body: [s("whitening-tray"), s("smile-close")] },
+  periodontoloji: { body: [s("toothbrushes"), s("tools-blue")] },
+  pedodonti: { body: [s("kids-brush"), s("clinic-room-blue")] },
+  protez: { body: [s("dentures-cast"), s("implant-bridge")] },
+  endodonti: { body: [s("tooth-model"), s("xray-tablet")] },
+  restoratif: { body: [s("endo-tools"), s("instruments-cast")] },
+  ortodonti: { body: [s("ortho-pliers"), s("handpieces")] },
+  "seffaf-plak": { body: [s("aligners-hands"), s("braces-model")] },
+  botoks: { body: [s("botox-syringe"), s("botox-vials")] },
 };
 
 type Detail = {
