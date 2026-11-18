@@ -385,12 +385,24 @@ h3 {
 /* Hero: light = soft lavender-mint diagonal; dark = indigo night with aurora glows (a different composition, same palette). */
 .hero {
   color: var(--text);
-  /* exactly the team-photo placeholder gradient (bg-gradient-to-br from-accent/15 via-aqua/10 to-accent/5) over the page bg */
-  background-color: var(--bg);
-  background-image: linear-gradient(to bottom right in oklab, color-mix(in srgb, var(--accent) 30%, transparent), color-mix(in srgb, var(--aqua) 34%, transparent) 55%, color-mix(in srgb, var(--accent) 6%, transparent));
+  /* white -> soft pink -> light turquoise, plain diagonal, no glow */
+  background: linear-gradient(to bottom right in oklab, #ffffff 0%, #fbe1ec 48%, #b9ecee 100%);
 }
 [data-theme="dark"] .hero {
+  --tooth: #ffffff;
   background: linear-gradient(to bottom right in oklab, #0a0924 0%, #26268f 45%, #0d6a85 100%);
+}
+.hero-tooth {
+  position: absolute;
+  z-index: -1;
+  left: -6vw;
+  top: 50%;
+  width: min(52vw, 52rem);
+  height: auto;
+  transform: translateY(-50%);
+  color: var(--tooth, var(--accent));
+  opacity: 0.09;
+  pointer-events: none;
 }
 .hero-title {
   max-width: 16ch;
