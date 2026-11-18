@@ -1,0 +1,296 @@
+{
+  "hosting": {
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/tr",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/tr/:rest*",
+        "destination": "/:rest",
+        "type": 301
+      },
+      {
+        "source": "/implant-tedavisi",
+        "destination": "/hizmetler/implant-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/agiz-dis-cene-cerrahisi",
+        "destination": "/hizmetler/agiz-dis-cene-cerrahisi",
+        "type": 301
+      },
+      {
+        "source": "/dis-beyazlatma",
+        "destination": "/hizmetler/dis-beyazlatma",
+        "type": 301
+      },
+      {
+        "source": "/periodontoloji-dis-eti-hastaliklari",
+        "destination": "/hizmetler/periodontoloji-dis-eti-hastaliklari",
+        "type": 301
+      },
+      {
+        "source": "/cocuk-dis-hekimligi",
+        "destination": "/hizmetler/cocuk-dis-hekimligi",
+        "type": 301
+      },
+      {
+        "source": "/protez-tedavileri",
+        "destination": "/hizmetler/protez-tedavileri",
+        "type": 301
+      },
+      {
+        "source": "/endodonti-kok-kanal-tedavisi",
+        "destination": "/hizmetler/endodonti-kok-kanal-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/restoratif-dis-tedavisi",
+        "destination": "/hizmetler/restoratif-dis-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/ortodonti-tel-tedavisi",
+        "destination": "/hizmetler/ortodonti-tel-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/seffaf-plak-tedavisi",
+        "destination": "/hizmetler/seffaf-plak-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/botoks-tedavisi",
+        "destination": "/hizmetler/botoks-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/en/implant-tedavisi",
+        "destination": "/en/hizmetler/implant-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/en/agiz-dis-cene-cerrahisi",
+        "destination": "/en/hizmetler/agiz-dis-cene-cerrahisi",
+        "type": 301
+      },
+      {
+        "source": "/en/dis-beyazlatma",
+        "destination": "/en/hizmetler/dis-beyazlatma",
+        "type": 301
+      },
+      {
+        "source": "/en/periodontoloji-dis-eti-hastaliklari",
+        "destination": "/en/hizmetler/periodontoloji-dis-eti-hastaliklari",
+        "type": 301
+      },
+      {
+        "source": "/en/cocuk-dis-hekimligi",
+        "destination": "/en/hizmetler/cocuk-dis-hekimligi",
+        "type": 301
+      },
+      {
+        "source": "/en/protez-tedavileri",
+        "destination": "/en/hizmetler/protez-tedavileri",
+        "type": 301
+      },
+      {
+        "source": "/en/endodonti-kok-kanal-tedavisi",
+        "destination": "/en/hizmetler/endodonti-kok-kanal-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/en/restoratif-dis-tedavisi",
+        "destination": "/en/hizmetler/restoratif-dis-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/en/ortodonti-tel-tedavisi",
+        "destination": "/en/hizmetler/ortodonti-tel-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/en/seffaf-plak-tedavisi",
+        "destination": "/en/hizmetler/seffaf-plak-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/en/botoks-tedavisi",
+        "destination": "/en/hizmetler/botoks-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/de/implant-tedavisi",
+        "destination": "/de/hizmetler/implant-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/de/agiz-dis-cene-cerrahisi",
+        "destination": "/de/hizmetler/agiz-dis-cene-cerrahisi",
+        "type": 301
+      },
+      {
+        "source": "/de/dis-beyazlatma",
+        "destination": "/de/hizmetler/dis-beyazlatma",
+        "type": 301
+      },
+      {
+        "source": "/de/periodontoloji-dis-eti-hastaliklari",
+        "destination": "/de/hizmetler/periodontoloji-dis-eti-hastaliklari",
+        "type": 301
+      },
+      {
+        "source": "/de/cocuk-dis-hekimligi",
+        "destination": "/de/hizmetler/cocuk-dis-hekimligi",
+        "type": 301
+      },
+      {
+        "source": "/de/protez-tedavileri",
+        "destination": "/de/hizmetler/protez-tedavileri",
+        "type": 301
+      },
+      {
+        "source": "/de/endodonti-kok-kanal-tedavisi",
+        "destination": "/de/hizmetler/endodonti-kok-kanal-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/de/restoratif-dis-tedavisi",
+        "destination": "/de/hizmetler/restoratif-dis-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/de/ortodonti-tel-tedavisi",
+        "destination": "/de/hizmetler/ortodonti-tel-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/de/seffaf-plak-tedavisi",
+        "destination": "/de/hizmetler/seffaf-plak-tedavisi",
+        "type": 301
+      },
+      {
+        "source": "/de/botoks-tedavisi",
+        "destination": "/de/hizmetler/botoks-tedavisi",
+        "type": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/opengraph-image",
+        "destination": "/tr/opengraph-image"
+      },
+      {
+        "source": "/twitter-image",
+        "destination": "/tr/twitter-image"
+      },
+      {
+        "source": "/",
+        "destination": "/tr.html"
+      },
+      {
+        "source": "/hizmetler",
+        "destination": "/tr/hizmetler.html"
+      },
+      {
+        "source": "/blog",
+        "destination": "/tr/blog.html"
+      },
+      {
+        "source": "/hizmetler/implant-tedavisi",
+        "destination": "/tr/hizmetler/implant-tedavisi.html"
+      },
+      {
+        "source": "/hizmetler/agiz-dis-cene-cerrahisi",
+        "destination": "/tr/hizmetler/agiz-dis-cene-cerrahisi.html"
+      },
+      {
+        "source": "/hizmetler/dis-beyazlatma",
+        "destination": "/tr/hizmetler/dis-beyazlatma.html"
+      },
+      {
+        "source": "/hizmetler/periodontoloji-dis-eti-hastaliklari",
+        "destination": "/tr/hizmetler/periodontoloji-dis-eti-hastaliklari.html"
+      },
+      {
+        "source": "/hizmetler/cocuk-dis-hekimligi",
+        "destination": "/tr/hizmetler/cocuk-dis-hekimligi.html"
+      },
+      {
+        "source": "/hizmetler/protez-tedavileri",
+        "destination": "/tr/hizmetler/protez-tedavileri.html"
+      },
+      {
+        "source": "/hizmetler/endodonti-kok-kanal-tedavisi",
+        "destination": "/tr/hizmetler/endodonti-kok-kanal-tedavisi.html"
+      },
+      {
+        "source": "/hizmetler/restoratif-dis-tedavisi",
+        "destination": "/tr/hizmetler/restoratif-dis-tedavisi.html"
+      },
+      {
+        "source": "/hizmetler/ortodonti-tel-tedavisi",
+        "destination": "/tr/hizmetler/ortodonti-tel-tedavisi.html"
+      },
+      {
+        "source": "/hizmetler/seffaf-plak-tedavisi",
+        "destination": "/tr/hizmetler/seffaf-plak-tedavisi.html"
+      },
+      {
+        "source": "/hizmetler/botoks-tedavisi",
+        "destination": "/tr/hizmetler/botoks-tedavisi.html"
+      },
+      {
+        "source": "/dis-curuklerini-onlemenin-7-etkili-yolu",
+        "destination": "/tr/dis-curuklerini-onlemenin-7-etkili-yolu.html"
+      },
+      {
+        "source": "/dis-agrisi-ne-zaman-doktora-gidilmeli",
+        "destination": "/tr/dis-agrisi-ne-zaman-doktora-gidilmeli.html"
+      },
+      {
+        "source": "/cocuklarda-dis-sagligi-icin-5-ipucu",
+        "destination": "/tr/cocuklarda-dis-sagligi-icin-5-ipucu.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/opengraph-image",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "image/png"
+          }
+        ]
+      },
+      {
+        "source": "**/twitter-image",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "image/png"
+          }
+        ]
+      },
+      {
+        "source": "/_next/static/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      }
+    ]
+  }
+}

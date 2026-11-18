@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:firebase": "node scripts/build-firebase.mjs",
+    "deploy:firebase": "npx -y firebase-tools deploy --only hosting"
   },
   "dependencies": {
     "next": "16.4.6",
