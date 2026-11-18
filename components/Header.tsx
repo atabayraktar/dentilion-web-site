@@ -19,7 +19,7 @@ export default function Header({ locale }: { locale: Locale }) {
         <Link href={localePath(locale)} aria-label={t.logoLabel} className="shrink-0 py-2">
           <Logo className="hdr-logo h-9 w-auto min-[360px]:h-11 md:h-12" />
         </Link>
-        <nav aria-label={t.mainNav} className="hidden md:block">
+        <nav aria-label={t.mainNav} className="hidden lg:block">
           <ul className="flex text-[1.05rem] font-medium lg:gap-1">
             {items.map((i) => (
               <li key={i.href}>
@@ -31,7 +31,7 @@ export default function Header({ locale }: { locale: Locale }) {
           </ul>
         </nav>
         <div className="flex shrink-0 items-center gap-2">
-          <div className="hidden items-center gap-2 md:flex">
+          <div className="hidden items-center gap-2 lg:flex">
             <LanguageSwitcher locale={locale} label={t.language} />
             <ThemeToggle label={t.themeSwitch} />
           </div>

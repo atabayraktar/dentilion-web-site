@@ -55,7 +55,7 @@ export default function StickyBar({ locale }: { locale: Locale }) {
         aria-label={t.whatsapp}
         tabIndex={shown ? 0 : -1} className={`${btn} group relative border-transparent bg-[#25D366] hover:bg-[#1fb957] ${shown ? "opacity-100" : "pointer-events-none invisible translate-y-3 opacity-0"}`}
       >
-        <span aria-hidden className="absolute inset-0 rounded-full motion-safe:animate-[wa-pulse_2.2s_ease-out_infinite]" />
+        <span aria-hidden className="absolute inset-0 rounded-ui motion-safe:animate-[wa-pulse_2.2s_ease-out_infinite]" />
         <WhatsAppIcon fill="#fff" className="relative" />
       </a>
     </div>

@@ -8,7 +8,7 @@ const HOOK_LINE = "M96 44C116 14 154 2 168 12C180 22 172 50 154 76";
 
 /** Faithful potrace trace of the original Dentilion logo (tooth+swoosh, hook) with the Kaushan wordmark where the old text sat.
  * A knockout mask keeps strokes off the lettering; masks along the centrelines draw the mark in. Ink follows currentColor. */
-export default function Logo({ className = "", still = false, onStage = false }: { className?: string; still?: boolean; onStage?: boolean }) {
+export default function Logo({ className = "", still = false }: { className?: string; still?: boolean }) {
   const id = useId();
   const word = (props: SVGProps<SVGTextElement>) => (
     <text x="48" y="124" fontSize="78" style={{ fontFamily: "var(--font-script), cursive" }} {...props}>
@@ -21,7 +21,7 @@ export default function Logo({ className = "", still = false, onStage = false }:
     </mask>
   );
   return (
-    <svg viewBox="0 0 360 200" className={`${onStage ? "text-stage-fg" : "text-accent"} ${className}`} role="img" aria-label={site.name} data-still={still || undefined}>
+    <svg viewBox="0 0 360 200" className={`text-accent dark:text-white ${className}`} role="img" aria-label={site.name} data-still={still || undefined}>
       <defs>
         {trace(TOOTH_LINE, "t")}
         {trace(HOOK_LINE, "h")}

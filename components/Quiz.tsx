@@ -58,7 +58,7 @@ export default function Quiz({ locale }: { locale: Locale }) {
       <div>
         <div className="flex gap-2" role="img" aria-label={`${step + 1}/${q.questions.length}`}>
           {q.questions.map((_, i) => (
-            <span key={i} aria-hidden className={`h-1 flex-1 rounded-full ${i <= step ? "bg-aqua" : "bg-white/20"}`} />
+            <span key={i} aria-hidden className={`h-1 flex-1 rounded-ui ${i <= step ? "bg-aqua" : "bg-white/20"}`} />
           ))}
         </div>
         <p className="font-display mt-5 text-2xl font-semibold md:text-3xl">{cur.q}</p>
@@ -90,9 +90,11 @@ export default function Quiz({ locale }: { locale: Locale }) {
         onClick={(e) => e.target === dlg.current && close()}
         className={`stage m-auto w-[min(92vw,40rem)] rounded-ui p-0 backdrop:bg-black/60 backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
       >
-        <div className="p-6 md:p-10">
-          <button type="button" onClick={close} aria-label={q.close} className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-ui border border-white/20 text-xl leading-none transition hover:border-aqua">×</button>
-          {body}
+        <div className="p-6 pt-4 md:p-10 md:pt-6">
+          <div className="flex justify-end">
+            <button type="button" onClick={close} aria-label={q.close} className="grid h-11 w-11 place-items-center rounded-ui border border-white/20 text-xl leading-none transition hover:border-aqua">×</button>
+          </div>
+          <div className="mt-2">{body}</div>
         </div>
       </dialog>
     </>

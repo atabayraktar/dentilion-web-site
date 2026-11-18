@@ -15,7 +15,7 @@ export default function Accordion({ items }: { items: { q: string; a: string }[]
           <div key={f.q} className="group/row relative border-b border-line">
             <span
               aria-hidden
-              className={`absolute inset-y-0 left-0 w-[3px] origin-top rounded-full ${grad} transition-transform duration-500 ease-out motion-reduce:transition-none ${on ? "scale-y-100" : "scale-y-0"}`}
+              className={`absolute inset-y-0 left-0 w-[3px] origin-top rounded-ui ${grad} transition-transform duration-500 ease-out motion-reduce:transition-none ${on ? "scale-y-100" : "scale-y-0"}`}
             />
             <h3>
               <button
@@ -31,10 +31,10 @@ export default function Accordion({ items }: { items: { q: string; a: string }[]
                 </span>
                 <span
                   aria-hidden
-                  className={`relative grid size-11 shrink-0 place-items-center rounded-full border transition-all duration-500 motion-reduce:transition-none ${on ? `border-transparent ${grad} rotate-180` : "border-line group-hover/row:border-aqua"}`}
+                  className={`relative grid size-11 shrink-0 place-items-center rounded-ui border transition-all duration-500 motion-reduce:transition-none ${on ? `border-transparent ${grad} rotate-180` : "border-line group-hover/row:border-aqua"}`}
                 >
-                  <span className={`absolute h-0.5 w-4 rounded-full transition-colors duration-300 ${on ? "bg-[var(--on-accent)]" : "bg-text"}`} />
-                  <span className={`absolute h-4 w-0.5 rounded-full transition-all duration-500 ${on ? "scale-y-0 bg-[var(--on-accent)] opacity-0" : "bg-text"}`} />
+                  <span className={`absolute h-0.5 w-4 rounded-ui transition-colors duration-300 ${on ? "bg-[var(--on-accent)]" : "bg-text"}`} />
+                  <span className={`absolute h-4 w-0.5 rounded-ui transition-all duration-500 ${on ? "scale-y-0 bg-[var(--on-accent)] opacity-0" : "bg-text"}`} />
                 </span>
               </button>
             </h3>

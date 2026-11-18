@@ -58,9 +58,9 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         {err("phone")}
       </label>
       <Select label={t.service} placeholder={t.anyService} options={services.map((s) => s.title[locale])} value={v.service} onChange={(s) => setV((x) => ({ ...x, service: s }))} />
-      <label className="block">
+      <label className="flex min-h-0 flex-1 flex-col">
         {t.message} <span className="text-sm text-muted">({t.optional})</span>
-        <textarea value={v.message} onChange={set("message")} rows={3} maxLength={300} className={`${field} resize-none`} />
+        <textarea value={v.message} onChange={set("message")} rows={3} maxLength={300} className={`${field} min-h-24 flex-1 resize-none`} />
       </label>
       <div>
         <label className="group flex min-h-11 cursor-pointer items-start gap-3 text-sm text-muted">
@@ -74,12 +74,12 @@ export default function ContactForm({ locale }: { locale: Locale }) {
         </label>
         {err("consent")}
       </div>
-      <button type="submit" className="btn btn-primary mt-auto self-start">
+      <button type="submit" className="btn btn-primary self-start">
         <WhatsAppIcon width={22} height={22} fill="currentColor" aria-hidden />
         {t.submit}
         <ArrowIcon width={18} height={18} />
       </button>
-      <p role="status" className="min-h-6 text-accent">
+      <p role="status" className="text-accent empty:hidden">
         {sent && (
           <>
             {t.done} <a href={`tel:${site.phone.tel}`} className="font-semibold">{site.phone.display}</a>

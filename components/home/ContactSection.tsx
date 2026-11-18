@@ -9,7 +9,7 @@ import { ClockIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } 
 
 const row =
   "flex min-h-14 items-center gap-3 rounded-ui border border-line bg-bg px-4 py-3 transition-colors duration-200 hover:border-accent";
-const chip = "grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent/10 text-accent [&>svg]:size-[1.375rem]";
+const chip = "grid h-10 w-10 shrink-0 place-items-center rounded-ui bg-accent/10 text-accent [&>svg]:size-[1.375rem]";
 
 export default function ContactSection({ locale }: { locale: Locale }) {
   const t = contact[locale];

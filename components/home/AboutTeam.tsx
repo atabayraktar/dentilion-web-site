@@ -26,8 +26,8 @@ export function AboutTeam({ locale }: { locale: Locale }) {
           <p className="mt-8 max-w-2xl text-lg">{c.about.text}</p>
         </Reveal>
         <Reveal className="md:col-span-5" delay={80}>
-          <div className="stage grid aspect-[16/9] place-items-center rounded-ui p-[10%] md:aspect-[4/3]">
-            <Logo onStage className="h-full w-auto max-w-full" />
+          <div className="grid border border-line bg-surface aspect-[16/9] place-items-center rounded-ui p-[10%] md:aspect-[4/3]">
+            <Logo className="h-full w-auto max-w-full" />
           </div>
         </Reveal>
       </div>

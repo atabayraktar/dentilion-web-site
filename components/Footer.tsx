@@ -4,15 +4,15 @@ import type { Locale } from "@/lib/i18n";
 import { InstagramIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 import Logo from "./Logo";
 
-const btn = "icon-btn border-white/20 hover:border-aqua hover:bg-aqua hover:text-stage";
+const btn = "icon-btn hover:border-aqua";
 
 export default function Footer({ locale }: { locale: Locale }) {
   const t = getDict(locale);
   return (
-    <footer id="footer" className="stage">
+    <footer id="footer" className="bg-bg text-text">
       <div className="flex flex-col px-[clamp(1.25rem,2vw,3rem)] items-center gap-6 pb-24 pt-8 md:grid md:py-8 md:grid-cols-[1fr_auto_1fr] md:gap-8">
-        <Logo still onStage className="h-12 w-auto md:justify-self-start" />
-        <p className="text-center text-sm text-stage-muted">
+        <Logo still className="h-12 w-auto md:justify-self-start" />
+        <p className="text-center text-sm text-muted">
           © 2026 {site.name}. {t.rights}
         </p>
         <ul className="flex items-center gap-3 md:justify-self-end">

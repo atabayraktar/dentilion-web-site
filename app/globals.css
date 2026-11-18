@@ -255,6 +255,9 @@ h3 {
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 12px 32px -16px rgb(0 0 0 / 0.55);
 }
 .hdr-bar .hdr-logo { color: var(--accent); transition: color 350ms; }
+[data-theme="dark"] .hdr-bar .hdr-logo { color: #fff; }
+.ctl-btn { transition: background-color 300ms, border-color 300ms; }
+.ctl-btn:hover, .ctl-btn:focus-visible { background: var(--surface); border-color: var(--accent); }
 [data-stage="true"] .hdr-bar .hdr-logo { color: var(--stage-fg); }
 
 /* Nav: label crossfades to an aqua -> indigo/lilac gradient text; no glow, no underline, no shift. */
@@ -336,7 +339,7 @@ h3 {
   place-items: center;
   width: 3rem;
   height: 3rem;
-  border-radius: 50%;
+  border-radius: var(--r);
   border: 1px solid var(--line);
   transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 300ms, background-color 300ms, border-color 300ms, color 300ms;
 }
@@ -350,7 +353,7 @@ h3 {
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
-  border-radius: 50%;
+  border-radius: var(--r);
   background: var(--grad-brand);
   color: var(--on-accent);
 }
@@ -442,9 +445,7 @@ h3 {
 
 /* Contact: light = pastel aqua-lilac with cream cards; dark = deep night with an accent glow. */
 .contact { background: linear-gradient(160deg, #d3ebf0 0%, #e3e6f6 100%); color: var(--text); }
-[data-theme="dark"] .contact {
-  background: radial-gradient(60% 50% at 100% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%), #080720;
-}
+[data-theme="dark"] .contact { background: #080720; }
 /* [gradient v0.6] Brand gradient (aqua -> accent), liked in the FAQ accordion; reuse site-wide (arrows, icons, accents). */
 :root { --grad-brand: linear-gradient(135deg, var(--aqua), var(--accent)); }
 .grad-brand { background-image: var(--grad-brand); }

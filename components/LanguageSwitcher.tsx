@@ -69,7 +69,7 @@ export default function LanguageSwitcher({ locale, label, variant = "popover", o
         aria-expanded={open}
         aria-label={`${label}: ${languageNames[locale]}`}
         onClick={() => setOpen((o) => !o)}
-        className="flex h-11 items-center gap-1.5 rounded-ui border border-line pl-2.5 pr-2 transition-colors duration-300 hover:bg-surface"
+        className="flex h-11 items-center gap-1.5 rounded-ui border border-line pl-2.5 pr-2 ctl-btn"
       >
         <FlagIcon l={locale} />
         <ChevronIcon width={12} height={12} className={`shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />

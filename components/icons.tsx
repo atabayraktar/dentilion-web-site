@@ -101,7 +101,7 @@ const flags = {
   ),
 };
 export const FlagIcon = ({ l, ...p }: { l: keyof typeof flags } & SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" width={22} height={22} aria-hidden className="shrink-0 rounded-full" {...p}>
+  <svg viewBox="0 0 24 24" width={22} height={22} aria-hidden className="shrink-0 rounded-ui" {...p}>
     {flags[l]}
   </svg>
 );

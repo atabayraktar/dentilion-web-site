@@ -39,7 +39,7 @@ export const site = {
     { href: "/hizmetler", label: { tr: "Hizmetlerimiz", en: "Services", de: "Leistungen" } },
     { href: "/blog", label: { tr: "Blog", en: "Blog", de: "Blog" } },
     { href: "/#hakkimizda", label: { tr: "Hakkımızda", en: "About", de: "Über uns" } },
-    { href: "/#sss", label: { tr: "SSS", en: "FAQ", de: "FAQ" } },
+    { href: "/#sss", label: { tr: "S.S.S", en: "FAQ", de: "FAQ" } },
     { href: "/#iletisim", label: { tr: "İletişim", en: "Contact", de: "Kontakt" } },
   ] satisfies { href: string; label: Localized<string> }[],
 } as const;
