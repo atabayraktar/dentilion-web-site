@@ -25,7 +25,8 @@ export default function HashScroll() {
     const target = (id: string) => document.getElementById(decodeURIComponent(id));
     const headerBottom = () => document.querySelector("header")?.getBoundingClientRect().bottom ?? 0;
     const top = (el: HTMLElement) => {
-      const tops = [...el.querySelectorAll(CONTENT)]
+      const sel = matchMedia("(max-width: 767px)").matches ? `${CONTENT}, [data-hash-top]` : CONTENT; // marker only where it stacks above the heading
+      const tops = [...el.querySelectorAll(sel)]
         .map((e) => e.getBoundingClientRect())
         .filter((r) => r.width > 0 && r.height > 0)
         .map((r) => r.top);

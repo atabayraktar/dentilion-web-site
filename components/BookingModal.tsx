@@ -10,10 +10,21 @@ export default function BookingModal({ locale, title, close: closeLabel }: { loc
   const dlg = useRef<HTMLDialogElement>(null);
   const [shown, setShown] = useState(false);
   const [key, setKey] = useState(0);
+  const closing = useRef(false);
 
   const close = () => {
+    const d = dlg.current;
+    if (!d?.open) return;
+    closing.current = true;
     setShown(false);
-    setTimeout(() => dlg.current?.close(), 300);
+    const finish = () => {
+      d.removeEventListener("transitionend", onEnd);
+      clearTimeout(t);
+      if (closing.current) d.close();
+    };
+    const onEnd = (e: TransitionEvent) => e.target === d && e.propertyName === "opacity" && finish();
+    d.addEventListener("transitionend", onEnd);
+    const t = setTimeout(finish, matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 500);
   };
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -22,6 +33,7 @@ export default function BookingModal({ locale, title, close: closeLabel }: { loc
       e.preventDefault();
       e.stopPropagation();
       document.querySelectorAll<HTMLDialogElement>("dialog[open]").forEach((d) => d.close());
+      closing.current = false;
       setKey((k) => k + 1);
       dlg.current?.showModal();
       requestAnimationFrame(() => setShown(true));
@@ -37,7 +49,7 @@ export default function BookingModal({ locale, title, close: closeLabel }: { loc
       onCancel={(e) => { e.preventDefault(); close(); }}
       onClick={(e) => e.target === dlg.current && close()}
       onClose={() => setShown(false)}
-      className={`m-auto max-h-[92dvh] w-[min(92vw,40rem)] overflow-y-auto overscroll-contain rounded-ui bg-surface p-0 max-md:h-dvh max-md:max-h-none max-md:w-full max-md:max-w-none max-md:rounded-none text-text backdrop:bg-black/50 backdrop:backdrop-blur-[6px] backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
+      className={`m-auto max-h-[92dvh] w-[min(92vw,40rem)] overflow-y-auto overscroll-contain rounded-ui bg-surface p-0 max-md:h-dvh max-md:max-h-none max-md:w-full max-md:max-w-none max-md:rounded-none text-text backdrop:bg-black/50 backdrop:backdrop-blur-[6px] backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 opacity-0 md:scale-95 max-md:scale-100"}`}
     >
       <div className="p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] md:p-10">
         <div className="flex items-center justify-end gap-4 md:justify-between">

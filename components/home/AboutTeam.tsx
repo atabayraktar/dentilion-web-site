@@ -27,7 +27,7 @@ export function AboutTeam({ locale }: { locale: Locale }) {
           <p className="mt-8 max-w-2xl text-lg">{c.about.text}</p>
         </Reveal>
         <Reveal className="order-1 md:order-none md:col-span-5" delay={80}>
-          <div className="grid border border-aqua/30 bg-[#eefcfd] dark:border-line dark:bg-bg aspect-[16/9] place-items-center rounded-ui p-[10%] md:aspect-[4/3]">
+          <div data-hash-top className="grid border border-aqua/30 bg-[#eefcfd] dark:border-line dark:bg-bg aspect-[16/9] place-items-center rounded-ui p-[10%] md:aspect-[4/3]">
             <Logo className="h-full w-auto max-w-full" />
           </div>
         </Reveal>

@@ -476,9 +476,6 @@ h3 {
 /* layout (A) */
 .sticky-bar { transition: opacity 0.3s, visibility 0.3s; }
 body[data-menu-open] .sticky-bar { opacity: 0; visibility: hidden; }
-@media (max-width: 767px) {
-  main:not(:has([data-hero])) { padding-bottom: 5rem; } /* room for the sticky buttons resting above the footer */
-}
 
 /* [r8] native dialogs (booking, quiz, lightbox) lock page scroll */
 html { overflow-y: scroll; } /* scrollbar always visible; scroll blocked while dialog open by ScrollLock */

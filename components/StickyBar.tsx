@@ -18,9 +18,21 @@ export default function StickyBar({ locale }: { locale: Locale }) {
   useEffect(() => {
     const update = () => {
       const footer = document.getElementById("footer");
-      const visible = footer ? innerHeight - footer.getBoundingClientRect().top : 0;
-      const lift = visible > 0 ? visible : 0;
-      box.current?.style.setProperty("--lift", `${lift}px`);
+      const b = box.current;
+      let lift = 0;
+      if (matchMedia("(max-width: 767px)").matches) {
+        // Phone: once the footer logo row reaches the buttons' resting line, they ride along beside the logo.
+        const logo = footer?.querySelector(".footer-logo")?.getBoundingClientRect();
+        if (logo && b) {
+          const r = b.getBoundingClientRect();
+          const cur = parseFloat(b.style.getPropertyValue("--lift")) || 0;
+          lift = Math.max(0, r.top + r.height / 2 + cur - (logo.top + logo.height / 2));
+        }
+      } else {
+        const visible = footer ? innerHeight - footer.getBoundingClientRect().top : 0;
+        lift = visible > 0 ? visible : 0;
+      }
+      b?.style.setProperty("--lift", `${lift}px`);
       setShown(scrollY > 600);
       setNearEnd(scrollY > innerHeight * 0.75 && document.documentElement.scrollHeight - scrollY - innerHeight <= innerHeight);
     };
