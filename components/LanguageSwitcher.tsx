@@ -29,13 +29,15 @@ export default function LanguageSwitcher({ locale, label, variant = "popover", o
             lang={l}
             hrefLang={l}
             aria-current={l === locale ? "true" : undefined}
+            aria-label={languageNames[l]}
+            title={languageNames[l]}
             className={`label flex h-11 flex-1 items-center justify-center rounded-ui border ${
               l === locale
                 ? onStage ? "border-aqua bg-aqua text-stage" : "border-accent bg-accent text-on-accent"
                 : onStage ? "border-white/40 text-stage-fg" : "border-line text-muted"
             }`}
           >
-            {l}
+            <FlagIcon l={l} width={24} height={24} />
           </Link>
         ))}
       </div>

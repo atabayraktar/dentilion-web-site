@@ -473,5 +473,23 @@ h3 {
 .grad-brand-text { background-image: var(--grad-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
 @media (min-width: 640px) { .hero-tile-cap { flex-direction: row; align-items: center; justify-content: space-between; } }
 
+/* layout (A) */
+.sticky-bar { transition: opacity 0.3s, visibility 0.3s; }
+body[data-menu-open] .sticky-bar { opacity: 0; visibility: hidden; }
+@media (max-width: 767px) {
+  main:not(:has([data-hero])) { padding-bottom: 5rem; } /* room for the sticky buttons resting above the footer */
+}
+
 /* [r8] native dialogs (booking, quiz, lightbox) lock page scroll */
 html { overflow-y: scroll; } /* scrollbar always visible; scroll blocked while dialog open by ScrollLock */
+
+/* swiper (B) */
+.swiper { display: flex; position: relative; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+.swiper::-webkit-scrollbar { display: none; }
+.swiper > * { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; }
+@media (min-width: 768px) { .swiper { display: grid; overflow: visible; scroll-snap-type: none; } .swiper > * { flex: none; } }
+.swiper-dot { position: relative; width: 2.75rem; height: 2.75rem; }
+.swiper-dot::after { content: ""; position: absolute; left: 0.625rem; right: 0.625rem; top: 50%; height: 0.375rem; margin-top: -0.1875rem; border-radius: 2px; background: var(--line); transition: background-color .3s, left .3s, right .3s; }
+.swiper-dot[aria-current="true"]::after { background: var(--accent); left: 0.375rem; right: 0.375rem; }
+@media (prefers-reduced-motion: reduce) { .swiper-dot::after { transition: none; } }
+@media (max-height: 500px) and (orientation: landscape) { .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

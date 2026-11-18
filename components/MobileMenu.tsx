@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeToggle from "./ThemeToggle";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -14,6 +14,10 @@ type Props = {
 
 export default function MobileMenu({ locale, items, t }: Props) {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    document.body.toggleAttribute("data-menu-open", open);
+    return () => document.body.removeAttribute("data-menu-open");
+  }, [open]);
   return (
     <div className="lg:hidden">
       <button

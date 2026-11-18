@@ -22,11 +22,11 @@ export function AboutTeam({ locale }: { locale: Locale }) {
   return (
     <Section id="hakkimizda" className="bg-surface">
       <div className="grid items-center gap-10 md:grid-cols-12 md:gap-16">
-        <Reveal className="md:col-span-7">
+        <Reveal className="order-2 md:order-none md:col-span-7">
           <h2 className="text-[clamp(1.75rem,3.4vw,3.5rem)]">{c.about.title}</h2>
           <p className="mt-8 max-w-2xl text-lg">{c.about.text}</p>
         </Reveal>
-        <Reveal className="md:col-span-5" delay={80}>
+        <Reveal className="order-1 md:order-none md:col-span-5" delay={80}>
           <div className="grid border border-aqua/30 bg-[#eefcfd] dark:border-line dark:bg-bg aspect-[16/9] place-items-center rounded-ui p-[10%] md:aspect-[4/3]">
             <Logo className="h-full w-auto max-w-full" />
           </div>
@@ -35,7 +35,7 @@ export function AboutTeam({ locale }: { locale: Locale }) {
       <Reveal>
         <h3 className="mt-16 max-w-3xl text-[clamp(1.5rem,2.8vw,2.5rem)] md:mt-24">{c.team.title}</h3>
       </Reveal>
-      <ul className="mt-8 grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
+      <ul className="team-grid mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-3">
         {team.map((m, i) => (
           <li key={m.id}>
             <Reveal delay={i * 60} className="h-full">

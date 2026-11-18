@@ -10,6 +10,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Accordion from "@/components/ui/Accordion";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
+import Swiper from "@/components/ui/Swiper";
 import { ArrowIcon, PhoneIcon } from "@/components/icons";
 
 export default function ServiceDetail({ service, locale }: { service: Service; locale: Locale }) {
@@ -33,13 +34,13 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
         <Reveal className="space-y-5 text-lg lg:col-span-7 lg:self-center">
           {service.body![locale].filter((p) => p !== service.summary[locale]).map((p) => <p key={p} className="max-w-prose">{p}</p>)}
         </Reveal>
-        <div className={`${frame} aspect-[16/10] lg:col-span-5 lg:aspect-[4/3]`}>
+        <div className={`${frame} order-first aspect-[16/10] lg:order-none lg:col-span-5 lg:aspect-[4/3]`}>
           <Image src={img.body[0]} alt={title} fill priority fetchPriority="high" quality={75} sizes="(min-width:1024px) 900px, 150vw" className="object-cover" />
         </div>
       </section>
 
       <section className="wrap grid gap-8 pb-12 md:pb-20 lg:grid-cols-12 lg:items-stretch lg:gap-[clamp(2rem,5vw,6rem)]">
-        <Reveal className={`${frame} aspect-[16/10] lg:col-span-5 lg:aspect-auto lg:min-h-[22rem]`}>
+        <Reveal className={`${frame} order-last aspect-[16/10] lg:order-none lg:col-span-5 lg:aspect-auto lg:min-h-[22rem]`}>
           <Image src={img.body[1]} alt={title} fill quality={85} sizes="(min-width:1024px) 1200px, 150vw" className="object-cover" />
         </Reveal>
         <div className="lg:col-span-7">
@@ -85,16 +86,18 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
             {t.backTo}<ArrowIcon width={18} height={18} />
           </Link>
         </div>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {others.slice(0, 5).map((s) => (
-            <li key={s.id}>
-              <Link href={localePath(locale, servicePath(s.slug!))} className="group relative block aspect-[4/5] overflow-hidden rounded-ui bg-stage">
+        <div className="mt-8">
+          <Swiper
+            label={t.related}
+            className="md:grid-cols-2 lg:grid-cols-5"
+            items={others.slice(0, 5).map((s) => (
+              <Link key={s.id} href={localePath(locale, servicePath(s.slug!))} className="group relative block aspect-[4/5] overflow-hidden rounded-ui bg-stage">
                 <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:1024px) 800px, (min-width:640px) 150vw, 220vw" className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none" />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stage/90 to-transparent p-4 pt-12 font-display font-semibold text-stage-fg">{s.title[locale]}</span>
               </Link>
-            </li>
-          ))}
-        </ul>
+            ))}
+          />
+        </div>
       </section>
     </>
   );

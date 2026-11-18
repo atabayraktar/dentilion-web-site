@@ -38,10 +38,10 @@ export default function Header({ locale }: { locale: Locale }) {
           <Link
             href={localePath(locale, "/#iletisim")}
             data-book
-            className="btn btn-primary h-11 shrink-0 px-3 text-[0.8rem] min-[360px]:px-4 min-[360px]:text-sm md:px-6 md:text-[0.95rem]"
+            className="btn btn-primary h-11 shrink-0 px-2.5 text-[0.75rem] min-[390px]:px-4 min-[390px]:text-sm md:px-6 md:text-[0.95rem]"
           >
             {t.book}
-            <ArrowIcon width={16} height={16} className="hidden min-[360px]:block" />
+            <ArrowIcon width={16} height={16} className="hidden min-[390px]:block" />
           </Link>
           <MobileMenu locale={locale} items={items} t={t} />
         </div>

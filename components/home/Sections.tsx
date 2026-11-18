@@ -8,6 +8,7 @@ import { site } from "@/content/site";
 import { type Locale } from "@/lib/i18n";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import Accordion from "@/components/ui/Accordion";
+import Swiper from "@/components/ui/Swiper";
 import Reveal from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
@@ -62,11 +63,9 @@ export function BlogPreview({ locale }: { locale: Locale }) {
   return (
     <Section id="blog">
       <h2 className="text-[clamp(2rem,4.5vw,3.5rem)]">{t.blogTitle}</h2>
-      <ul className="mt-10 grid gap-6 md:grid-cols-3">
-        {posts.map((p) => (
-          <li key={p.slug}><PostCard post={p} locale={locale} /></li>
-        ))}
-      </ul>
+      <div className="mt-10">
+        <Swiper label={t.blogTitle} className="md:grid-cols-3 md:gap-6" items={posts.map((p) => <PostCard key={p.slug} post={p} locale={locale} />)} />
+      </div>
     </Section>
   );
 }

@@ -36,7 +36,7 @@ export default function StickyBar({ locale }: { locale: Locale }) {
   return (
     <div
       ref={box}
-      className="pointer-events-none fixed inset-x-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 flex items-end justify-between md:inset-x-8 md:bottom-8"
+      className="sticky-bar pointer-events-none fixed inset-x-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 flex items-end justify-between md:inset-x-8 md:bottom-8"
       style={{ transform: "translateY(calc(var(--lift, 0px) * -1))" }}
     >
       <button

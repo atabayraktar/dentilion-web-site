@@ -11,21 +11,21 @@ const TILES = [
     src: "/images/stock/implant-crown.webp",
     label: { tr: "Hizmetlerimiz", en: "Our services", de: "Leistungen" },
     alt: { tr: "Seramik diş kronu ve implant modeli", en: "Ceramic crown and implant model", de: "Keramikkrone und Implantatmodell" },
-    sizes: "(min-width: 1024px) 40vw, 150vw",
+    sizes: "(min-width: 1280px) 40vw, (min-width: 1280px) 60vw, (min-width: 1024px) 100vw, 150vw",
   },
   {
     href: "/#blog",
     src: "/images/stock/bamboo-brush-counter.webp",
     label: { tr: "Blog", en: "Blog", de: "Blog" },
     alt: { tr: "Bambu diş fırçası ve diş macunu", en: "Bamboo toothbrush and toothpaste", de: "Bambus-Zahnbürste und Zahnpasta" },
-    sizes: "(min-width: 1024px) 40vw, 150vw",
+    sizes: "(min-width: 1280px) 40vw, (min-width: 1280px) 60vw, (min-width: 1024px) 100vw, 150vw",
   },
   {
     href: "/#iletisim",
     src: "/images/stock/clinic-room.webp",
     label: { tr: "İletişim", en: "Contact", de: "Kontakt" },
     alt: { tr: "Modern diş kliniği tedavi odası", en: "Modern dental clinic treatment room", de: "Moderner Behandlungsraum einer Zahnklinik" },
-    sizes: "(min-width: 1024px) 60vw, 150vw",
+    sizes: "(min-width: 1280px) 60vw, (min-width: 1024px) 100vw, 150vw",
   },
 ] as const;
 
@@ -34,15 +34,15 @@ export default function Hero({ locale }: { locale: Locale }) {
   return (
     <section data-hero className="hero relative isolate overflow-hidden">
       <svg aria-hidden viewBox="0 0 48 56" fill="none" stroke="currentColor" strokeWidth={0.5} strokeLinejoin="round" className="hero-tooth"><path pathLength={1} d="M24 9c-4-4-14-4-16 6-1 8 4 12 5 20 .7 6 2 14 5 14 3 0 3-10 6-10s3 10 6 10c3 0 4.3-8 5-14 1-8 6-12 5-20-2-10-12-10-16-6Z" /></svg>
-      <div className="wrap grid min-h-svh items-center gap-10 pb-16 pt-28 lg:grid-cols-12 lg:gap-12 lg:pt-32">
-        <div className="hero-copy lg:col-span-6">
+      <div className="wrap grid min-h-svh items-center gap-10 pb-16 pt-28 lg:gap-12 lg:pt-32 lg:landscape:grid-cols-12 lg:portrait:min-h-0">
+        <div className="hero-copy lg:landscape:col-span-6">
           <h1 className="hero-title"><span className="hero-title-grad">{c.title}</span></h1>
           <p className="mt-6 max-w-[44ch] text-muted md:text-lg">{c.text}</p>
           <div className="hero-quiz mt-8 max-w-xl">
             <Quiz locale={locale} />
           </div>
         </div>
-        <ul className="hero-tiles lg:col-span-6">
+        <ul className="hero-tiles lg:landscape:col-span-6">
           {TILES.map((t, i) => (
             <li key={t.href} className={i === 2 ? "col-span-2" : undefined} style={{ "--i": i } as React.CSSProperties}>
               <Link href={localePath(locale, t.href)} className="hero-tile group">

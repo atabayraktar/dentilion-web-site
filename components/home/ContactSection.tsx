@@ -32,11 +32,11 @@ export default function ContactSection({ locale }: { locale: Locale }) {
                 ))}
               </ul>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2 lg:max-xl:grid-cols-1">
               <a href={`https://wa.me/${site.whatsapp}`} {...ext} className={row}><span className={chip}><WhatsAppIcon /></span>{site.whatsappDisplay}</a>
               <a href={`tel:${site.phone.tel}`} className={row}><span className={chip}><PhoneIcon /></span>{site.phone.display}</a>
               <a href={`mailto:${site.email}`} {...ext} className={`${row} break-all`}><span className={chip}><MailIcon /></span>{site.email}</a>
-              <a href={site.instagram} {...ext} className={row}><span className={chip}><InstagramIcon /></span>@dentilioncanakkale</a>
+              <a href={site.instagram} {...ext} className={`${row} break-all`}><span className={chip}><InstagramIcon /></span>@dentilioncanakkale</a>
             </div>
             <address className="not-italic">
               <a href={site.mapUrl} {...ext} className={`${row} justify-center text-center`}>

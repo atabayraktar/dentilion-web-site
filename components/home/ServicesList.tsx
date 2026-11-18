@@ -11,6 +11,7 @@ import Reveal from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { ArrowIcon } from "@/components/icons";
 import ArrowCircle from "@/components/ui/ArrowCircle";
+import Swiper from "@/components/ui/Swiper";
 
 export default function ServicesList({ locale }: { locale: Locale }) {
   const t = getDict(locale);
@@ -52,7 +53,24 @@ export default function ServicesList({ locale }: { locale: Locale }) {
           <Reveal>
             <h2 className="max-w-[22ch] text-[clamp(1.5rem,2.8vw,2.4rem)]">{c.title}</h2>
           </Reveal>
-          <ul className="mt-10 grid gap-1">
+          <div className="mt-8 md:hidden">
+            <Swiper
+              label={c.title}
+              items={Array.from({ length: Math.ceil(services.length / 4) }, (_, p) => (
+                <div key={p} className="grid grid-cols-2 gap-3">
+                  {services.slice(p * 4, p * 4 + 4).map((s) => (
+                    <Link key={s.id} href={localePath(locale, servicePath(s.slug!))} className="block">
+                      <span className="relative block aspect-square overflow-hidden rounded-ui bg-surface">
+                        <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:640px) 640px, 100vw" className="object-cover" />
+                      </span>
+                      <span className="font-display mt-2 block text-base font-semibold leading-tight">{s.title[locale]}</span>
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            />
+          </div>
+          <ul className="mt-10 hidden gap-1 md:grid">
             {services.map((s, i) => (
               <li key={s.id}>
                 <Link

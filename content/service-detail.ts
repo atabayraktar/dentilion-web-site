@@ -5,7 +5,7 @@ const s = (f: string) => `/images/stock/${f}.webp`;
 
 /** two body images per service id (hero = service.image). */
 export const serviceImages: Record<string, { body: [string, string]; hero?: string }> = {
-  implant: { body: [s("implant-model"), s("implant-closeup")] },
+  implant: { body: [s("implant-model"), s("implant-crown")] },
   cerrahi: { body: [s("surgery-tools"), s("syringe-tools")] },
   beyazlatma: { body: [s("whitening-tray"), s("smile-close")] },
   periodontoloji: { body: [s("toothbrushes"), s("tools-blue")] },

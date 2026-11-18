@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
 import HashScroll from "@/components/HashScroll";
 import ScrollLock from "@/components/ScrollLock";
+import ThemeKeeper from "@/components/ThemeKeeper";
 import BookingModal from "@/components/BookingModal";
 import { quiz } from "@/content/quiz";
 import "../globals.css";
@@ -58,8 +59,9 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className="flex min-h-dvh flex-col">
         <ScrollLock />
+        <ThemeKeeper />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent"
@@ -67,7 +69,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
           {t.skip}
         </a>
         <Header locale={locale} />
-        <main id="main">
+        <main id="main" className="flex-1">
           {children}
         </main>
         <Footer locale={locale} />

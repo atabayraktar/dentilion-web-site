@@ -4,6 +4,7 @@ import { posts } from "@/content/blog";
 import { form } from "@/content/form";
 import { localePath, type Locale } from "@/lib/i18n";
 import Breadcrumb from "@/components/Breadcrumb";
+import Swiper from "@/components/ui/Swiper";
 import PostCard from "@/components/PostCard";
 
 export default function BlogArticle({ post, locale }: { post: BlogPost; locale: Locale }) {
@@ -41,9 +42,9 @@ export default function BlogArticle({ post, locale }: { post: BlogPost; locale: 
       </article>
       <section className="wrap pb-16 md:pb-24">
         <h2 className="text-2xl md:text-3xl">{form[locale].blogTitle}</h2>
-        <ul className="mt-6 grid gap-6 md:grid-cols-2">
-          {more.map((p) => <li key={p.slug}><PostCard post={p} locale={locale} /></li>)}
-        </ul>
+        <div className="mt-6">
+          <Swiper label={form[locale].blogTitle} className="md:grid-cols-2 md:gap-6" items={more.map((p) => <PostCard key={p.slug} post={p} locale={locale} />)} />
+        </div>
       </section>
     </>
   );
