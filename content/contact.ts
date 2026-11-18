@@ -34,7 +34,7 @@ export const contact: Localized<{
     message: "Kısa mesaj",
     optional: "isteğe bağlı",
     consent: "Bilgilerimin bu talep kapsamında iletişim için kullanılmasını kabul ediyorum.",
-    submit: "WhatsApp ile yaz",
+    submit: "ile yaz",
     errName: "Lütfen adınızı yazın.",
     errPhone: "Lütfen geçerli bir telefon numarası yazın.",
     errConsent: "Devam etmek için onay gerekli.",
