@@ -71,7 +71,7 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
             <h2 className="text-[clamp(1.75rem,3.4vw,3rem)]">{d.ctaTitle}</h2>
             <p className="max-w-2xl opacity-90 md:text-lg">{d.ctaText}</p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Button href={localePath(locale, "/#iletisim")} variant="ghost">{u.book}</Button>
+              <Link href={localePath(locale, "/#iletisim")} data-book className="btn btn-ghost">{u.book}</Link>
               <Button href={`tel:${site.phone.tel}`} variant="ghost"><PhoneIcon />{site.phone.display}</Button>
             </div>
           </div>

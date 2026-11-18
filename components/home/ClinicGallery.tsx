@@ -53,7 +53,7 @@ export default function ClinicGallery({ locale }: { locale: Locale }) {
         onCancel={(e) => { e.preventDefault(); close(); }}
         onClick={(e) => e.target === dlg.current && close()}
         onKeyDown={(e) => { if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); }}
-        className={`fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-hidden border-0 bg-transparent p-0 text-white backdrop:bg-black/80 backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-opacity duration-300 motion-reduce:transition-none ${shown ? "opacity-100" : "opacity-0"}`}
+        className={`fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-hidden border-0 bg-transparent p-0 text-white backdrop:bg-black/80 backdrop:backdrop-blur-[6px] backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-opacity duration-300 motion-reduce:transition-none ${shown ? "opacity-100" : "opacity-0"}`}
       >
         <div className="relative h-full w-full px-4 py-16 md:px-28" onClick={(e) => e.target === e.currentTarget && close()}>
           <div className="relative h-full w-full" onClick={(e) => e.target === e.currentTarget && close()}>

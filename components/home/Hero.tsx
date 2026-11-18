@@ -33,8 +33,8 @@ export default function Hero({ locale }: { locale: Locale }) {
   const c = home[locale].hero;
   return (
     <section data-hero className="hero relative isolate overflow-hidden">
-      <svg aria-hidden viewBox="0 0 48 56" fill="none" stroke="currentColor" strokeWidth={0.5} strokeLinejoin="round" className="hero-tooth"><path d="M24 9c-4-4-14-4-16 6-1 8 4 12 5 20 .7 6 2 14 5 14 3 0 3-10 6-10s3 10 6 10c3 0 4.3-8 5-14 1-8 6-12 5-20-2-10-12-10-16-6Z" /></svg>
-      <div className="wrap grid min-h-[88svh] items-center gap-10 pb-16 pt-28 lg:grid-cols-12 lg:gap-12 lg:pt-32">
+      <svg aria-hidden viewBox="0 0 48 56" fill="none" stroke="currentColor" strokeWidth={0.5} strokeLinejoin="round" className="hero-tooth"><path pathLength={1} d="M24 9c-4-4-14-4-16 6-1 8 4 12 5 20 .7 6 2 14 5 14 3 0 3-10 6-10s3 10 6 10c3 0 4.3-8 5-14 1-8 6-12 5-20-2-10-12-10-16-6Z" /></svg>
+      <div className="wrap grid min-h-svh items-center gap-10 pb-16 pt-28 lg:grid-cols-12 lg:gap-12 lg:pt-32">
         <div className="hero-copy lg:col-span-6">
           <h1 className="hero-title"><span className="hero-title-grad">{c.title}</span></h1>
           <p className="mt-6 max-w-[44ch] text-muted md:text-lg">{c.text}</p>

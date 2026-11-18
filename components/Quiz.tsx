@@ -56,12 +56,6 @@ export default function Quiz({ locale }: { locale: Locale }) {
     const cur = q.questions[step];
     body = (
       <div>
-        <div className="flex gap-2" role="img" aria-label={`${step + 1}/${q.questions.length}`}>
-          {q.questions.map((_, i) => (
-            <span key={i} aria-hidden className={`h-1 flex-1 rounded-ui ${i <= step ? "bg-aqua" : "bg-white/20"}`} />
-          ))}
-        </div>
-        <p className="font-display mt-5 text-2xl font-semibold md:text-3xl">{cur.q}</p>
         <ul className="mt-6 grid gap-3">
           {cur.options.map((o) => (
             <li key={o.label}>
@@ -88,13 +82,19 @@ export default function Quiz({ locale }: { locale: Locale }) {
         aria-label={q.title}
         onCancel={(e) => { e.preventDefault(); close(); }}
         onClick={(e) => e.target === dlg.current && close()}
-        className={`stage m-auto w-[min(92vw,40rem)] rounded-ui p-0 backdrop:bg-black/60 backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
+        className={`stage m-auto w-[min(92vw,40rem)] rounded-ui p-0 backdrop:bg-black/60 backdrop:backdrop-blur-[6px] backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
       >
-        <div className="p-6 md:p-10">
-          <div className="flex justify-end">
-            <button type="button" onClick={close} aria-label={q.close} className="grid h-11 w-11 place-items-center rounded-ui border border-white/20 text-xl leading-none transition hover:border-aqua">×</button>
+        <div className="p-6 md:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <p className="font-display min-w-0 pt-1.5 text-xl font-semibold leading-snug md:text-2xl">{q.questions[step]?.q ?? q.title}</p>
+            <button type="button" onClick={close} aria-label={q.close} className="grid h-11 w-11 shrink-0 place-items-center rounded-ui border border-white/20 text-xl leading-none transition hover:border-aqua">×</button>
           </div>
-          <div className="mt-5">{body}</div>
+          <div className="mt-4 flex gap-2" role="img" aria-label={`${Math.min(step + 1, q.questions.length)}/${q.questions.length}`}>
+            {q.questions.map((_, i) => (
+              <span key={i} aria-hidden className={`h-1 flex-1 rounded-ui ${i <= step ? "bg-aqua" : "bg-white/20"}`} />
+            ))}
+          </div>
+          <div className="mt-6">{body}</div>
         </div>
       </dialog>
     </>

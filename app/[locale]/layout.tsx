@@ -9,6 +9,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
 import HashScroll from "@/components/HashScroll";
+import BookingModal from "@/components/BookingModal";
+import { quiz } from "@/content/quiz";
 import "../globals.css";
 
 const display = Bricolage_Grotesque({
@@ -69,6 +71,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
         <Footer locale={locale} />
         <StickyBar locale={locale} />
         <HashScroll />
+        <BookingModal locale={locale} title={t.book} close={quiz[locale].close} />
       </body>
     </html>
   );

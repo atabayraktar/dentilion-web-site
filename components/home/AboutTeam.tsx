@@ -9,7 +9,7 @@ import { Section } from "@/components/ui/Section";
 
 function Placeholder() {
   return (
-    <div className="relative grid aspect-[4/5] w-full place-items-center overflow-hidden rounded-ui bg-gradient-to-br from-accent/15 via-aqua/10 to-accent/5">
+    <div className="relative grid aspect-[4/5] w-full place-items-center overflow-hidden rounded-ui bg-gradient-to-br from-accent/30 via-aqua/25 to-accent/10">
       <svg viewBox="0 0 48 56" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" className="h-1/3 text-accent/50" aria-hidden>
         <path d="M24 9c-4-4-14-4-16 6-1 8 4 12 5 20 .7 6 2 14 5 14 3 0 3-10 6-10s3 10 6 10c3 0 4.3-8 5-14 1-8 6-12 5-20-2-10-12-10-16-6Z" />
       </svg>

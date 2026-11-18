@@ -37,6 +37,7 @@ export default function Header({ locale }: { locale: Locale }) {
           </div>
           <Link
             href={localePath(locale, "/#iletisim")}
+            data-book
             className="btn btn-primary h-11 shrink-0 px-3 text-[0.8rem] min-[360px]:px-4 min-[360px]:text-sm md:px-6 md:text-[0.95rem]"
           >
             {t.book}
