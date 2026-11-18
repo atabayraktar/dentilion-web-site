@@ -27,7 +27,7 @@ export default function Footer({ locale }: { locale: Locale }) {
             </a>
           </li>
           <li>
-            <a href={`mailto:${site.email}`} aria-label={site.email} className={btn}>
+            <a href={`mailto:${site.email}`} target="_blank" rel="noopener noreferrer" aria-label={site.email} className={btn}>
               <MailIcon />
             </a>
           </li>

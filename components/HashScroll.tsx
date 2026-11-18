@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const norm = (p: string) => p.replace(/\/$/, "") || "/";
 const GAP = 24;
-let logoNav = false; // header logo clicked from another page: land at the very top of the new page
+let logoNav = false; // hash-less link to another page clicked: land at the very top of the new page
 const CONTENT = "h1, h2, h3, p, li, form, img, details, summary";
 
 /** Same-page #anchors: the highest visible content of the section lands GAP below the header. Any user input (wheel, touch,
@@ -65,7 +65,8 @@ export default function HashScroll() {
       if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       const a = (e.target as Element).closest?.("a[href]") as HTMLAnchorElement | null;
       const isLogo = !!a && !a.hash && !!a.closest("header") && !!a.querySelector(".hdr-logo") && a.origin === location.origin;
-      if (isLogo && norm(a!.pathname) !== norm(location.pathname)) logoNav = true;
+      // Any hash-less internal link to another page (logo, quiz "inspect treatment", cards...) arrives at the very top.
+      if (a && !a.hash && a.origin === location.origin && a.target !== "_blank" && !a.hasAttribute("download") && norm(a.pathname) !== norm(location.pathname)) logoNav = true;
       if (isLogo && norm(a!.pathname) === norm(location.pathname)) {
         // Logo on the page it points to: scroll to top and drop any hash instead of doing nothing.
         e.preventDefault();
