@@ -37,7 +37,7 @@ export default function BookingModal({ locale, title, close: closeLabel }: { loc
       onCancel={(e) => { e.preventDefault(); close(); }}
       onClick={(e) => e.target === dlg.current && close()}
       onClose={() => setShown(false)}
-      className={`m-auto max-h-[92dvh] w-[min(92vw,40rem)] overflow-y-auto overscroll-contain rounded-ui bg-bg p-0 text-text backdrop:bg-black/50 backdrop:backdrop-blur-[6px] backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
+      className={`m-auto max-h-[92dvh] w-[min(92vw,40rem)] overflow-y-auto overscroll-contain rounded-ui bg-surface p-0 text-text backdrop:bg-black/50 backdrop:backdrop-blur-[6px] backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
     >
       <div className="p-6 md:p-10">
         <div className="flex items-center justify-between gap-4">

@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
 import HashScroll from "@/components/HashScroll";
+import ScrollLock from "@/components/ScrollLock";
 import BookingModal from "@/components/BookingModal";
 import { quiz } from "@/content/quiz";
 import "../globals.css";
@@ -58,6 +59,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body suppressHydrationWarning>
+        <ScrollLock />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent"

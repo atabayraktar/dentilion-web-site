@@ -474,4 +474,4 @@ h3 {
 @media (min-width: 640px) { .hero-tile-cap { flex-direction: row; align-items: center; justify-content: space-between; } }
 
 /* [r8] native dialogs (booking, quiz, lightbox) lock page scroll */
-html:has(dialog[open]) { overflow: hidden; }
+html { overflow-y: scroll; } /* scrollbar always visible; scroll blocked while dialog open by ScrollLock */

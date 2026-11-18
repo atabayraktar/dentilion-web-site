@@ -40,7 +40,7 @@ export default function ServicesList({ locale }: { locale: Locale }) {
             ))}
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 bg-gradient-to-t from-stage/85 to-transparent p-8 pt-24 text-stage-fg">
               <div>
-                <p className="font-display text-3xl font-semibold">{services[active].title[locale]}</p>
+                <p className="font-display text-2xl font-semibold">{services[active].title[locale]}</p>
                 <p className="mt-2 max-w-md text-stage-muted">{services[active].summary[locale]}</p>
               </div>
               <ArrowCircle />
@@ -50,7 +50,7 @@ export default function ServicesList({ locale }: { locale: Locale }) {
         </div>
         <div className="lg:col-span-7">
           <Reveal>
-            <h2 className="max-w-[22ch] text-[clamp(1.75rem,3.4vw,3rem)]">{c.title}</h2>
+            <h2 className="max-w-[22ch] text-[clamp(1.5rem,2.8vw,2.4rem)]">{c.title}</h2>
           </Reveal>
           <ul className="mt-10 grid gap-1">
             {services.map((s, i) => (
@@ -66,7 +66,7 @@ export default function ServicesList({ locale }: { locale: Locale }) {
                     <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:640px) 400px, 300px" className="object-cover" />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="font-display block text-lg font-semibold leading-tight transition-transform duration-500 sm:text-xl lg:text-[clamp(1.5rem,2.2vw,2.4rem)] lg:group-hover:translate-x-2 lg:group-data-[active=true]:translate-x-2">
+                    <span className="font-display block text-base font-semibold leading-tight transition-transform duration-500 sm:text-lg lg:text-[clamp(1.25rem,1.7vw,1.85rem)] lg:group-hover:translate-x-2 lg:group-data-[active=true]:translate-x-2">
                       {s.title[locale]}
                     </span>
                     <span className="mt-1 line-clamp-2 block text-sm text-muted lg:hidden">{s.summary[locale]}</span>

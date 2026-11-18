@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { clinicGalleryUi, clinicPhotos } from "@/content/clinic-gallery";
 import type { Locale } from "@/lib/i18n";
 import { ArrowIcon } from "@/components/icons";
@@ -21,13 +21,6 @@ export default function ClinicGallery({ locale }: { locale: Locale }) {
   const close = () => { setShown(false); setTimeout(() => { dlg.current?.close(); }, 300); };
   const step = (d: number) => setCur((c) => (c + d + n) % n);
   const photo = clinicPhotos[cur];
-  useEffect(() => {
-    if (!shown) return;
-    const root = document.documentElement;
-    const prev = root.style.overflow;
-    root.style.overflow = "hidden";
-    return () => { root.style.overflow = prev; };
-  }, [shown]);
 
   return (
     <div className="mt-16 md:mt-24">
