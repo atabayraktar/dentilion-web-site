@@ -1,7 +1,7 @@
 import { posts } from "@/content/blog";
 import { detailServices } from "@/content/services";
 import { site } from "@/content/site";
-import { localePath } from "@/lib/i18n";
+import { localePath, servicePath } from "@/lib/i18n";
 import { baseUrl } from "@/lib/seo";
 
 export function GET() {
@@ -26,7 +26,7 @@ export function GET() {
 - [Blog](${url("/blog")})
 
 ## Services
-${detailServices.map((s) => `- [${s.title.tr}](${url(`/${s.slug}`)}): ${s.summary.tr}`).join("\n")}
+${detailServices.map((s) => `- [${s.title.tr}](${url(servicePath(s.slug!))}): ${s.summary.tr}`).join("\n")}
 
 ## Blog
 ${posts.map((p) => `- [${p.content.tr.title}](${url(`/${p.slug}`)}): ${p.content.tr.excerpt}`).join("\n")}

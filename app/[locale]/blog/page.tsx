@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { posts } from "@/content/blog";
 import { form } from "@/content/form";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, localePath } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
+import Breadcrumb from "@/components/Breadcrumb";
 import PostCard from "@/components/PostCard";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/blog">): Promise<Metadata> {
@@ -18,7 +19,8 @@ export default async function Page({ params }: PageProps<"/[locale]/blog">) {
   return (
     <>
       <div className="wrap pb-12 pt-[calc(6.5rem+3rem)] md:pb-20 md:pt-[calc(6.5rem+4.5rem)]">
-        <h1 className="mb-10 text-[clamp(2.25rem,5vw,4rem)] md:mb-14">{form[locale].blogTitle}</h1>
+        <Breadcrumb items={[{ label: "Dentilion", href: localePath(locale, "/") }, { label: form[locale].blogLabel }]} />
+        <h1 className="mb-10 mt-5 text-[clamp(2.25rem,5vw,4rem)] md:mb-14">{form[locale].blogTitle}</h1>
         <ul className="grid gap-6 md:grid-cols-3">
           {posts.map((p) => (
             <li key={p.slug}><PostCard post={p} locale={locale} h="h2" priority={p === posts[0]} /></li>

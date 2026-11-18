@@ -6,7 +6,7 @@ import Link from "next/link";
 import { home } from "@/content/home";
 import { services } from "@/content/services";
 import { getDict } from "@/content/ui";
-import { localePath, type Locale } from "@/lib/i18n";
+import { localePath, servicePath, type Locale } from "@/lib/i18n";
 import Reveal from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { ArrowIcon } from "@/components/icons";
@@ -22,7 +22,7 @@ export default function ServicesList({ locale }: { locale: Locale }) {
         <div className="hidden lg:col-span-5 lg:block">
           <div className="sticky top-28 h-[min(80vh,56rem)]">
 <Link
-            href={localePath(locale, `/${services[active].slug ?? services[active].id}`)}
+            href={localePath(locale, servicePath(services[active].slug!))}
             className="relative block h-full overflow-hidden rounded-ui bg-stage"
           >
             {services.map((s, i) => (
@@ -56,7 +56,7 @@ export default function ServicesList({ locale }: { locale: Locale }) {
             {services.map((s, i) => (
               <li key={s.id}>
                 <Link
-                  href={localePath(locale, `/${s.slug ?? s.id}`)}
+                  href={localePath(locale, servicePath(s.slug!))}
                   onPointerEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
                   data-active={i === active}

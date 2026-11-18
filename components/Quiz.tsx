@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { quiz } from "@/content/quiz";
 import { services } from "@/content/services";
-import { localePath, type Locale } from "@/lib/i18n";
+import { localePath, servicePath, type Locale } from "@/lib/i18n";
 import ArrowCircle from "@/components/ui/ArrowCircle";
 
 /** Compact hero banner + modal built on native <dialog> (focus trap, Esc) with animated open/close. */
@@ -47,7 +47,7 @@ export default function Quiz({ locale }: { locale: Locale }) {
         <p className="font-display mt-3 text-3xl font-semibold md:text-4xl">{s?.title[locale]}</p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link href={localePath(locale, "/#iletisim")} onClick={leave} className="btn bg-aqua text-stage">{q.cta}</Link>
-          <Link href={localePath(locale, `/${slug}`)} onClick={leave} className="btn btn-ghost">{q.open}</Link>
+          <Link href={localePath(locale, servicePath(slug))} onClick={leave} className="btn btn-ghost">{q.open}</Link>
           <button type="button" onClick={() => setPicks([])} className="min-h-11 px-3 text-stage-muted hover:text-stage-fg" aria-label={q.title}>↺</button>
         </div>
       </div>
@@ -90,11 +90,11 @@ export default function Quiz({ locale }: { locale: Locale }) {
         onClick={(e) => e.target === dlg.current && close()}
         className={`stage m-auto w-[min(92vw,40rem)] rounded-ui p-0 backdrop:bg-black/60 backdrop:transition-opacity backdrop:duration-300 ${shown ? "backdrop:opacity-100" : "backdrop:opacity-0"} transition-[opacity,transform] duration-300 motion-reduce:transition-none ${shown ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"}`}
       >
-        <div className="p-6 pt-4 md:p-10 md:pt-6">
+        <div className="p-6 md:p-10">
           <div className="flex justify-end">
             <button type="button" onClick={close} aria-label={q.close} className="grid h-11 w-11 place-items-center rounded-ui border border-white/20 text-xl leading-none transition hover:border-aqua">×</button>
           </div>
-          <div className="mt-2">{body}</div>
+          <div className="mt-5">{body}</div>
         </div>
       </dialog>
     </>

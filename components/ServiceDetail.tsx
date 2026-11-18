@@ -5,7 +5,8 @@ import { detail, faqImage, serviceImages } from "@/content/service-detail";
 import { detailServices, type Service } from "@/content/services";
 import { site } from "@/content/site";
 import { getDict } from "@/content/ui";
-import { localePath, type Locale } from "@/lib/i18n";
+import { localePath, servicePath, type Locale } from "@/lib/i18n";
+import Breadcrumb from "@/components/Breadcrumb";
 import Accordion from "@/components/ui/Accordion";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
@@ -23,10 +24,7 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
   return (
     <>
       <header className="wrap pt-[calc(6.5rem+2.5rem)] md:pt-[calc(6.5rem+4rem)]">
-        <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-x-2 text-sm text-muted">
-          <Link href={localePath(locale, "/")} className="inline-flex min-h-11 items-center hover:text-accent">Dentilion</Link>/
-          <span aria-current="page" className="text-text">{title}</span>
-        </nav>
+        <Breadcrumb items={[{ label: "Dentilion", href: localePath(locale, "/") }, { label: u.crumbServices, href: localePath(locale, "/hizmetler") }, { label: title }]} />
         <h1 className="mt-5 text-[clamp(2.25rem,5vw,4rem)]">{title}</h1>
         <p className="mt-4 max-w-2xl text-lg text-muted">{service.summary[locale]}</p>
       </header>
@@ -67,15 +65,15 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
         <div className="lg:col-span-7"><Accordion items={d.faq} /></div>
       </section>
 
-      <section className="stage">
-        <div className="wrap flex flex-col items-start justify-between gap-8 py-16 md:flex-row md:items-center md:py-24">
-          <div className="max-w-2xl">
+      <section className="wrap">
+        <div className="relative overflow-hidden rounded-ui bg-gradient-to-br from-accent via-accent to-aqua p-8 text-on-accent md:p-14 dark:from-[#26268f] dark:via-[#1a1952] dark:to-[#0d6a85] dark:text-stage-fg">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
             <h2 className="text-[clamp(1.75rem,3.4vw,3rem)]">{d.ctaTitle}</h2>
-            <p className="mt-3 text-stage-muted md:text-lg">{d.ctaText}</p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Button href={localePath(locale, "/#iletisim")}>{u.book}</Button>
-            <Button href={`tel:${site.phone.tel}`} variant="ghost"><PhoneIcon />{site.phone.display}</Button>
+            <p className="max-w-2xl opacity-90 md:text-lg">{d.ctaText}</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Button href={localePath(locale, "/#iletisim")} variant="ghost">{u.book}</Button>
+              <Button href={`tel:${site.phone.tel}`} variant="ghost"><PhoneIcon />{site.phone.display}</Button>
+            </div>
           </div>
         </div>
       </section>
@@ -90,7 +88,7 @@ export default function ServiceDetail({ service, locale }: { service: Service; l
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {others.slice(0, 5).map((s) => (
             <li key={s.id}>
-              <Link href={localePath(locale, `/${s.slug}`)} className="group relative block aspect-[4/5] overflow-hidden rounded-ui bg-stage">
+              <Link href={localePath(locale, servicePath(s.slug!))} className="group relative block aspect-[4/5] overflow-hidden rounded-ui bg-stage">
                 <Image src={s.image} alt={s.imageAlt[locale]} fill quality={85} sizes="(min-width:1024px) 800px, (min-width:640px) 150vw, 220vw" className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none" />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stage/90 to-transparent p-4 pt-12 font-display font-semibold text-stage-fg">{s.title[locale]}</span>
               </Link>

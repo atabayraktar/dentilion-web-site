@@ -4,7 +4,7 @@ import type { Locale } from "@/lib/i18n";
 import { InstagramIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 import Logo from "./Logo";
 
-const btn = "icon-btn hover:border-aqua";
+const btn = "icon-btn icon-hover";
 
 export default function Footer({ locale }: { locale: Locale }) {
   const t = getDict(locale);

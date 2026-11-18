@@ -12,6 +12,9 @@ export function localePath(locale: Locale, path = "/"): string {
   return hash ? `${base}#${hash}` : base;
 }
 
+/** Detail-page path of a service slug. */
+export const servicePath = (slug: string) => `/hizmetler/${slug}`;
+
 /** Remove a leading locale segment from a browser pathname. */
 export function stripLocale(pathname: string): string {
   const [, first, ...rest] = pathname.split("/");

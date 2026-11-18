@@ -2,7 +2,8 @@ import Image from "next/image";
 import type { BlogPost } from "@/content/blog";
 import { posts } from "@/content/blog";
 import { form } from "@/content/form";
-import type { Locale } from "@/lib/i18n";
+import { localePath, type Locale } from "@/lib/i18n";
+import Breadcrumb from "@/components/Breadcrumb";
 import PostCard from "@/components/PostCard";
 
 export default function BlogArticle({ post, locale }: { post: BlogPost; locale: Locale }) {
@@ -16,7 +17,8 @@ export default function BlogArticle({ post, locale }: { post: BlogPost; locale: 
   return (
     <>
       <header className="wrap pt-28 md:pt-36">
-        <h1 className="max-w-5xl text-[clamp(2rem,5vw,4rem)]">{c.title}</h1>
+        <Breadcrumb items={[{ label: "Dentilion", href: localePath(locale, "/") }, { label: form[locale].blogLabel, href: localePath(locale, "/blog") }, { label: c.title }]} />
+        <h1 className="mt-5 max-w-5xl text-[clamp(2rem,5vw,4rem)]">{c.title}</h1>
         <p className="mt-4 text-sm text-muted">
           {new Date(post.date).toLocaleDateString(form[locale].blogDateLocale, { timeZone: "UTC" })}
         </p>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { home } from "@/content/home";
 import { team } from "@/content/team";
 import type { Locale } from "@/lib/i18n";
+import ClinicGallery from "@/components/home/ClinicGallery";
 import Logo from "@/components/Logo";
 import Reveal from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -26,7 +27,7 @@ export function AboutTeam({ locale }: { locale: Locale }) {
           <p className="mt-8 max-w-2xl text-lg">{c.about.text}</p>
         </Reveal>
         <Reveal className="md:col-span-5" delay={80}>
-          <div className="grid border border-line bg-surface aspect-[16/9] place-items-center rounded-ui p-[10%] md:aspect-[4/3]">
+          <div className="grid border border-line bg-bg aspect-[16/9] place-items-center rounded-ui p-[10%] md:aspect-[4/3]">
             <Logo className="h-full w-auto max-w-full" />
           </div>
         </Reveal>
@@ -54,6 +55,7 @@ export function AboutTeam({ locale }: { locale: Locale }) {
           </li>
         ))}
       </ul>
+      <ClinicGallery locale={locale} />
     </Section>
   );
 }

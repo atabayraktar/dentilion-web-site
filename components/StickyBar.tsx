@@ -13,6 +13,7 @@ export default function StickyBar({ locale }: { locale: Locale }) {
   const t = getDict(locale);
   const box = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(false);
+  const [nearEnd, setNearEnd] = useState(false);
 
   useEffect(() => {
     const update = () => {
@@ -21,6 +22,7 @@ export default function StickyBar({ locale }: { locale: Locale }) {
       const lift = visible > 0 ? visible : 0;
       box.current?.style.setProperty("--lift", `${lift}px`);
       setShown(scrollY > 600);
+      setNearEnd(scrollY > innerHeight * 0.75 && document.documentElement.scrollHeight - scrollY - innerHeight <= innerHeight);
     };
     update();
     addEventListener("scroll", update, { passive: true });
@@ -40,9 +42,10 @@ export default function StickyBar({ locale }: { locale: Locale }) {
       <button
         type="button"
         aria-label={t.toTop}
-        tabIndex={shown ? 0 : -1}
+        tabIndex={nearEnd ? 0 : -1}
         onClick={() => scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })}
-        className={`${btn} bg-bg text-text hover:border-accent hover:bg-accent hover:text-on-accent group ${shown ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
+        className={`${btn} icon-hover bg-bg text-text ${nearEnd ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
+        aria-hidden={!nearEnd}
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M12 19V5M5 12l7-7 7 7" />
@@ -53,7 +56,8 @@ export default function StickyBar({ locale }: { locale: Locale }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.whatsapp}
-        tabIndex={shown ? 0 : -1} className={`${btn} group relative border-transparent bg-[#25D366] hover:bg-[#1fb957] ${shown ? "opacity-100" : "pointer-events-none invisible translate-y-3 opacity-0"}`}
+        tabIndex={shown ? 0 : -1} className={`${btn} group relative border-transparent bg-[#25D366] hover:bg-[#1fb957] ${shown ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
+        aria-hidden={!nearEnd}
       >
         <span aria-hidden className="absolute inset-0 rounded-ui motion-safe:animate-[wa-pulse_2.2s_ease-out_infinite]" />
         <WhatsAppIcon fill="#fff" className="relative" />

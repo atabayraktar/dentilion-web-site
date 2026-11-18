@@ -1,14 +1,14 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/content/blog";
 import { detailServices } from "@/content/services";
-import { localePath, locales } from "@/lib/i18n";
+import { localePath, locales, servicePath } from "@/lib/i18n";
 import { baseUrl } from "@/lib/seo";
 
 const paths = [
   "/",
   "/hizmetler",
   "/blog",
-  ...detailServices.map((s) => `/${s.slug}`),
+  ...detailServices.map((s) => servicePath(s.slug!)),
   ...posts.map((p) => `/${p.slug}`),
 ];
 

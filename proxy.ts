@@ -2,11 +2,12 @@ import { NextResponse, type NextRequest } from "next/server";
 import { posts } from "@/content/blog";
 import { detailServices } from "@/content/services";
 
+const oldServices = new Set(detailServices.map((s) => `/${s.slug}`));
 const known = new Set([
   "/",
   "/hizmetler",
   "/blog",
-  ...detailServices.map((s) => `/${s.slug}`),
+  ...detailServices.map((s) => `/hizmetler/${s.slug}`),
   ...posts.map((p) => `/${p.slug}`),
 ]);
 
@@ -21,6 +22,10 @@ export function proxy(req: NextRequest) {
   const first = pathname.split("/")[1];
   const prefixed = first === "en" || first === "de";
   const rest = (prefixed ? pathname.slice(3) : pathname).replace(/\/$/, "") || "/";
+  if (oldServices.has(rest)) {
+    url.pathname = `${prefixed ? pathname.slice(0, 3) : ""}/hizmetler${rest}`;
+    return NextResponse.redirect(url, 308);
+  }
   // Unknown paths are rewritten to an invalid locale so the layout returns a real 404 status.
   if (!known.has(rest) && !rest.startsWith("/opengraph-image")) {
     url.pathname = "/404";
